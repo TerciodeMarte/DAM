@@ -1,3 +1,5 @@
+https://github.com/TerciodeMarte/DAM/blob/main/departamento-logo-removebg.png
+
 # DAM
 Repositorio para publicar todo los ficheros del CFGS Desarrollo de Aplicaciones Multiplataforma
 ## DAM 1ºCurso
