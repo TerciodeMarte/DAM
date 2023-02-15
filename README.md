@@ -1,4 +1,4 @@
-https://github.com/TerciodeMarte/DAM/blob/main/departamento-logo-removebg.png
+<img src="https://github.com/TerciodeMarte/DAM/blob/main/departamento-logo-removebg.png" align="center" style="width: 100%" />
 
 # DAM
 Repositorio para publicar todo los ficheros del CFGS Desarrollo de Aplicaciones Multiplataforma
