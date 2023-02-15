@@ -1,6 +1,6 @@
-<img src="https://github.com/TerciodeMarte/DAM/blob/main/agusto-logo.png" align="center" style="width: 100%" height=50% />
+<img src="https://github.com/TerciodeMarte/DAM/blob/main/agusto-logo.png" align="center" style="width: 30%"  />
 <br>
-<img src="https://github.com/TerciodeMarte/DAM/blob/main/departamento-logo.png" align="center" style="width: 100%" height=50% />
+<img src="https://github.com/TerciodeMarte/DAM/blob/main/departamento-logo.png" align="center" style="width: 30%"  />
 
 
 # DAM
