@@ -1,6 +1,8 @@
-<img src="https://github.com/TerciodeMarte/DAM/blob/main/agusto-logo.png" align="center" style="width: 100%" height=50% />
+<div style="display: flex">
+<img src="https://github.com/TerciodeMarte/DAM/blob/main/agusto-logo.png" align="center" style="width: 50%" height=50% />
 <br>
-<img src="https://github.com/TerciodeMarte/DAM/blob/main/departamento-logo.png" align="center" style="width: 100%" height=50% />
+<img src="https://github.com/TerciodeMarte/DAM/blob/main/departamento-logo.png" align="center" style="width: 50%" height=50% />
+</div>
 
 # DAM
 Repositorio para publicar todo los ficheros del CFGS Desarrollo de Aplicaciones Multiplataforma
