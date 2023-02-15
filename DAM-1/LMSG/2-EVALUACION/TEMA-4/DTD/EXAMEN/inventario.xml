@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE inventario PUBLIC "public-id" "validador.dtd">
+<inventario>
+    <equipo id="sim01">
+        <modelo>FE-107</modelo>
+        <serie>FE-107</serie>
+        <marca>fonestar</marca>
+        <precio unidad="e">41.55</precio>
+        <professional value="true" />
+        <tipo>
+            <altavoz>
+                <categoria>exponencial</categoria>
+                <impedancia unidad="ohm">8</impedancia>
+                <spl unidad="db">104</spl>
+                <potencia unidad="W">30</potencia>
+                <potenciarms unidad="W">27</potenciarms>
+                <seguidor value="false"/>
+                <respuesta unidad="Hz">250-7500</respuesta>
+                <info>
+                    <img>https://fonestar.com/imagen.php?img=https://api.fonestar.com/img/FE-107</img>
+                    <text>
+                        Altavoz exponencial de baja impedancia Construido en aluminio, 
+                        excelente respuesta en frecuencia. Resistente en ambientes húmedos, 
+                        perfecto para aplicaciones de megafonía interior y exterior. 
+                    </text>
+                </info>
+            </altavoz>
+        </tipo>
+    </equipo>
+    <equipo id="sim02">
+        <modelo>Subwoofer Compacto Bose</modelo>
+        <serie>AMS115</serie>
+        <marca>Bose</marca>
+        <precio unidad="e">1863.40</precio>
+        <professional value="true" />
+        <tipo>
+            <altavoz>
+                <categoria>Subwoofer Multifuncion</categoria>
+                <impedancia unidad="ohm">8</impedancia>
+                <spl unidad="db">123</spl>
+                <potencia unidad="W">2800</potencia>
+                <potenciarms unidad="W">500</potenciarms>
+                <seguidor value="true"/>
+                <respuesta unidad="Hz">40-100</respuesta>
+                <info>
+                    <img>https://assets.bose.com/content/dam/Bose_DAM/Web/pro/global/products/loudspeakers/ams_115/product-silo-images/AMS115_I-STUDIO_Left.jpg</img>
+                    <text>
+                        El subwoofer compacto AMS115 cuenta con un transductor de neodimio de 15” y ofrece una baja frecuencia de hasta 35 Hz. 
+                        Con un gabinete ligero, asas ergonómicas, un montaje en poste con rosca M20 y 12 puntos de suspensión M10, 
+                        este subwoofer pasivo es ideal para una variedad de aplicaciones en configuraciones portátiles o instalaciones permanentes, 
+                        especialmente cuando se empareja con los altavoces multipropósito Bose AMM. 
+                    </text>
+                </info>
+            </altavoz>
+        </tipo>
+    </equipo>
+    <equipo id="sim03">
+        <modelo>X32 COMPACT</modelo>
+        <serie>x32</serie>
+        <marca>BEHRINGER</marca>
+        <precio unidad="s">2,299.00</precio>
+        <professional value="false" />
+        <tipo>
+            <controller>
+
+                <categoria>Digital Mixing Console</categoria>
+                <impedancia unidad="ohm">12</impedancia>
+                <voltaje unidad="volt">2,25</voltaje>
+                <channels value="40"/>
+                <outaux value="true"/>
+                <outcontrol value="true"/>
+                <ecualizadorsala value="false"/>
+                <efectosala value="false"/>
+                <info>
+                    <text>Compact 40-Input, 25-Bus Digital Mixing Console with 16 Programmable Midas Preamps, 
+                        17 Motorized Faders,-Channel LCD's, 32-Channel Audio Interface and iPad/iPhone* Remote Control
+                    </text>
+                </info>
+            </controller>
+        </tipo> 
+    </equipo>
+    <equipo id="sim04">
+        <modelo>EP4000</modelo>
+        <serie>EP4000</serie>
+        <marca>BEHRINGER</marca>
+        <precio unidad="s">529.00</precio>
+        <professional value="true" />
+        <tipo>
+            <eamplificacion>
+                <categoria>Stereo Power Amplifier</categoria>
+                <impedancia unidad="ohm">8</impedancia>
+                <voltaje unidad="volt">1,25</voltaje>
+                <spl unidad="db">120</spl>
+                <potencia unidad="W">4000</potencia>
+                <info>
+                    <img>https://mediadl.musictribe.com/media/PLM/data/images/products/P0A37/2000Wx2000H/EP4000_P0A37_Front_XL.png</img>
+                </info>
+            </eamplificacion>
+        </tipo> 
+    </equipo>
+    <equipo id="sim05">
+        <serie>FDM</serie>
+        <serie>629</serie>
+        <serie>B</serie>
+        <marca>Fonestar</marca>
+        <precio unidad="s">529.00</precio>
+        <professional value="false" />
+        <tipo>
+            <microfono>
+                <categoria>Micrófono dinámico de sobremesa</categoria>
+                <impedancia unidad="ohm">600</impedancia>
+                <sensibilidad unidad="db">-64</sensibilidad>
+                <snr unidad="dbm">94</snr>
+            </microfono>
+        </tipo> 
+    </equipo>
+    <equipo id="sim06">
+        <modelo>FBQ6200HD</modelo>
+        <serie>FBQ</serie>
+        <marca>Behringer</marca>
+        <precio unidad="s">211.00</precio>
+        <professional value="false" />
+        <tipo>
+            <ecualizador>
+                <categoria></categoria>
+                <impedancia unidad="ohm">8</impedancia>
+                <voltaje unidad="volt">1,25</voltaje>
+                <bandas value="31"/>
+                <info>
+                    <img>https://www.madridhifi.com/crm/documents/produit/3/5/10101353/photos/ampliacion/behringer-FBQ6200HD.png</img>
+                </info>
+            </ecualizador>
+        </tipo> 
+    </equipo>
+    <equipo id="sim07">
+        <modelo>DCX2496</modelo>
+        <marca>Behringer</marca>
+        <precio unidad="e">369</precio>
+        <professional value="true" />
+        <tipo>
+            <efectos>
+                <categoria>Gestor</categoria>
+                <impedancia unidad="ohm">8</impedancia>
+                <voltaje unidad="volt">1,25</voltaje>
+                <numeroefectos>4</numeroefectos>
+                <info>
+                    <text>
+                        The ULTRADRIVE PRO DCX2496 is the answer to making 
+                        your venue sound like it was tuned by the pros. Over the past years the 
+                        DCX2496 has become an industry standard and several hundred thousand units 
+                        have been employed in high-end touring as well as install applications.
+                    </text>
+                </info>
+            </efectos>
+        </tipo> 
+    </equipo>
+</inventario>

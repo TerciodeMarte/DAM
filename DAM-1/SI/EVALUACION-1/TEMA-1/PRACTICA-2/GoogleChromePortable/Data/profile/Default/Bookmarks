@@ -1,0 +1,30 @@
+{
+   "checksum": "86253f80a75eb549903ce2426e1121af",
+   "roots": {
+      "bookmark_bar": {
+         "children": [  ],
+         "date_added": "0",
+         "date_modified": "13028788410338143",
+         "id": "1",
+         "name": "Barra de marcadores",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "0",
+         "date_modified": "0",
+         "id": "2",
+         "name": "Otros marcadores",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13028788397005139",
+         "date_modified": "0",
+         "id": "4",
+         "name": "Marcadores del móvil",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

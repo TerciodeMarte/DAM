@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalogo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="floristeria.xsd">
+    <flor precio="12€">
+        <nombre>Orquidea</nombre>
+        <temporada>Primavera</temporada>
+        <color>Rojo</color>
+        <color>Rosa</color>
+    </flor>
+    <flor precio="20000.00€">
+        <nombre>Rosa</nombre>
+        <temporada>Verano</temporada>
+        <color>Rojo</color>
+    </flor>
+</catalogo>

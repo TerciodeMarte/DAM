@@ -1,0 +1,13 @@
+﻿\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{dsfont}
+\parindent0em
+\usepackage{graphicx}
+
+\begin{document}
+\title{Un documento de Prueba} 
+\author{Pablo Luis De Nápoli} 
+\maketitle 
+\section{Introducción} 
+¡Hola mundo \TeX !, para no romper la tradición. 
+\end{document}

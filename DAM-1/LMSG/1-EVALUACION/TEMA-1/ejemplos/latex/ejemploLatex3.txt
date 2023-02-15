@@ -1,0 +1,17 @@
+﻿\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{dsfont}
+\parindent0em
+\usepackage{graphicx}
+\graphicspath{ {D:\DAM-1\LMSG\TEMA-1\ejemplos\latex} }
+
+\begin{document}
+\title{Disertacción sobre Platón} 
+\author{Albano Díez de Paulino} 
+\date{5 de mayo de 1862}
+\maketitle 
+\includegraphics[width=\textwidth][height=4cm]{atenas.jpg}
+\section{Introducción} 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tempor dolor odio, a pellentesque felis pulvinar at. In aliquam, mi ac bibendum molestie, lorem nulla lacinia elit, eu consectetur justo dolor at nibh. Aliquam consequat mollis justo, sed molestie nibh pulvinar ac. Sed vel ipsum at ex vehicula euismod rhoncus vitae felis. Sed eget felis fermentum velit porttitor tincidunt vitae a risus. Curabitur quis efficitur turpis. Quisque interdum scelerisque massa quis tempor. Nunc consectetur metus in magna convallis, sed vulputate nibh venenatis. Vestibulum lectus mauris, feugiat rhoncus libero vitae, rutrum placerat neque. Nunc nec tristique sem. Donec blandit sodales vulputate.
+
+\end{document}

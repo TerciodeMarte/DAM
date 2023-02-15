@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<camisetas>
+	<camiseta refencia="139">
+		<marca>micamisa</marca>
+		<color>blanca</color>
+		<talla>m</talla>
+		<precio>12</precio>
+	</camiseta>
+	<camiseta refencia="24">
+		<marca>micamisa</marca>
+		<color>negra</color>
+		<talla>xl</talla>
+		<precio>10</precio>
+	</camiseta>
+	
+</camisetas>

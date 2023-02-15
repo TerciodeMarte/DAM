@@ -1,0 +1,19 @@
+<!ELEMENT listado (asignaturas,profesores,cursos)>
+    <!ELEMENT asignaturas (asignatura*)>
+        <!ELEMENT asignatura ((nombre, num_horas)|(num_horas,nombre))>
+        <!ATTLIST asignatura prof IDREF #REQUIRED>
+        <!ATTLIST asignatura curso IDREF #REQUIRED>
+        <!ELEMENT nombre (#PCDATA)>
+        <!ELEMENT num_horas (#PCDATA)>
+    <!ELEMENT profesores (profesor*)>
+        <!ELEMENT profesor (nombre, apellidos,tutor?)>
+        <!ATTLIST profesor id ID #REQUIRED>
+        <!ATTLIST profesor sexo (Hombre|Mujer) #REQUIRED>
+        <!ELEMENT apellidos (#PCDATA)>
+        <!ELEMENT tutor EMPTY>
+    <!ELEMENT cursos (curso*)>
+        <!ELEMENT curso (nivel,grupo)>
+        <!ATTLIST curso id ID #REQUIRED>
+        <!ELEMENT nivel (#PCDATA)>
+        <!ELEMENT grupo (#PCDATA)>
+        

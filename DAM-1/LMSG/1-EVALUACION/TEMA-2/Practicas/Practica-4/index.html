@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Practica4</title>
+    <meta charset="UTF-8"/>
+  </head>
+  <body>
+    <div>
+      <header>
+        <h1>Palacio de Festivales</h1>
+      </header>
+      <div>
+        <section>
+          <h2><i>El edificio</i></h2>
+          <p><del>El Palacio de Festivales de Cantabria se levantó en 1990 para convertirse en el eje cultural de la ciudad. Un espacio multidisciplinar 
+            (teatro, cine, música, danza)</del> que ofrece una programación artística continuada 
+            a lo largo del año, atrayendo a personalidades relevantes de la escena tanto nacional como 
+            internacional. Además es desde su inauguración, sede del Festival Internacional de Música y 
+            Danza de Santander que, desde 1952 y hasta ese momento, se celebraba en la Plaza Porticada.</p>
+          <img src="imagen/logo.svg" alt="logo palacio" height="200px" width="200px"/><br>
+          <a href="https://palaciofestivales.com">https://palaciofestivales.com</a>
+          <br>
+          <h2>Precios</h2>
+          <h3>Programación</h3>
+          <ul>
+            <li>Cine</li>
+            <ul>
+              <li>Clasico</li>
+              <li>Estenos</li>
+            </ul>
+            <li>Danza</li>
+            <li>Teatro</li>
+          </ul>
+          <table>
+            <tbody>
+                <tr>
+                  <td style="background-color: orange">Entrada</td>
+                  <td style="background-color: green">Lunes-Viernes</td>
+                  <td style="background-color: green">Sabado-Domingo</td>
+                </tr>
+                <tr>
+                  <td style="background-color: orange">Cine</td>
+                  <td style="background-color: green">6€</td>
+                  <td style="background-color: green">8€</td>
+                </tr>
+                <tr>
+                  <td style="background-color: orange">Danza</td>
+                  <td style="background-color: green">8€</td>
+                  <td style="background-color: green">10€</td>
+                </tr>
+                <tr>
+                  <td style="background-color: orange">Teatro</td>
+                  <td style="background-color: green">8€</td>
+                  <td style="background-color: green">10€</td>
+                </tr>
+            </tbody> 
+          </table>
+        </section>
+        <br>
+        <section>
+          <form action="mailto:palacio@cantabria.es" method="post"  enctype="text/plain">
+            <fieldset style="width:fit-content;" >
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Escribe tu email"><br>
+
+                <br>
+                <label>Escribe tu mensaje </label>
+                <textarea name="mensaje" id="texto"rows="2" cols="24" placeholder="Escribe un mensaje"></textarea>
+
+                <br>
+
+                <br>
+                <label for="Conocidos">¿Como nos has conocido?</label>
+                <br>
+
+                <label>
+                    <input type="radio" id="check1" name="check" value="Un amigo">
+                    <label for="check1"> Un amigo</label>
+                    <input type="radio" id="check2" name="check"  value="Google">
+                    <label for="check2">Googleando</label>
+                    <input type="radio" id="check3" name="check"  value="Buzoneo">
+                    <label for="radio">Buzoneo</label>
+                    <input type="radio" id="check4" name="check" value="Otros">
+                    <label for="check4">Otros</label><br><br>
+                </label>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Borrar">
+            </fieldset>
+          </form>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

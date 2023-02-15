@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libreria xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="Schema.xsd">
+    <libro>
+        <nombre></nombre>
+        <autor></autor>
+        <editorial></editorial>
+        <genero></genero>
+        <fecha>1997-05-15</fecha>
+        <valoracion>2</valoracion>
+        <comentario></comentario>
+    </libro>
+</libreria>

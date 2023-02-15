@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hospital [
+    <!ELEMENT hospital (medicos, pacientes, ingresos)>
+    <!ELEMENT medicos (medico+)>
+    <!ELEMENT medico (nombre, apellidos)>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT apellidos (#PCDATA)>
+    <!ELEMENT pacientes (paciente+)>
+    <!ELEMENT paciente (nombre, apellidos)>
+    <!ELEMENT ingresos (ingreso*)>
+    <!ELEMENT ingreso (Numero_cama, descripcion)>
+    <!ELEMENT Numero_cama (#PCDATA)>
+    <!ELEMENT descripcion (#PCDATA)>
+    <!ATTLIST medico codMed ID #REQUIRED>
+    <!ATTLIST paciente numSS ID #REQUIRED>
+    <!ATTLIST ingreso numero NMTOKEN #REQUIRED>
+    <!ATTLIST ingreso paciente IDREF #REQUIRED>
+    <!ATTLIST ingreso medico IDREF #REQUIRED>
+]>
+<hospital>
+    <medicos>
+        <medico codMed="m01">
+            <nombre>Albano</nombre>
+            <apellidos>Díez de Paulino</apellidos>
+        </medico>
+        <medico codMed="m02">
+            <nombre>Juan</nombre>
+            <apellidos>Gomez Gomez</apellidos>
+        </medico>
+        <medico codMed="m03">
+            <nombre>Jose</nombre>
+            <apellidos>Santos Santos</apellidos>
+        </medico>
+        <medico codMed="m04">
+            <nombre>Alberto</nombre>
+            <apellidos>Espinosa Espinosa</apellidos>
+        </medico>
+    </medicos>
+    <pacientes>
+        <paciente numSS="SS1234">
+            <nombre>Tony</nombre>
+            <apellidos>Stark</apellidos>
+        </paciente>
+        <paciente numSS="SS4321">
+            <nombre>Juan</nombre>
+            <apellidos>Alberto Garcia</apellidos>
+        </paciente>
+        <paciente numSS="SS5678">
+            <nombre>Victor</nombre>
+            <apellidos>Garcia Garcia</apellidos>
+        </paciente>
+        <paciente numSS="SS8765">
+            <nombre>Paula</nombre>
+            <apellidos>Gonzalez Gonzalez</apellidos>
+        </paciente> 
+    </pacientes>
+    <ingresos>
+        <ingreso numero="i01" paciente="SS1234" medico="m01">
+            <Numero_cama>12</Numero_cama>
+            <descripcion>Molestias Rodilla</descripcion>
+        </ingreso>
+        <ingreso numero="i02" paciente="SS1234" medico="m02">
+            <Numero_cama>5</Numero_cama>
+            <descripcion>Operacion Rodilla</descripcion>
+        </ingreso>
+        <ingreso numero="i03" paciente="SS5678" medico="m03">
+            <Numero_cama>6</Numero_cama>
+            <descripcion>Catarro</descripcion>
+        </ingreso>
+        <ingreso numero="i04" paciente="SS8765" medico="m04">
+            <Numero_cama>7</Numero_cama>
+            <descripcion>Sobredosis</descripcion>
+        </ingreso>
+    </ingresos>
+</hospital>

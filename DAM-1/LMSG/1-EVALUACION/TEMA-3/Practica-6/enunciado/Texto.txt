@@ -1,0 +1,8 @@
+juego para aprender desarrollo web
+
+Jugar a videojuegos a menudo implica la resolución de problemas complejos con estrategias muy sesudas basándose en la estrategia del ensayo y error. ¿Puedes pensar en otros campos en el que se requieren de estas habilidades? Exacto, la programación.
+
+En este artículo te mostramos un divertido juego para el navegador destinados a desarrolladores y programadores, los cuales puedes utilizar para aprender más sobre Javascript, CSS o HTML o como zona de pruebas para tus habilidades para la programación.
+
+Code Combat:
+Aunque Code Combat fue diseñado para ser jugado por niños en la escuela, el juego puede ser disfrutado también por adultos de todas las edades. En él controlamos, por medio de programación, a un valiente héroe el cual debe superar cientos de mazmorras, luchar contra hordas de enemigos y recoger coleccionables, que en este caso son gemas. La duración del juego es de más de 20 horas y en su transcurso se cubre la mayoría de los conceptos de la programación.

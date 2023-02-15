@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Actividad 4.11
+    Nombre:Albano
+    Apellidos:Díez de Paulino
+    Curso:DAMT1 2022/2023
+    Fecha:06/02/2023-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Protectora">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Perro" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="DniPropietario" minOccurs="1" maxOccurs="3" type="dni" />
+                            <xs:element name="Raza" minOccurs="0" maxOccurs="1" type="TipoRaza" />
+                            <xs:element name="Kg" minOccurs="1" maxOccurs="1" type="TipoKg" />
+                            <xs:element name="FechaNacimiento" minOccurs="1" maxOccurs="1" type="Date" />
+                        </xs:sequence>
+                        <xs:attribute name="id" use="required" type="TipoID" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="TipoID">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="[P][0-9]{3}"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="dni">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{8}[A-Z]"></xs:pattern>
+            
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoRaza">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Compañía"></xs:enumeration>
+            <xs:enumeration value="Pastor"></xs:enumeration>
+            <xs:enumeration value="Caza"></xs:enumeration>
+            <xs:enumeration value="Defensa"></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoKg">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"></xs:minInclusive>
+            <xs:maxInclusive value="100"></xs:maxInclusive>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="Date">
+        <xs:restriction base="xs:date">
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

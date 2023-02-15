@@ -1,0 +1,10 @@
+﻿<direccion>
+	<destinatario>
+		<titulo> Sra </titulo>
+		<nombre> María </nombre>
+		<apellidos> Gómez Pérez </apellidos>
+	</destinatario>
+	<calle> Guadalupe nº.8 </calle>
+	<localidad estado="ES">Suances</localidad>
+	<codigo-postal>39340</codigo-postal>
+</direccion>

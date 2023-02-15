@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Actividad 4.11
+    Nombre:Albano
+    Apellidos:Díez de Paulino
+    Curso:DAMT1 2022/2023
+    Fecha:06/02/2023-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Ciclos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Ciclo" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="NombreCiclo" type="xs:string" maxOccurs="1" />
+							<xs:element name="FamProf" type="xs:string" maxOccurs="1"/>
+							<xs:element name="FechaCurric" type="Date" />
+							<xs:element name="CentroDistancia" minOccurs="0" maxOccurs="1" type="xs:string" />
+							<xs:element name="Modulos" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Modulo" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="NombreMod" type="xs:string" maxOccurs="1" />
+													<xs:element name="HorasMod" type="TipoHorasT" maxOccurs="1"/>
+													<xs:element name="HorasModSem" type="TipoHorasS" maxOccurs="1" />
+													<xs:element name="Curso" type="TipoCurso" maxOccurs="1"/>
+												</xs:sequence>
+												<xs:attribute name="CodigoMod" use="required" type="TipoCodMod"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="CodigoCl" use="required" type="TipoCodCl" />
+						<xs:attribute name="Tipo" use="required" type="TipoCl" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="TipoCodCl">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[C][F][0-9]{3}[C]"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TipoCl">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FPB"></xs:enumeration>
+			<xs:enumeration value="GM"></xs:enumeration>
+			<xs:enumeration value="GS"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TipoHorasT">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"></xs:minInclusive>
+			<xs:maxInclusive value="999"></xs:maxInclusive>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TipoHorasS">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"></xs:minInclusive>
+			<xs:maxInclusive value="15"></xs:maxInclusive>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TipoCurso">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"></xs:minInclusive>
+			<xs:maxInclusive value="2"></xs:maxInclusive>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TipoCodMod">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[C][M][0-9]{4}"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Date">
+        <xs:restriction base="xs:date">
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

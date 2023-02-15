@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalogo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="ropa.xsd">
+    <articulo id="A370">
+        <tipo>Jersey</tipo>
+        <color>Rojo</color>
+        <color>Azul</color>
+        <talla>37</talla>
+        <material>Algodon</material>
+    </articulo>
+    <articulo id="A371">
+        <tipo>Chaqueta</tipo>
+        <color>Rojo</color>
+        <talla>39</talla>
+        <material>Lana</material>
+    </articulo>
+</catalogo>

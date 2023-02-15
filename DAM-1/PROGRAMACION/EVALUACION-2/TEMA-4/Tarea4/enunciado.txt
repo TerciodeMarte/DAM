@@ -1,0 +1,10 @@
+Crea un nuevo proyecto en Netbeans. Debes diseñar una aplicación en la cual incluyas:
+
+	Al menos una herencia entre clases.
+	Al menos cuatro atributos en total.
+	Los métodos set y get de una clase no abstracta.
+	El constructor por defecto y con parámetros de una clase no abstracta.
+	Una clase abstracta (con al menos un método abstracto).
+	Un método mostrarInformación() que permita ver por pantalla todos los atributos de un objeto.
+	Un método que devuelva un cálculo realizado con los atributos del objeto.
+La temática es libre.

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tickets>
+	<ticket id="101" importe="7">
+		<fecha>10/10/2022</fecha>
+		<hora>20:56</hora>
+		<productos>
+			<producto precio="1">Penique</producto>
+			<producto precio="6">Rabas</producto>
+		</productos>
+	</ticket>
+	<ticket id="102" importe="13">
+		<fecha>10/10/2022</fecha>
+		<hora>21:10</hora>
+		<productos>
+			<producto precio="3">verdejo</producto>
+			<producto precio="10">Bravas</producto>
+		</productos>
+	</ticket>
+	
+</tickets>

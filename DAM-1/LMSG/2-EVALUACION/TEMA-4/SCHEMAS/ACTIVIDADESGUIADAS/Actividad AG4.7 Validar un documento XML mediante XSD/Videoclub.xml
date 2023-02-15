@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<videoclub xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="Videoclub.xsd">
+	
+	<peliculas>
+		<pelicula titulo="El resplandor">
+			<anio>1980</anio>
+			<cantidad>10</cantidad>
+			<duracion>146 minutos</duracion>
+		</pelicula>
+        
+		<pelicula titulo="Zombies Party">
+			<anio>2004</anio>
+			<cantidad>5</cantidad>
+			<duracion>99 minutos</duracion>
+		</pelicula>
+	</peliculas>
+    
+	<videojuegos>
+
+		<videojuego nombre="GTA V">
+			<distribuidor>Rockstar Games</distribuidor>
+			<anio>2013</anio>
+			<genero>Acción / Mundo abierto</genero>
+			<plataformas>
+				<plataforma>PS4</plataforma>
+				<plataforma>PC</plataforma>
+				<plataforma>Xbox 360</plataforma>
+			</plataformas>
+		</videojuego>
+
+		<videojuego nombre="Red Dead Redemtion 2">
+			<distribuidor>Rockstar Games</distribuidor>
+			<anio>2018</anio>
+			<genero>Acción / Mundo abierto / Oeste americano</genero>
+			<plataformas>
+				<plataforma>PS4</plataforma>
+				<plataforma>Xbox 360</plataforma>
+			</plataformas>
+		</videojuego>
+
+		<videojuego nombre="Diablo">
+			<distribuidor>Blizzard North</distribuidor>
+			<anio>2005</anio>
+			<genero>Rol</genero>
+			<plataformas>
+				<plataforma>PC</plataforma>
+			</plataformas>
+		</videojuego>
+
+	</videojuegos>
+
+	<comidas>
+		<comida>
+			<producto>Manzana</producto>
+			<stock>20 Kg</stock>
+			<proveedor>Fruteria Paco</proveedor>
+		</comida>
+	</comidas>
+	
+</videoclub>

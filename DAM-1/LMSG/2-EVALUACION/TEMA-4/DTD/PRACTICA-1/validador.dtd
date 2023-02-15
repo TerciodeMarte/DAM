@@ -1,0 +1,14 @@
+<!ELEMENT plantilla (empleado*)>
+    <!ELEMENT empleado (nombre,apellido+,departamento,edad,nacionalidad,informacion?)>
+        <!ATTLIST empleado id ID #REQUIRED>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT apellido (#PCDATA)>
+    <!ELEMENT departamento (#PCDATA)>
+        <!ATTLIST departamento puesto (encargado|dependiente) #REQUIRED>
+    <!ELEMENT edad EMPTY>
+    <!ELEMENT nacionalidad (europa|america|asia|africa)>
+        <!ELEMENT europa (#PCDATA)>
+        <!ELEMENT america (#PCDATA)>
+        <!ELEMENT asia (#PCDATA)>
+        <!ELEMENT africa (#PCDATA)>
+    <!ELEMENT informacion ANY>

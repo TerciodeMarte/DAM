@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="centro">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="curso" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="nombre" minOccurs="1" maxOccurs="1" type="tipoNombre" />
+                            <xs:element name="profesor" minOccurs="1" maxOccurs="3" type="tipoNombre" />
+                            <xs:element name="n_alumnos" minOccurs="1" maxOccurs="1" type="tipoNAlumnos" />
+                        </xs:sequence>
+                        <xs:attribute name="id" type="tipoID" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:simpleType name="tipoID">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="[C][0-9][0-9]"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tipoNombre">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="15"></xs:maxLength>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tipoNAlumnos">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="10"></xs:minInclusive>
+            <xs:maxExclusive value="50"></xs:maxExclusive>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

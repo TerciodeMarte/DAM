@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tema2-Tarea2</title>
+        <meta charset="UTF-8"/>
+        <meta name="description" content="Realiza un documento html bien formado (validar html) en el que aparezcan los siguientes elementos">
+        <meta name="keywords" content="HTML,CSS">
+        <meta name="author" content="Albano Díez de Paulino">
+    </head>
+    <body>
+        <h1>Listas anidadas</h1>
+
+        <ul>
+            <li>Inicio</li>
+            <li>Información</li>
+            <li>Formación</li>
+            <ul>
+                <li>Imagen</li>
+                <li>Videojuegos</li>
+                <li>Informatica</li>
+                <ul>
+                    <li>DAM</li>
+                    <li>DAW</li>
+                    <li>ASIR</li>
+                </ul>
+            </ul>
+            <li>Horarios</li>
+            <li>Contactos</li>
+        </ul>
+       
+        <h1>Tabla</h1>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td style="background-color: orange">A</td>
+                    <td style="background-color: green">B</td>
+                    <td style="background-color: lightblue">C</td>
+                    <td style="background-color: lightblue;">D</td>
+                </tr>
+                <tr>
+                    <td rowspan="2" style="background-color: orange">E,I</td>
+                    <td style="background-color: green">F</td>
+                    <td colspan="2" style="background-color: lightblue;">G,H</td>
+                </tr>
+                <tr>
+                    <td style="background-color: green">J</td>
+                    <td rowspan="2" style="background-color: lightblue;">K,O</td>
+                    <td style="background-color: lightblue;">L</td>
+                </tr>
+                <tr>
+                    <td style="background-color: orange">M</td>
+                    <td style="background-color: green">N</td>
+                    <td style="background-color: lightblue;">P</td>
+                </tr>
+            </tbody> 
+        </table>
+        <br>
+        <br>
+        <form>
+            <fieldset style="width:fit-content;">
+                <legend>Rellena nuestro formulario</legend>
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" placeholder="Escribre tu nombre"><br>
+
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="Escribe tu email"><br>
+
+                <label for="asunto">Asunto</label>
+                <select id="asunto" name="asunto">
+                    <option value="1">Pedir Presupuesto Web</option>
+                    <option value="2">Pedir Presupuesto Telefono</option>
+                    <option value="3">Pedir Presupuesto Email</option>
+                </select>
+                <br>
+
+                <br>
+                <label for="Conocidos">¿Como nos has conocido?</label>
+                <br>
+
+                <label>
+                    <input type="checkbox" id="check1" name="check1">
+                    <label for="check1"> Un amigo</label>
+                    <input type="checkbox" id="check2" name="check2">
+                    <label for="check2">Googleando</label>
+                    <input type="checkbox" id="check3" name="check3">
+                    <label for="check3">Buzoneo</label>
+                    <input type="checkbox" id="check4" name="check4">
+                    <label for="check4">Otros</label><br><br>
+                </label>
+                
+                <label>Escribe tu mensaje </label>
+                <textarea name="mensaje" rows="2" cols="24"></textarea>
+
+                <br>
+                <br>
+                <label>
+                    <input type="checkbox" id="contrato" name="contrato">
+                    <label for="contrato"> He leído y acepto el contrato de ....</label>
+                    <a href="https://www.iesaglinares.com/" target="_blank">aviso legal y la política de privacidad.
+                </label>
+               
+            </fieldset>
+        </form>
+
+    </body>
+</html>

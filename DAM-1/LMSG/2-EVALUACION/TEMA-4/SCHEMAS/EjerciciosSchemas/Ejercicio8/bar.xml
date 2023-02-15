@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ordenes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="bar.xsd">
+    <ticket id="T300" fecha="2023-12-02">
+        <consumicion>Refresco</consumicion>
+        <consumicion>Cafe</consumicion>
+        <consumicion>Tapa</consumicion>
+        <precio>12$</precio>
+        <nombre>Juan</nombre>
+    </ticket>
+    <ticket id="T301" fecha="2023-12-02">
+        <consumicion>Refresco</consumicion>
+        <precio>18€</precio>
+        <nombre>Juan</nombre>
+    </ticket>
+</ordenes>

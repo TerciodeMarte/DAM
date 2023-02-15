@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="inventario">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="equipo" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="tipo" minOccurs="1" maxOccurs="1" type="tipoEquipo" />
+							<xs:element name="numserie" minOccurs="1" maxOccurs="1" type="xs:string" />
+							<xs:element name="fechaadquisicion" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="dia" minOccurs="1" maxOccurs="1" type="tipoDia" />
+										<xs:element name="mes" minOccurs="1" maxOccurs="1" type="tipoMes" />
+										<xs:element name="year" minOccurs="1" maxOccurs="1" type="tipoYear" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ubicacion" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="departamento" minOccurs="1" maxOccurs="1" type="xs:string" />
+										<xs:element name="aula" minOccurs="1" maxOccurs="1" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="caracteristicas" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="fabricante" minOccurs="1" maxOccurs="1" type="xs:string" />
+										<xs:element name="modelo" minOccurs="1" maxOccurs="1" type="xs:string" />
+										<xs:element name="memoria" minOccurs="0" maxOccurs="1" type="xs:string" />
+										<xs:element name="disco" minOccurs="0" maxOccurs="1">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="discotipo" minOccurs="1" maxOccurs="1" type="xs:string" />
+													<xs:element name="capacidad" minOccurs="1" maxOccurs="1" type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="procesador" minOccurs="0" maxOccurs="1" type="xs:string" />
+										<xs:element name="tipoimpresion" minOccurs="0" maxOccurs="1" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="idequip" use="required" type="tipoId" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:simpleType name="tipoId">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(eq3900080)[0-9]{3}"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="tipoEquipo">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CPU_Torre"></xs:enumeration>
+			<xs:enumeration value="Impresora"></xs:enumeration>
+			<xs:enumeration value="Monitor"></xs:enumeration>
+			<xs:enumeration value="Portatil"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="tipoDia">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"></xs:minInclusive>
+			<xs:maxInclusive value="31"></xs:maxInclusive>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="tipoMes">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"></xs:minInclusive>
+			<xs:maxInclusive value="12"></xs:maxInclusive>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="tipoYear">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1996"></xs:minInclusive>
+			<xs:maxInclusive value="2100"></xs:maxInclusive>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+</xs:schema>

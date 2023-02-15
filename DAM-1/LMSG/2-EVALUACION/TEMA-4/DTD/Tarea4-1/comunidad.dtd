@@ -1,0 +1,24 @@
+<!ELEMENT comunidad (vecinos,locales,juntaDirectiva)>
+<!ATTLIST comunidad xmlns:jun CDATA #REQUIRED>
+    <!ELEMENT vecinos (vecino*)>
+        <!ELEMENT vecino (nombre,cuota,moroso?)>
+            <!ATTLIST vecino piso NMTOKEN #REQUIRED>
+            <!ATTLIST vecino letra NMTOKEN #REQUIRED>
+            <!ELEMENT nombre (#PCDATA)>
+            <!ELEMENT cuota (#PCDATA)>
+            <!ELEMENT moroso EMPTY>
+    <!ELEMENT locales (local*)>
+        <!ELEMENT local ((metrosCuadrados,propietario,arrendatario?)|(metrosCuadrados,arrendatario?,propietario))>
+        <!ATTLIST local numero ID #REQUIRED>
+        <!ELEMENT metrosCuadrados (#PCDATA)>
+        <!ELEMENT propietario (#PCDATA)>
+        <!ELEMENT arrendatario (#PCDATA)>
+    <!ELEMENT juntaDirectiva (presidente,vicepresidente,secretario)>
+    <!ELEMENT presidente (jun:nombre)>
+    <!ATTLIST presidente sexo (Hombre|Mujer) #IMPLIED>
+    <!ELEMENT jun:nombre ANY>
+    <!ELEMENT apellidos (#PCDATA)>
+    <!ELEMENT vicepresidente (jun:nombre)>
+    <!ATTLIST vicepresidente sexo (Hombre|Mujer) #IMPLIED>
+    <!ELEMENT secretario (jun:nombre)>
+    <!ATTLIST secretario sexo (Hombre|Mujer) #IMPLIED>

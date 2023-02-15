@@ -1,0 +1,31 @@
+<!ELEMENT panaderia (productos, materias_primas, ventas)>
+    
+    <!ELEMENT productos (producto+)>
+        <!ELEMENT producto (descripcion, pvp, stock)>
+        <!ELEMENT descripcion (#PCDATA)>
+        <!ELEMENT pvp (#PCDATA)>
+        <!ELEMENT stock (#PCDATA)>
+    
+    <!ELEMENT materias_primas (materia+)>
+        <!ELEMENT materia (nombre, stock)>
+            <!ELEMENT nombre (#PCDATA)>
+    
+    <!ELEMENT ventas (caja+)>
+        <!ELEMENT caja (fecha, venta+, cerrada?)>
+            <!ELEMENT fecha (dia, mes, anio)>
+                <!ELEMENT dia (#PCDATA)>
+                <!ELEMENT mes (#PCDATA)>
+                <!ELEMENT anio (#PCDATA)>
+            <!ELEMENT venta (cantidad)>
+                <!ELEMENT cantidad (#PCDATA)>
+            <!ELEMENT cerrada EMPTY>
+
+    <!ATTLIST producto id ID #REQUIRED>
+    <!ATTLIST producto ingredientes IDREFS #REQUIRED>
+    
+    <!ATTLIST materia id ID #REQUIRED>
+    
+    <!ATTLIST caja id ID #REQUIRED>
+    <!ATTLIST caja total CDATA #REQUIRED>
+    
+    <!ATTLIST venta pro IDREF #REQUIRED> 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mesas>
+	<mesa id="10">
+		<nombre>hemnes</nombre>
+		<material>roble</material>
+		<stock>2</stock>
+		<precio>299</precio>
+	</mesa>
+	<mesa id="11">
+		<nombre>kyrre</nombre>
+		<material>caoba</material>
+		<stock>0</stock>
+		<precio>149</precio>
+	</mesa>
+</mesas>

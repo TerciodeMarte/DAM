@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE panaderia [
+<!ELEMENT panaderia (productos, materias_primas, ventas)>
+<!ELEMENT productos (producto+)>
+<!ELEMENT producto (descripcion, pvp, stock)>
+<!ELEMENT descripcion (#PCDATA)>
+<!ELEMENT pvp (#PCDATA)>
+<!ELEMENT stock (#PCDATA)>
+<!ELEMENT materias_primas (materia+)>
+<!ELEMENT materia (nombre, stock)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT ventas (caja+)>
+<!ELEMENT caja (fecha, venta+, cerrada?)>
+<!ELEMENT fecha (dia, mes, anio)>
+<!ELEMENT dia (#PCDATA)>
+<!ELEMENT mes (#PCDATA)>
+<!ELEMENT anio (#PCDATA)>
+<!ELEMENT venta (cantidad)>
+<!ELEMENT cantidad (#PCDATA)>
+<!ELEMENT cerrada EMPTY>
+<!ATTLIST producto id ID #REQUIRED>
+<!ATTLIST producto ingredientes IDREFS #REQUIRED>
+<!ATTLIST materia id ID #REQUIRED>
+<!ATTLIST caja id ID #REQUIRED>
+<!ATTLIST caja total CDATA #REQUIRED>
+<!ATTLIST venta pro IDREF #REQUIRED>
+]>
+
+<panaderia>
+    <productos>
+        <producto id="Barra" ingredientes="Har Lev Agu">
+            <descripcion>Barra Rustica</descripcion>
+            <pvp>1,2</pvp>
+            <stock>10</stock>
+        </producto>
+        <producto id="Bague" ingredientes="Har Lev Agu Sal">
+            <descripcion>Baguette</descripcion>
+            <pvp>0,6</pvp>
+            <stock>20</stock>
+        </producto>
+        <producto id="Tarta" ingredientes="Har Lev Agu Cho">
+            <descripcion>Tarta Chocolate</descripcion>
+            <pvp>12</pvp>
+            <stock>1</stock>
+        </producto>
+        <producto id="Magda" ingredientes="Har Lev Agu Azu">
+            <descripcion>Magdalena</descripcion>
+            <pvp>1,2</pvp>
+            <stock>20</stock>
+        </producto>
+        <producto id="Palme" ingredientes="Har Azu Man">
+            <descripcion>Palmera</descripcion>
+            <pvp>2</pvp>
+            <stock>7</stock>
+        </producto>
+    </productos>
+    <materias_primas>
+        <materia id="Har">
+            <nombre>Harina</nombre>
+            <stock>10</stock>
+        </materia>
+        <materia id="Lev">
+            <nombre>Levadura</nombre>
+            <stock>4</stock>
+        </materia>
+        <materia id="Agu">
+            <nombre>Agua</nombre>
+            <stock>10</stock>
+        </materia>
+        <materia id="Cho">
+            <nombre>Chocolate</nombre>
+            <stock>3</stock>
+        </materia>
+        <materia id="Azu">
+            <nombre>Azucar</nombre>
+            <stock>60</stock>
+        </materia>
+        <materia id="Sal">
+            <nombre>Sal</nombre>
+            <stock>30</stock>
+        </materia>
+        <materia id="Man">
+            <nombre>Mantequilla</nombre>
+            <stock>4</stock>
+        </materia>
+    </materias_primas>
+
+    <ventas>
+        <caja id="C01" total="18.8">
+            <fecha>
+                <dia>20</dia>
+                <mes>01</mes>
+                <anio>2023</anio>
+            </fecha>
+            <venta pro="Barra">
+                <cantidad>2</cantidad>
+            </venta>
+            <venta pro="Bague">
+                <cantidad>4</cantidad>
+            </venta>
+            <venta pro="Tarta">
+                <cantidad>1</cantidad>
+            </venta>
+            <venta pro="Palme">
+                <cantidad>1</cantidad>
+            </venta>
+            <cerrada />
+        </caja>
+        <caja id="C02" total="3.20">
+            <fecha>
+                <dia>21</dia>
+                <mes>01</mes>
+                <anio>2023</anio>
+            </fecha>
+            <venta pro="Bague">
+                <cantidad>2</cantidad>
+            </venta>
+            <venta pro="Palme">
+                <cantidad>1</cantidad>
+            </venta>
+        </caja>
+    </ventas>
+</panaderia>

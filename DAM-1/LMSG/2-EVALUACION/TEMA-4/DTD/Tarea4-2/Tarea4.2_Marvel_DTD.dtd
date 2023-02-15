@@ -1,0 +1,37 @@
+<!ELEMENT marvel (superheroes, villanos, entidades, poderes)>
+<!ELEMENT superheroes (superheroe+)>
+<!ELEMENT superheroe (mundo, fecha_heroe, (humano | alienigena | desconocido), grupos?)>
+<!ELEMENT mundo (#PCDATA)>
+<!ELEMENT fecha_heroe ((dia, mes, anio) | (mes, dia, anio))>
+<!ELEMENT dia (#PCDATA)>
+<!ELEMENT mes (#PCDATA)>
+<!ELEMENT anio (#PCDATA)>
+<!ELEMENT humano EMPTY>
+<!ELEMENT alienigena EMPTY>
+<!ELEMENT desconocido EMPTY>
+<!ELEMENT grupos (grupo+)>
+<!ELEMENT grupo (nombre, num_integrantes)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT num_integrantes (#PCDATA)>
+<!ELEMENT villanos (villano+)>
+<!ELEMENT villano (descripcion, enemigos, (humano | alienigena | desconocido))>
+<!ELEMENT descripcion (#PCDATA)>
+<!ELEMENT enemigos (enemigo+)>
+<!ELEMENT enemigo (#PCDATA)>
+<!ELEMENT entidades (entidad+)>
+<!ELEMENT entidad ((descripcion, edad, (humano | alienigena | desconocido)) | (edad, descripcion, (humano | alienigena | desconocido)))>
+<!ELEMENT edad (#PCDATA)>
+<!ELEMENT poderes (poder+)>
+<!ELEMENT poder (nombre, (fisico | psiquico), origen)>
+<!ELEMENT fisico EMPTY>
+<!ELEMENT psiquico EMPTY>
+<!ELEMENT origen (#PCDATA)>
+<!ATTLIST superheroe nombre CDATA #REQUIRED>
+<!ATTLIST superheroe id_poderes IDREFS #REQUIRED>
+<!ATTLIST superheroe sexo (hombre | mujer) #REQUIRED>
+<!ATTLIST grupo id_grupo ID #REQUIRED>
+<!ATTLIST villano nombre CDATA #REQUIRED>
+<!ATTLIST villano id_poderes IDREFS #REQUIRED>
+<!ATTLIST villano sexo (hombre | mujer) #REQUIRED>
+<!ATTLIST entidad nombre CDATA #REQUIRED>
+<!ATTLIST poder id ID #REQUIRED >

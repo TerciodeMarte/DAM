@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE videoclub [
+	<!ELEMENT videoclub (peliculas,videojuegos,comidas)>
+		<!ELEMENT peliculas (pelicula*)>
+			<!ELEMENT pelicula (anio,cantidad,duracion)>
+			<!ATTLIST pelicula titulo CDATA #REQUIRED>
+				<!ELEMENT anio (#PCDATA)>
+				<!ELEMENT cantidad (#PCDATA)>
+				<!ELEMENT duracion (#PCDATA)>
+			<!ELEMENT videojuegos (videojuego+)>
+			<!ELEMENT videojuego (distribuidor,anio,genero,plataformas)>
+			<!ATTLIST videojuego nombre CDATA #REQUIRED>
+				<!ELEMENT distribuidor (#PCDATA)>
+				<!ELEMENT genero (#PCDATA)>
+				<!ELEMENT plataformas (plataforma+)>
+				<!ELEMENT plataforma (#PCDATA)>
+			<!ELEMENT comidas (comida*)>
+				<!ELEMENT comida (producto,stock,proveedor)>
+				<!ELEMENT producto (#PCDATA)>
+				<!ELEMENT stock (#PCDATA)>
+				<!ELEMENT proveedor (#PCDATA)>
+]>
+<videoclub>
+	<!-- He creado una etiqueta de peliculas para agruparlas todas juntas -->
+	<peliculas>
+		<!-- He creado un atributo para identificar cada objeto -->
+		<pelicula titulo="El resplandor">
+			<anio>1980</anio>
+			<cantidad>10</cantidad>
+			<duracion>146 minutos</duracion>
+		</pelicula>
+        
+		<pelicula titulo="Zombies Party">
+			<anio>2004</anio>
+			<cantidad>5</cantidad>
+			<duracion>99 minutos</duracion>
+		</pelicula>
+	</peliculas>
+    
+	<!-- He creado una etiqueta de videojuegos para agruparlas todas juntas -->
+	<videojuegos>
+		<videojuego nombre="GTA V">
+			<distribuidor>Rockstar Games</distribuidor>
+			<anio>2013</anio>
+			<genero>Acción / Mundo abierto</genero>
+			<plataformas>
+				<plataforma>PS4</plataforma>
+				<plataforma>PC</plataforma>
+				<plataforma>Xbox 360</plataforma>
+			</plataformas>
+		</videojuego>
+		<videojuego nombre="Red Dead Redemtion 2">
+			<distribuidor>Rockstar Games</distribuidor>
+			<anio>2018</anio>
+			<genero>Acción / Mundo abierto / Oeste americano</genero>
+			<plataformas>
+				<plataforma>PS4</plataforma>
+				<plataforma>Xbox 360</plataforma>
+			</plataformas>
+		</videojuego>
+		<videojuego nombre="Diablo">
+			<distribuidor>Blizzard North</distribuidor>
+			<anio>2005</anio>
+			<genero>Rol</genero>
+			<plataformas>
+				<plataforma>PC</plataforma>
+			</plataformas>
+		</videojuego>
+	</videojuegos>
+	<!-- He creado una etiqueta de comidas para agruparlas todas juntas -->
+	<comidas>
+		<comida>
+			<producto>Manzana</producto>
+			<stock>20 Kg</stock>
+			<proveedor>Fruteria Paco</proveedor>
+		</comida>
+	</comidas>
+</videoclub>

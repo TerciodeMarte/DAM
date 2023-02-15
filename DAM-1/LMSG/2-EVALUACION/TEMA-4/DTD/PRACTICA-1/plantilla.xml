@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE plantilla PUBLIC "public-id" "validador.dtd">
+<plantilla>
+    <empleado id="z-0001">
+        <nombre>Albano</nombre>
+        <apellido>Diez</apellido>
+        <departamento puesto="encargado">Trajes</departamento>
+        <edad/>
+        <nacionalidad>
+            <europa>España</europa>
+        </nacionalidad>
+        <informacion>Empleado con Contrato Indefinido</informacion>
+    </empleado>
+    <empleado id="z-0002">
+        <nombre>Jesús Maria</nombre>
+        <apellido>Sarraga</apellido>
+        <departamento puesto="dependiente">Caja</departamento>
+        <edad/>
+        <nacionalidad>
+            <america>Brasil</america>
+        </nacionalidad>
+        <informacion></informacion> 
+    </empleado>
+    <empleado id="z-0003">
+        <nombre>Jose</nombre>
+        <apellido>Paulino</apellido>
+        <apellido>Paulino</apellido>
+        <departamento puesto="encargado">Administracion</departamento>
+        <edad/>
+        <nacionalidad>
+            <asia>Japon</asia>
+        </nacionalidad>
+        <informacion>Empleado contratado en America</informacion> 
+    </empleado>
+</plantilla>

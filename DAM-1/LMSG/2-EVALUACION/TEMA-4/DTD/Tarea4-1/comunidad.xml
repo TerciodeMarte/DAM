@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE comunidad SYSTEM "comunidad.dtd">
+<comunidad xmlns:jun="NombresDeLaJunta">
+    <vecinos>
+        <vecino piso="1" letra="A">
+            <nombre>Angel Sala Vega</nombre>
+            <cuota>50</cuota>
+        </vecino>
+        <vecino piso="1" letra="B">
+            <nombre>Martin Fernandez Calvo</nombre>
+            <cuota>75</cuota>
+        </vecino>
+        <vecino piso="1" letra="C">
+            <nombre>Isabel Lopez Rodriguez</nombre>
+            <cuota>50</cuota>
+        </vecino>
+        <vecino piso="2" letra="A">
+            <nombre>Sara Diez Diaz</nombre>
+            <cuota>50</cuota>
+            <moroso />
+        </vecino>
+        <vecino piso="2" letra="B">
+            <nombre>Cristina Santos Gomez</nombre>
+            <cuota>75</cuota>
+        </vecino>
+        <vecino piso="2" letra="C">
+            <nombre>Pablo Lanza Perez</nombre>
+            <cuota>50</cuota>
+            <moroso />
+        </vecino>
+        <vecino piso="3" letra="A">
+            <nombre>Daniel Santiago Lucas</nombre>
+            <cuota>50</cuota>
+        </vecino>
+        <vecino piso="3" letra="B">
+            <nombre>Encarnación Vicente Segura</nombre>
+            <cuota>75</cuota>
+        </vecino>
+        <vecino piso="3" letra="C">
+            <nombre>Sandra Poza Lainz</nombre>
+            <cuota>50</cuota>
+        </vecino>
+        <vecino piso="4" letra="A">
+            <nombre>David Gallo Dominguez</nombre>
+            <cuota>50</cuota>
+        </vecino>
+        <vecino piso="4" letra="B">
+            <nombre>Agustin Fernandez Diego</nombre>
+            <cuota>75</cuota>
+            <moroso />
+        </vecino>
+        <vecino piso="4" letra="C">
+            <nombre>Carla Salvador Lucas</nombre>
+            <cuota>50</cuota>
+        </vecino>
+    </vecinos>
+    <locales>
+        <local numero="L1"> 
+            <metrosCuadrados>70</metrosCuadrados>
+            <propietario>Agustin Fernandez Diego</propietario>
+        </local>
+        <local numero="L2"> 
+            <metrosCuadrados>50</metrosCuadrados>
+            <propietario>Constructora S.L.</propietario>
+            <arrendatario>Eufrasio Alvarez Perez</arrendatario>
+        </local>
+        <local numero="L3">
+            <metrosCuadrados>125</metrosCuadrados>
+            <arrendatario>Manuel Sanchez Limon</arrendatario>
+            <propietario>Constructora S.L.</propietario>
+        </local>
+    </locales>
+    <juntaDirectiva>
+        <presidente sexo="Hombre">
+            <jun:nombre>Angel<apellidos>Sala Vega</apellidos></jun:nombre>
+        </presidente>
+        <vicepresidente sexo="Mujer">
+            <jun:nombre>Carla<apellidos>Salvador Lucas</apellidos></jun:nombre>
+        </vicepresidente>
+        <secretario>
+            <jun:nombre>David<apellidos>Gallo Dominguez</apellidos></jun:nombre>
+        </secretario>
+    </juntaDirectiva>
+</comunidad>

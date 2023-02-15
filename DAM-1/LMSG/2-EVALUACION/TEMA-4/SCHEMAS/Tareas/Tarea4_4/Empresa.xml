@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<empresa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="Empresa_XSD.xsd">
+    <clientes>
+        <cliente numCli="C1">
+            <nombre>Andres</nombre>
+            <apellidos>Perez Lopez</apellidos>
+            <dni>11111111-A</dni>
+            <telefono>942942942</telefono>
+            <direccion>
+                <calle>C/ La salida</calle>
+                <portal>85</portal>
+                <piso>9</piso>
+                <letra>Z</letra>
+                <cp>39985</cp>
+            </direccion>
+        </cliente>
+        <cliente numCli="C2">
+            <nombre>Paula</nombre>
+            <apellidos>Sanchez Jimenez</apellidos>
+            <dni>22222222-B</dni>
+            <telefono>942987997</telefono>
+            <direccion>
+                <calle>C/ La entrada</calle>
+                <portal>1</portal>
+                <piso>5</piso>
+                <letra>G</letra>
+                <cp>39001</cp>
+            </direccion>
+        </cliente>
+        <cliente numCli="C3">
+            <nombre>Cristina</nombre>
+            <apellidos>Rodriguez Fernandez</apellidos>
+            <dni>33333333-C</dni>
+            <telefono>942123123</telefono>
+            <direccion>
+                <calle>C/ Del medio</calle>
+                <portal>9</portal>
+                <piso>4</piso>
+                <letra>H</letra>
+                <cp>39600</cp>
+            </direccion>
+            <vip />
+        </cliente>
+    </clientes>
+    <empleados>
+        <empleado numEmp="E1">
+            <nombre>Juan Jose</nombre>
+            <apellidos>Martinez Cuevas</apellidos>
+            <dni>44444444-D</dni>
+            <telefono>942556987</telefono>
+            <puesto>Responsable de ventas</puesto>
+            <antiguedad>10</antiguedad>
+            <salario>3500€</salario>
+        </empleado>
+        <empleado numEmp="E2">
+            <nombre>Nuria</nombre>
+            <apellidos>Hernandez Arce</apellidos>
+            <dni>55555555-E</dni>
+            <telefono>942159753</telefono>
+            <puesto>Comercial</puesto>
+            <antiguedad>2</antiguedad>
+            <salario>900€</salario>
+        </empleado>
+    </empleados>
+    <pedidos>
+        <pedido numPed="P1">
+            <cliente>C1</cliente>
+            <empleado>E1</empleado>
+            <importe>300€</importe>
+        </pedido>
+        <pedido numPed="P2">
+            <cliente>C2</cliente>
+            <empleado>E1</empleado>
+            <importe>400€</importe>
+        </pedido>
+        <pedido numPed="P3">
+            <cliente>C3</cliente>
+            <empleado>E1</empleado>
+            <importe>3000€</importe>
+        </pedido>
+        <pedido numPed="P4">
+            <cliente>C1</cliente>
+            <empleado>E2</empleado>
+            <importe>5000€</importe>
+        </pedido>
+        <pedido numPed="P5">
+            <cliente>C2</cliente>
+            <empleado>E2</empleado>
+            <importe>450€</importe>
+        </pedido>
+    </pedidos>
+</empresa>

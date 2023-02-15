@@ -1,0 +1,58 @@
+EJERCICIO 1
+
+TEXTO XML
+<persona>
+    <nombre>juan</nombre>
+    <edad>22</edad>
+    <estudios>
+        <estudio>primario</estudio>
+        <estudio>secundario</estudio>
+    </estudios>
+</persona>
+
+SOLUCIÓN JSON
+
+{
+  "persona": {
+    "nombre": "Juan",
+    "edad": 22,
+    "estudios": {
+      "estudio":["primario","secundario"]
+    }
+  }
+}
+
+EJERICIO 2
+
+TEXTO JSON
+
+{
+  "empleados": {
+      "empleado": [
+           { "nombre":"Jorge" , "apellido":"Mesa", "edad":28 },
+           { "nombre":"Ana" , "apellido":"Sánchez", "edad":21 },
+           { "nombre":"Pedro" , "apellido":"Lee","edad":44 }
+      ]
+  }
+}
+
+SOLUCIÓN XML
+
+<empleados>
+	<empleado>
+		<nombre>Jorge</nombre>
+		<apellido>Mesa</apellido>
+		<edad>28</edad>
+	</empleado>
+	<empleado>
+		<nombre>Ana</nombre>
+		<apellido>Sanchez</apellido>
+		<edad>21</edad>
+	</empleado>
+	<empleado>
+		<nombre>Pedro</nombre>
+		<apellido>Lee</apellido>
+	<edad>44</edad>
+	</empleado>
+</empleados>
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="catalogo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="articulo" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="tipo"  type="TipoArticulo"/>
+                            <xs:element name="color" maxOccurs="6" type="xs:string" />
+                            <xs:element name="talla" type="TipoTalla"/>
+                            <xs:element name="material" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" use="required" type="TipoID" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="TipoID">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="[A][0-9][0-9][0-9]"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoTalla">
+        <xs:restriction base="xs:integer">
+            <xs:minExclusive value="36"></xs:minExclusive>
+            <xs:maxInclusive value="48"></xs:maxInclusive>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoArticulo">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Jersey"></xs:enumeration>
+            <xs:enumeration value="Chaqueta"></xs:enumeration>
+            <xs:enumeration value="Camisa"></xs:enumeration>
+            <xs:enumeration value="Vestido"></xs:enumeration>
+            <xs:enumeration value="Falda"></xs:enumeration>
+            <xs:enumeration value="Pantalon"></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

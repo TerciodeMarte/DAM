@@ -1,0 +1,50 @@
+#cabecera{
+    background-color: red;
+}
+
+#menu{
+    background-color: blue;
+}
+
+#lista{
+    display: flex;
+    gap: 20px;
+}
+
+ul{
+    list-style: none;
+}
+
+.enlace{
+    color:white;
+    text-decoration: none;
+}
+
+main{
+    display: flex;
+    gap: 20px;
+}
+#principal{
+    background-color: green;
+}
+
+article{
+    border-style:double;
+    border-color: white;
+}
+h2{
+    color: white;
+    text-decoration: underline;
+}
+
+aside{
+    background-color: yellow;
+}
+img{
+    inline-size: auto;
+}
+
+footer{
+    background-color: brown;
+    color: white;
+}

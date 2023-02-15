@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<centro xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="centro.xsd">
+    <curso id="C01">
+        <nombre>Mantenimiento</nombre>
+        <profesor>Luis</profesor>
+        <profesor>Alberto</profesor>
+        <n_alumnos>12</n_alumnos>
+    </curso>
+    <curso id="C02">
+        <nombre>Multiplataforma</nombre>
+        <profesor>Laura</profesor>
+        <n_alumnos>40</n_alumnos>
+    </curso>
+</centro>

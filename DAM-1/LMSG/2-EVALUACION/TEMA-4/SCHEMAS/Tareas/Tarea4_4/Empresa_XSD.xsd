@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Declaracion de Elementos Raiz-->
+    <xs:element name="empresa">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="clientes"></xs:element>
+                <xs:element ref="empleados"></xs:element>
+                <xs:element ref="pedidos"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+        <!-- Declaracion de claves primarias-->
+        <xs:key name="pkcliente">
+            <xs:selector xpath="empresa/clientes/cliente" />
+            <xs:field xpath="@numCli" />
+        </xs:key>
+        <xs:key name="pkempleado">
+            <xs:selector xpath="empresa/empleados/empleado" />
+            <xs:field xpath="@numEmp" />
+        </xs:key>
+        <xs:key name="pkpedidos">
+            <xs:selector xpath="empresa/pedidos/pedido" />
+            <xs:field xpath="@numPed" />
+        </xs:key>
+        <!-- Declaracion de claves forenea-->
+
+        <xs:keyref name="fkcliente" refer="pkcliente">
+            <xs:selector xpath="empresa/pedidos/pedido"/>
+            <xs:field xpath="cliente"/>
+        </xs:keyref>
+
+        <xs:keyref name="fkempleado" refer="pkempleado">
+            <xs:selector xpath="empresa/pedidos/pedido"/>
+            <xs:field xpath="cliente"/>
+        </xs:keyref>
+
+
+
+    </xs:element>
+
+    <!-- Definir Elementos Hijos-->
+    <xs:element name="clientes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cliente" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:complexContent>
+                            <xs:extension base="datosPersonales">
+                                <xs:sequence>
+                                    <xs:element ref="direccion"></xs:element>
+                                    <xs:element name="vip" minOccurs="0">
+                                        <xs:complexType></xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="numCli" use="required" type="xs:string" />
+                            </xs:extension>
+                        </xs:complexContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="empleados">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="empleado" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:complexContent>
+                            <xs:extension base="datosPersonales">
+                                <xs:sequence>
+                                    <xs:element name="puesto" type="xs:string" />
+                                    <xs:element name="antiguedad" type="tipoAntiguedad" />
+                                    <xs:element name="salario" type="tipoMoneda" />
+                                </xs:sequence>
+                                <xs:attribute name="numEmp" use="required" type="xs:string" /> 
+                            </xs:extension>
+                        </xs:complexContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="pedidos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="pedido" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="cliente" type="xs:string" />
+                            <xs:element name="empleado" type="xs:string" />
+                            <xs:element name="importe" type="tipoMoneda" />
+                        </xs:sequence>
+                        <xs:attribute name="numPed" use="required" type="xs:string" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Declarar elemento complejo DatosPersonales y Direccion-->
+    <xs:complexType name="datosPersonales">
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string" />
+            <xs:element name="apellidos" type="xs:string" />
+            <xs:element name="dni" type="tipoDNI" />
+            <xs:element name="telefono" type="tipoTelofono" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="direccion">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="calle" type="xs:string" />
+                <xs:element name="portal" type="xs:positiveInteger" />
+                <xs:element name="piso" type="xs:positiveInteger" />
+                <xs:element name="letra" type="tipoLetra" />
+                <xs:element name="cp" type="tipoCp" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Declaracion de Tipos-->
+
+    <xs:simpleType name="tipoDNI">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{8}[-][A-Z]"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoTelofono">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="[6|9][0-9]{8}"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoMoneda">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{3,4}[€]"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tipoLetra">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tipoCp">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="[0-9]{5}"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tipoAntiguedad">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"></xs:minInclusive>
+            <xs:maxInclusive value="99"></xs:maxInclusive>
+        </xs:restriction>
+    </xs:simpleType>
+
+    
+
+</xs:schema>

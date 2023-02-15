@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE vuelos [
+    <!ELEMENT vuelos (panel*)>   
+        <!ELEMENT panel (vuelo*)>
+        <!ATTLIST panel fecha CDATA #REQUIRED>
+        <!ATTLIST panel aereopuerto NMTOKEN #REQUIRED>
+            <!ELEMENT vuelo (origen,destino,horaSalida,horaLlegada,diario?)>
+            <!ATTLIST vuelo numVuelo NMTOKEN #REQUIRED>
+            <!ATTLIST vuelo estado (E|C|R) "E">
+            <!ELEMENT origen (#PCDATA)>
+            <!ELEMENT destino (#PCDATA)>    
+            <!ELEMENT horaSalida (#PCDATA)>
+            <!ELEMENT horaLlegada (#PCDATA)>
+            <!ELEMENT diario EMPTY>
+]>
+<vuelos>
+    <panel fecha="11/01/2022" aereopuerto="SDR">
+        <vuelo numVuelo="IB450" estado="E">
+            <origen>Santander</origen>
+            <destino>Madrid</destino>
+            <horaSalida>9:15</horaSalida>
+            <horaLlegada>10:00</horaLlegada>
+            <diario />
+        </vuelo>
+        <vuelo numVuelo="TY203" estado="R">
+            <origen>Santander</origen>
+            <destino>Cádiz</destino>
+            <horaSalida>10:30</horaSalida>
+            <horaLlegada>12:00</horaLlegada>
+        </vuelo>
+        <vuelo numVuelo="IB149" estado="E">
+            <origen>A Coruña</origen>
+            <destino>Santander</destino>
+            <horaSalida>17:55</horaSalida>
+            <horaLlegada>19:00</horaLlegada>
+        </vuelo>
+    </panel>
+    <panel fecha="12/01/2022" aereopuerto="SDR">
+        <vuelo numVuelo="IB450" estado="C">
+            <origen>Santander</origen>
+            <destino>Madrid</destino>
+            <horaSalida>9:15</horaSalida>
+            <horaLlegada>10:00</horaLlegada>
+            <diario />
+        </vuelo>
+        <vuelo numVuelo="RY580" estado="E">
+            <origen>Santander</origen>
+            <destino>Roma</destino>
+            <horaSalida>10:35</horaSalida>
+            <horaLlegada>12:45</horaLlegada>
+        </vuelo>
+        <vuelo numVuelo="RY987" estado="E">
+            <origen>Dublin</origen>
+            <destino>Santander</destino>
+            <horaSalida>11:15</horaSalida>
+            <horaLlegada>16:05</horaLlegada>
+        </vuelo>
+        <vuelo numVuelo="IB125" estado="R">
+            <origen>Barcelona</origen>
+            <destino>Santander</destino>
+            <horaSalida>19:30</horaSalida>
+            <horaLlegada>21:00</horaLlegada>
+        </vuelo>
+    </panel>
+    <panel fecha="13/01/2022" aereopuerto="SDR">
+        <vuelo numVuelo="IB450" estado="E">
+            <origen>Santander</origen>
+            <destino>Madrid</destino>
+            <horaSalida>9:15</horaSalida>
+            <horaLlegada>10:00</horaLlegada>
+            <diario />
+        </vuelo>
+        <vuelo numVuelo="RY636" estado="E">
+            <origen>Ámsterdam</origen>
+            <destino>Santander</destino>
+            <horaSalida>10:25</horaSalida>
+            <horaLlegada>15:00</horaLlegada>
+        </vuelo>
+        <vuelo numVuelo="VU789" estado="R">
+            <origen>Santander</origen>
+            <destino>Segovia</destino>
+            <horaSalida>16:15</horaSalida>
+            <horaLlegada>19:35</horaLlegada>
+        </vuelo>
+    </panel>
+    <panel fecha="14/01/2022" aereopuerto="SDR">
+        <vuelo numVuelo="IB450" estado="E">
+            <origen>Santander</origen>
+            <destino>Madrid</destino>
+            <horaSalida>9:15</horaSalida>
+            <horaLlegada>10:00</horaLlegada>
+            <diario />
+        </vuelo>
+        <vuelo numVuelo="VU987" estado="C">
+            <origen>Sevilla</origen>
+            <destino>Santander</destino>
+            <horaSalida>15:25</horaSalida>
+            <horaLlegada>17:15</horaLlegada>
+        </vuelo>
+        <vuelo numVuelo="VU944" estado="C">
+            <origen>Valencia</origen>
+            <destino>Santander</destino>
+            <horaSalida>18:55</horaSalida>
+            <horaLlegada>20:10</horaLlegada>
+        </vuelo>
+        <vuelo numVuelo="RY111" estado="R">
+            <origen>Londres</origen>
+            <destino>Santander</destino>
+            <horaSalida>21:00</horaSalida>
+            <horaLlegada>23:55</horaLlegada>
+        </vuelo>
+    </panel>
+    <panel fecha="15/01/2022" aereopuerto="SDR"></panel>
+</vuelos>

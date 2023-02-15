@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tienda SYSTEM "AE4.2 TiendaDeportes.dtd">
+<tienda>
+	<articulos>
+		<zapatero>
+			<zapatillas id="AYBZ2">
+				<marca>Adidas Yeezy</marca>
+				<stock>13</stock>
+				<talla>38</talla>
+				<precio>89.90</precio>
+				<modelo>Boost 350 V2 'Zebra'</modelo>
+			</zapatillas>
+			<zapatillas id="NIAJ1">
+				<marca>Nike</marca>
+				<stock>13</stock>
+				<talla>42</talla>
+				<precio>119.99</precio>
+				<modelo>Air Jordan 1</modelo>
+			</zapatillas>
+			<zapatillas id="ATXAG">
+				<marca>Adidas Terrex</marca>
+				<stock>24</stock>
+				<talla>40</talla>
+				<precio>59.90</precio>
+				<modelo>Agravic TR GORE-TEX</modelo>
+			</zapatillas>
+		</zapatero>
+		<camisetas>
+			<camiseta id="NIKBL">
+				<talla>L</talla>
+				<precio>9.99</precio>
+				<marca>Nike</marca>
+				<color>Blanco</color>
+			</camiseta>
+			<camiseta id="ADRJ3">
+				<talla>3XL</talla>
+				<precio>19.90</precio>
+				<marca>Adidas</marca>
+				<color>Roja</color>
+			</camiseta>
+			<camiseta id="DBS11">
+				<talla>S</talla>
+				<precio>5.99</precio>
+				<marca>11 Degrees</marca>
+				<color>Blanco</color>
+			</camiseta>
+			<camiseta id="SSNGM">
+				<talla>M</talla>
+				<precio>39.95</precio>
+				<marca>Sik Silk</marca>
+				<color>Negro y dorado</color>
+			</camiseta>
+		</camisetas>
+	</articulos>
+	<personal>
+		<empleados>
+			<empleado id="MSFJ">
+				<nombre>Manuel</nombre>
+				<apellidos>Sánchez Fontanero</apellidos>
+				<fechaContratacion>
+					<dia>3</dia>
+					<mes>4</mes>
+					<anio>2013</anio>
+				</fechaContratacion>
+				<jefe/>
+			</empleado>
+			<empleado id="PSGE">
+				<nombre>Patriuska</nombre>
+				<apellidos>Szymanowski</apellidos>
+				<fechaContratacion>
+					<dia>7</dia>
+					<mes>1</mes>
+					<anio>2020</anio>
+				</fechaContratacion>
+				<gerente/>
+			</empleado>
+			<empleado id="JFSC">
+				<nombre>José Alfredo</nombre>
+				<apellidos>Fernández-Santamarta de los Castrujos</apellidos>
+				<fechaContratacion>
+					<dia>10</dia>
+					<mes>2</mes>
+					<anio>2021</anio>
+				</fechaContratacion>
+				<trabajador/>
+			</empleado>
+		</empleados>
+	</personal>
+	<cajas>
+		<caja id="C1" recaudado="799.70">
+			<fecha>
+				<dia>10</dia>
+				<mes>1</mes>
+				<anio>2022</anio>
+			</fecha>
+			<venta id="SSNGM">
+				<cantidad>5</cantidad>
+				<total>199,75</total>
+			</venta>
+			<venta id="NIAJ1">
+				<cantidad>5</cantidad>
+				<total>599.95</total>
+			</venta>
+			<cajero id="JFSC" />
+			<cerrada />
+		</caja>
+		<caja id="C2" recaudado="339.45">
+			<fecha>
+				<dia>11</dia>
+				<mes>1</mes>
+				<anio>2022</anio>
+			</fecha>
+			<venta id="SSNGM">
+				<cantidad>3</cantidad>
+				<total>119.85</total>
+			</venta>
+			<venta id="ADRJ3">
+				<cantidad>2</cantidad>
+				<total>39.80</total>
+			</venta>
+			<venta id="AYBZ2">
+				<cantidad>2</cantidad>
+				<total>179.80</total>
+			</venta>
+			<cajero id="PSGE" />
+			<abierta />
+		</caja>
+	</cajas>
+</tienda>

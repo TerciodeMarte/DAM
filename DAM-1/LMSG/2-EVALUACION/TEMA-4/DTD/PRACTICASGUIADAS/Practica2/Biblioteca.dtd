@@ -1,0 +1,25 @@
+<!ELEMENT biblioteca (personal,libros,socios)>
+    <!ELEMENT personal (empleado+)>
+        <!ELEMENT empleado (nombre,apellidos,telefono,dni,fcontratacion,puesto)>
+            <!ELEMENT nombre (#PCDATA)>
+            <!ELEMENT apellidos (#PCDATA)>
+            <!ELEMENT telefono (#PCDATA)>
+            <!ELEMENT dni (#PCDATA)>
+            <!ELEMENT fcontratacion (dia,mes,anio)>
+                <!ELEMENT dia (#PCDATA)>
+                <!ELEMENT mes (#PCDATA)>
+                <!ELEMENT anio (#PCDATA)>
+            <!ELEMENT puesto (#PCDATA)>
+    <!ELEMENT libros (libro+)>
+        <!ELEMENT libro (titulo,autor,copias)>
+        <!ATTLIST libro id ID #REQUIRED>
+            <!ELEMENT titulo (#PCDATA)>
+            <!ELEMENT autor (#PCDATA)>
+            <!ELEMENT copias (#PCDATA)>
+    <!ELEMENT socios (socio+)>
+        <!ELEMENT socio (nombre,apellidos,telefono,dni,librosprestados)>
+        <!ATTLIST socio num NMTOKEN #REQUIRED>
+           <!ELEMENT librosprestados (libroprestado*)> 
+           <!ELEMENT libroprestado EMPTY>
+           <!ATTLIST libroprestado id IDREF #REQUIRED>
+           <!ATTLIST libroprestado fecha CDATA #REQUIRED>

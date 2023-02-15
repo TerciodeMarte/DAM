@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<almacen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="almacen.xsd">
+    <empleados>
+        <operario numOpe="OP-01">
+            <nombre>Andres</nombre>
+            <apellidos>Sanchez Sierra</apellidos>
+            <dni>11085975-Z</dni>
+            <fechaNac>
+                <dia>8</dia>
+                <mes>7</mes>
+                <anio>1980</anio>
+            </fechaNac>
+            <fechaAlt>
+                <dia>1</dia>
+                <mes>1</mes>
+                <anio>2000</anio>
+            </fechaAlt>
+            <antiguedad>22</antiguedad>
+            <jefe />
+        </operario>
+        <operario numOpe="OP-02">
+            <nombre>Alfonso</nombre>
+            <apellidos>Dominguez Herrera</apellidos>
+            <dni>X28987415-F</dni>
+            <fechaNac>
+                <dia>31</dia>
+                <mes>1</mes>
+                <anio>1995</anio>
+            </fechaNac>
+            <fechaAlt>
+                <dia>25</dia>
+                <mes>6</mes>
+                <anio>2015</anio>
+            </fechaAlt>
+            <antiguedad>7</antiguedad>
+            <supervisor>OP-01</supervisor>
+            <expedicion />
+        </operario>
+        <operario numOpe="OP-03">
+            <nombre>David</nombre>
+            <apellidos>Narvaez Torres</apellidos>
+            <dni>X65892147-S</dni>
+            <fechaNac>
+                <dia>17</dia>
+                <mes>6</mes>
+                <anio>1985</anio>
+            </fechaNac>
+            <fechaAlt>
+                <dia>1</dia>
+                <mes>3</mes>
+                <anio>2018</anio>
+            </fechaAlt>
+            <antiguedad>4</antiguedad>
+            <supervisor>OP-01</supervisor>
+            <recepcion />
+        </operario>
+        <operario numOpe="OP-04">
+            <nombre>Miguel</nombre>
+            <apellidos>Diaz Fernandez</apellidos>
+            <dni>87365285-G</dni>
+            <fechaNac>
+                <dia>8</dia>
+                <mes>8</mes>
+                <anio>1988</anio>
+            </fechaNac>
+            <fechaAlt>
+                <dia>7</dia>
+                <mes>12</mes>
+                <anio>2009</anio>
+            </fechaAlt>
+            <antiguedad>13</antiguedad>
+            <supervisor>OP-01</supervisor>
+            <recepcion />
+        </operario>
+        <operario numOpe="OP-05">
+            <nombre>Sara</nombre>
+            <apellidos>Saez Sainz</apellidos>
+            <dni>04592877-D</dni>
+            <fechaNac>
+                <dia>23</dia>
+                <mes>12</mes>
+                <anio>1991</anio>
+            </fechaNac>
+            <fechaAlt>
+                <dia>18</dia>
+                <mes>11</mes>
+                <anio>2019</anio>
+            </fechaAlt>
+            <antiguedad>3</antiguedad>
+            <supervisor>OP-01</supervisor>
+            <expedicion />
+        </operario>
+        <administrativo numAdm="ADMIN1">
+            <nombre>Cristina</nombre>
+            <apellidos>Hernandez Perez</apellidos>
+            <dni>52874681-H</dni>
+            <fechaNac>
+                <dia>12</dia>
+                <mes>5</mes>
+                <anio>1975</anio>
+            </fechaNac>
+            <fechaAlt>
+                <dia>1</dia>
+                <mes>1</mes>
+                <anio>2000</anio>
+            </fechaAlt>
+            <antiguedad>22</antiguedad>
+            <jefe />
+        </administrativo>
+        <administrativo numAdm="ADMIN2">
+            <nombre>Pilar</nombre>
+            <apellidos>Minguez Ortiz</apellidos>
+            <dni>12345678-R</dni>
+            <fechaNac>
+                <dia>16</dia>
+                <mes>10</mes>
+                <anio>1986</anio>
+            </fechaNac>
+            <fechaAlt>
+                <dia>3</dia>
+                <mes>6</mes>
+                <anio>2005</anio>
+            </fechaAlt>
+            <antiguedad>17</antiguedad>
+            <supervisor>ADMIN1</supervisor>
+        </administrativo>
+        <administrativo numAdm="ADMIN3">
+            <nombre>Javier</nombre>
+            <apellidos>Salvo Diez</apellidos>
+            <dni>87654312-D</dni>
+            <fechaNac>
+                <dia>29</dia>
+                <mes>3</mes>
+                <anio>1970</anio>
+            </fechaNac>
+            <fechaAlt>
+                <dia>27</dia>
+                <mes>9</mes>
+                <anio>2010</anio>
+            </fechaAlt>
+            <antiguedad>12</antiguedad>
+            <supervisor>ADMIN1</supervisor>
+        </administrativo>
+    </empleados>
+    <clientes>
+        <cliente numCli="CLI\001">
+            <nombre>Jose Luis</nombre>
+            <apellidos>Garcia Garcia</apellidos>
+            <dni>58621489-T</dni>
+            <direccion>c/ Mi calle, 15</direccion>
+            <telefono>942000000</telefono>
+        </cliente>
+        <cliente numCli="CLI\002">
+            <nombre>Juan Luis</nombre>
+            <apellidos>Rodriguez Salmon</apellidos>
+            <dni>12544473-F</dni>
+            <direccion>c/ Tu calle, 56</direccion>
+            <telefono>606606606</telefono>
+        </cliente>
+        <cliente numCli="CLI\003">
+            <nombre>Maria Luisa</nombre>
+            <apellidos>Hernandez Sandoval</apellidos>
+            <dni>09985246-R</dni>
+            <direccion>c/ Su calle, 3</direccion>
+            <telefono>600888555</telefono>
+        </cliente>
+    </clientes>
+    <pedidos>
+        <pedido numPed="PED21.01">
+            <cli>CLI\001</cli>
+            <adm>ADMIN3</adm>
+            <ope>OP-01</ope>
+            <total>500€</total>
+        </pedido>
+        <pedido numPed="PED22.01">
+            <cli>CLI\002</cli>
+            <adm>ADMIN2</adm>
+            <ope>OP-02</ope>
+            <ope>OP-03</ope>
+            <total>1500€</total>
+        </pedido>
+        <pedido numPed="PED22.02">
+            <cli>CLI\003</cli>
+            <adm>ADMIN1</adm>
+            <ope>OP-01</ope>
+            <ope>OP-04</ope>
+            <ope>OP-05</ope>
+            <total>5500€</total>
+        </pedido>
+    </pedidos>
+</almacen>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE marvel SYSTEM "Tarea4.2_Marvel_DTD.dtd">
+<marvel>
+    <superheroes>
+        <superheroe nombre="IronMan" id_poderes="p02" sexo="hombre">
+            <mundo>Tierra</mundo>
+            <fecha_heroe>
+                <dia>15</dia>
+                <mes>12</mes>
+                <anio>1997</anio>
+            </fecha_heroe>
+            <humano/>
+            <grupos>
+                <grupo id_grupo="s1">
+                    <nombre>Avengers</nombre>
+                    <num_integrantes>7</num_integrantes>
+                </grupo>
+                <grupo id_grupo="s2">
+                    <nombre>Iluminati</nombre>
+                    <num_integrantes>5</num_integrantes>
+                </grupo>
+            </grupos>
+        </superheroe>
+        <superheroe nombre="CapitanAmerica" id_poderes="p03" sexo="hombre">
+            <mundo>Tierra</mundo>
+            <fecha_heroe>
+                <mes>15</mes>
+                <dia>05</dia>
+                <anio>1942</anio>
+            </fecha_heroe>
+            <alienigena/>
+            <grupos>
+                <grupo id_grupo="s3">
+                    <nombre>AvengersClasicos</nombre>
+                    <num_integrantes>3</num_integrantes>
+                </grupo>
+            </grupos>
+        </superheroe>
+        <superheroe nombre="BlackWidow" id_poderes="p01" sexo="mujer">
+            <mundo>Marte</mundo>
+            <fecha_heroe>
+                <mes>01</mes>
+                <dia>27</dia>
+                <anio>1916</anio>
+            </fecha_heroe>
+            <desconocido/>
+        </superheroe>
+    </superheroes>
+    <villanos>
+        <villano nombre="Joker" id_poderes="p01" sexo="hombre">
+            <descripcion>Payaso Loco</descripcion>
+            <enemigos>
+                <enemigo>Batman</enemigo>
+                <enemigo>Superman</enemigo>
+            </enemigos>
+            <humano/>
+        </villano>
+        <villano nombre="Tanos" id_poderes="p01" sexo="hombre">
+            <descripcion>Titan loco</descripcion>
+            <enemigos>
+                <enemigo>IronMan</enemigo>
+            </enemigos>
+            <alienigena/>
+        </villano>
+        <villano nombre="Eternidad" id_poderes="p02" sexo="mujer">
+            <descripcion>Entidad que controla todo el universo</descripcion>
+            <enemigos>
+                <enemigo>Thor</enemigo>
+            </enemigos>
+            <desconocido/>
+        </villano>
+    </villanos>
+    <entidades>
+        <entidad nombre="Muerte">
+            <descripcion>Personaje que mata a todo el mundo</descripcion>
+            <edad>mil millones</edad>
+            <humano />
+        </entidad>
+        <entidad nombre="El Observador">
+            <edad>1000</edad>
+            <descripcion>Un señor en la luna mirando todo como un pervertido</descripcion>
+            <alienigena/>
+        </entidad>
+        <entidad nombre="Dios">
+            <edad>No se sabe</edad>
+            <descripcion>Como el dios cristiano pero en marvel</descripcion>
+            <desconocido />
+        </entidad>
+    </entidades>
+    <poderes>
+        <poder id="p01">
+            <nombre>Patada Voladora</nombre>
+            <fisico/>
+            <origen>China</origen>
+        </poder>
+        <poder id="p02">
+            <nombre>Bola Magica</nombre>
+            <psiquico />
+            <origen>Francia</origen>
+        </poder>
+        <poder id="p03">
+            <nombre>Lanzamiento de Escudo</nombre>
+            <psiquico />
+            <origen>EEUU</origen>
+        </poder>
+    </poderes>
+</marvel>

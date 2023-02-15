@@ -1,0 +1,14 @@
+<agenda>
+	<contacto>
+		<nombre>Esther</nombre>
+		<email>esther@mail.com</email>
+	</contacto>
+	<contacto>
+		<nombre>Ana</nombre>
+		<email>Ana@mail.com</email>
+	</contacto>
+	<contacto>
+		<nombre>Pepe</nombre>
+		<email>pepe@mail.com</email>
+	</contacto>
+</agenda>

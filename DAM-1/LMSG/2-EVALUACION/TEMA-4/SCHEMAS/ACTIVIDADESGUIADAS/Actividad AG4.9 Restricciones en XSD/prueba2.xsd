@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="prueba2">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="text" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Ejercicio 5-->
+    <!-- <xs:element name="text">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="valor1"></xs:enumeration>
+                <xs:enumeration value="valor2"></xs:enumeration>
+                <xs:enumeration value="valor3"></xs:enumeration>
+                <xs:enumeration value="valor4"></xs:enumeration>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element> -->
+
+    <!-- Ejercicio 6 -->
+     <!--<xs:element name="text">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="(([a-z][A-Z])*)|(([a-z][A-Z])*[a-z])"></xs:pattern>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element> -->
+    
+    <!-- Ejercicio 7 -->
+    <!--<xs:element name="text">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="([a-zá-ú]+[ ][a-zá-ú]+[ ][a-zá-ú]+)"></xs:pattern>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>  -->
+
+    <!-- Ejercicio 8-->
+    <!-- <xs:element name="text">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:minLength value="5"></xs:minLength>
+                <xs:maxLength value="8"></xs:maxLength>
+                <xs:pattern value="[a-zA-Z0-9]*"></xs:pattern>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element> -->
+
+    <!-- Ejercicio 9 -->
+    <xs:element name="text">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="[a-z ]*[aA][a-z ]*"></xs:pattern>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <!--Ejercicio 10-->
+    <!--<xs:element name="text">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="[a-z]+[0-9]?(@micorreo)((.com)|(.es))"></xs:pattern>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element> -->
+
+</xs:schema>

@@ -1,0 +1,10 @@
+<!ELEMENT agenda (propietario,contacto*)>
+    <!ELEMENT propietario (nombre, apellido+, direccion,telefono+,email*)>
+        <!ELEMENT nombre (#PCDATA)>
+        <!ELEMENT apellido (#PCDATA)>
+        <!ELEMENT direccion (#PCDATA)>
+        <!ELEMENT telefono (#PCDATA)>
+        <!ELEMENT email (#PCDATA)>
+    <!ELEMENT contacto (id,nombre, apellido+, direccion, telefono+,email*)>
+        <!ELEMENT id (#PCDATA)>
+       

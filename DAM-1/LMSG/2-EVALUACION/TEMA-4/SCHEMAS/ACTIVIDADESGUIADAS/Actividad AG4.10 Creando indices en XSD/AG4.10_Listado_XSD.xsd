@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="listado">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="asignaturas">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="asignatura" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element name="nombre" type="xs:string" />
+                                        <xs:element name="num_horas" type="xs:string" />
+                                    </xs:all>
+                                    <xs:attribute name="prof" type="xs:IDREF" use="required" />
+                                    <xs:attribute name="curso" type="xs:IDREF" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="profesores">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="profesor" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nombre" type="xs:string" />
+                                        <xs:element name="apellidos" type="xs:string" />
+                                        <xs:element name="tutor" minOccurs="0" maxOccurs="1">
+                                            <xs:complexType>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:ID" use="required" />
+                                    <xs:attribute name="sexo" type="tipoSexo" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="cursos">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="curso" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nivel" type="xs:string" />
+                                        <xs:element name="grupo" type="xs:string" />
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:ID" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="tipoSexo">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Hombre"></xs:enumeration>
+            <xs:enumeration value="Mujer"></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

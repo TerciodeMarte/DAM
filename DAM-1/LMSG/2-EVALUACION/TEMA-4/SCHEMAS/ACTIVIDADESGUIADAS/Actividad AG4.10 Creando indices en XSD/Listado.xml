@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE listado>
+<listado>
+    <asignaturas>
+        <asignatura prof="AFD" curso="E4A">
+            <nombre>Historia</nombre>
+            <num_horas>4</num_horas>
+        </asignatura>
+        <asignatura prof="AFD" curso="E4B">
+            <num_horas>4</num_horas>
+            <nombre>Historia</nombre>
+        </asignatura>
+        <asignatura prof="CHL" curso="E4A">
+            <num_horas>3</num_horas>
+            <nombre>Biologia</nombre>
+        </asignatura>
+        <asignatura prof="CST" curso="E4A">
+            <nombre>Matematicas</nombre>
+            <num_horas>5</num_horas>
+        </asignatura>
+        <asignatura prof="CHL" curso="E4B">
+            <nombre>Biologia</nombre>
+            <num_horas>3</num_horas>
+        </asignatura>
+    </asignaturas>
+    <profesores>
+        <profesor id="AFD" sexo="Hombre">
+            <nombre>Antonio</nombre>
+            <apellidos>Fernandez Diaz</apellidos>
+            <tutor />
+        </profesor>
+        <profesor id="CST" sexo="Mujer">
+            <nombre>Carmen</nombre>
+            <apellidos>Sanchez Torres</apellidos>
+        </profesor>
+        <profesor id="CHL" sexo="Mujer">
+            <nombre>Cristina</nombre>
+            <apellidos>Hernandez Lopez</apellidos>
+            <tutor />
+        </profesor>
+    </profesores>
+    <cursos>
+        <curso id="E4A">
+            <nivel>4º ESO</nivel>
+            <grupo>A</grupo>
+        </curso>
+        <curso id="E4B">
+            <nivel>4º ESO</nivel>
+            <grupo>B</grupo>
+        </curso>
+        <curso id="B1T">
+            <nivel>1º BACHILLER</nivel>
+            <grupo>Tecnologico</grupo>
+        </curso>
+        <curso id="B1A">
+            <nivel>1º BACHILLER</nivel>
+            <grupo>Artes</grupo>
+        </curso>
+        <curso id="B2T">
+            <nivel>2º BACHILLER</nivel>
+            <grupo>Tecnologico</grupo>
+        </curso>
+        <curso id="B2A">
+            <nivel>2º BACHILLER</nivel>
+            <grupo>Artes</grupo>
+        </curso>
+    </cursos>
+</listado>

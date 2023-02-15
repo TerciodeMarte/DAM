@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="ordenes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ticket" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="consumicion" minOccurs="1" maxOccurs="6" type="TipoConsumicion" />
+                            <xs:element name="precio" type="TipoPrecio"/>
+                            <xs:element name="nombre" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" use="required" type="TipoID"/>
+                        <xs:attribute name="fecha" type="xs:date" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="TipoID">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="[T][0-9][0-9][0-9]"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoConsumicion">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Refresco"></xs:enumeration>
+            <xs:enumeration value="Copa"></xs:enumeration>
+            <xs:enumeration value="Vino"></xs:enumeration>
+            <xs:enumeration value="Cafe"></xs:enumeration>
+            <xs:enumeration value="Tapa"></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoPrecio">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(([0-9]*([.][0-9]{2})?[€])|([0-9]*([.][0-9]{2})?[$]))"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

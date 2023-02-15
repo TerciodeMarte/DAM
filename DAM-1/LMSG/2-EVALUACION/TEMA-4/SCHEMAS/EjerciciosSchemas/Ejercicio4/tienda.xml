@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tienda xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="tienda.xsd">
+    <ticket id="m01" tienda="Zara" fecha="2023-02-02" hora="19:00:00">
+        <dependiente>Albano</dependiente>
+        <articulo>Americana</articulo>
+        <articulo>Sudadera</articulo>
+        <articulo>Pantalon</articulo>
+    </ticket>
+    <ticket id="m02" tienda="Primark" fecha="2023-01-01" hora="20:00:00">
+        <dependiente>Juan</dependiente>
+        <articulo>Americana</articulo>
+    </ticket>
+</tienda>

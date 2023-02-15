@@ -1,0 +1,53 @@
+<!ELEMENT inventario (equipo*)>
+    <!ELEMENT equipo (modelo?,serie*,marca,precio,professional,tipo)>
+        <!ATTLIST equipo id ID #REQUIRED>
+            <!ELEMENT modelo (#PCDATA)>
+            <!ELEMENT serie (#PCDATA)>
+            <!ELEMENT marca (#PCDATA)>
+            <!ELEMENT precio (#PCDATA)>
+                <!ATTLIST precio unidad (e|s) #REQUIRED>
+            <!ELEMENT professional EMPTY>
+                <!ATTLIST professional value (true|false) #REQUIRED>
+            <!ELEMENT tipo (altavoz|eamplificacion|microfono|controller|ecualizador|efectos|otros)>
+                <!ELEMENT altavoz (categoria,impedancia,spl,potencia,potenciarms,seguidor,respuesta,info?)>
+                    <!ELEMENT categoria (#PCDATA)>
+                    <!ELEMENT impedancia (#PCDATA)>
+                        <!ATTLIST impedancia unidad (ohm) #REQUIRED>
+                    <!ELEMENT spl (#PCDATA)>
+                        <!ATTLIST spl unidad (db) #REQUIRED>
+                    <!ELEMENT potencia (#PCDATA)>
+                        <!ATTLIST potencia unidad (W) #REQUIRED>
+                    <!ELEMENT potenciarms (#PCDATA)>
+                        <!ATTLIST potenciarms unidad (W) #REQUIRED>
+                    <!ELEMENT seguidor EMPTY>
+                        <!ATTLIST seguidor value (true|false) #REQUIRED>
+                    <!ELEMENT respuesta (#PCDATA)>
+                        <!ATTLIST respuesta unidad (Hz) #REQUIRED>
+                    <!ELEMENT info (img?,text?)>
+                        <!ELEMENT img ANY>
+                        <!ELEMENT text (#PCDATA)>
+                <!ELEMENT eamplificacion (categoria,impedancia,voltaje,spl,potencia,info?)>
+                    <!ELEMENT voltaje (#PCDATA)>
+                        <!ATTLIST voltaje unidad (volt) #REQUIRED>
+                <!ELEMENT microfono (categoria,impedancia,sensibilidad,snr,info?)>
+                    <!ELEMENT sensibilidad (#PCDATA)>
+                        <!ATTLIST sensibilidad unidad (db) #REQUIRED>
+                    <!ELEMENT snr (#PCDATA)>
+                        <!ATTLIST snr unidad (dbm) #REQUIRED>
+                <!ELEMENT controller (categoria,impedancia,voltaje,channels,outaux,outcontrol,ecualizadorsala,efectosala,info?)>
+                    <!ELEMENT channels EMPTY>
+                        <!ATTLIST channels value (4|8|12|16|24|40|50) #REQUIRED>
+                    <!ELEMENT outaux EMPTY>
+                        <!ATTLIST outaux value (true|false) #REQUIRED>
+                    <!ELEMENT outcontrol EMPTY>
+                        <!ATTLIST outcontrol value (true|false) #REQUIRED>
+                    <!ELEMENT ecualizadorsala EMPTY>
+                        <!ATTLIST ecualizadorsala value (true|false) #REQUIRED>
+                    <!ELEMENT efectosala EMPTY>
+                        <!ATTLIST efectosala value (true|false) #REQUIRED>
+                <!ELEMENT ecualizador (categoria,impedancia,voltaje,bandas,info?)>
+                    <!ELEMENT bandas EMPTY>
+                        <!ATTLIST bandas value (3|5|7|12|16|31) #REQUIRED>
+                <!ELEMENT efectos (categoria,impedancia,voltaje,numeroefectos,info?)>
+                    <!ELEMENT numeroefectos (#PCDATA)> 
+                    <!ELEMENT otros (info|precio)>        

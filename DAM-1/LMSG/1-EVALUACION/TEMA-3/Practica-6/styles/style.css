@@ -1,0 +1,72 @@
+body{
+    background-color: #5F9EA0;
+    display: flex;
+    justify-content: center;
+}
+
+div{
+    background-color: rgb(254, 245, 231);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 80%;
+    padding:  2em; 
+}
+
+h1{
+    color: #5F9EA0;
+    text-align: center;
+}
+h2{
+    color: #5F9EA0;
+    text-align: center;
+}    
+
+p{
+    text-align: justify;
+}
+
+header{
+    background-color: rgb(254, 245, 231);
+    border-style: solid;
+    border-color: #5F9EA0;
+}
+
+nav{
+    background-color: #5F9EA0;
+    color: rgb(254, 245, 231);
+}
+
+ul{
+    list-style-type: none;
+    padding: 3px;
+    display: flex;
+    justify-content: space-around;
+}
+
+    nav ul li a:visited{
+    color: rgb(254, 245, 231);
+    }
+    nav ul li a:link{
+    color: rgb(254, 245, 231);
+    }
+
+img{
+    border-style: dotted;
+    border-color: #5F9EA0;
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+footer{
+    background-image:url("../images/fondo.jpg") ;
+    border-style: solid;
+    border-color: #5F9EA0;
+    
+    text-align: right;
+}
+
+    footer p{
+        text-align: right;
+    }

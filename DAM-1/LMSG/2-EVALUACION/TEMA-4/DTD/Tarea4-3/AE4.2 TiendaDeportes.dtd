@@ -1,0 +1,40 @@
+<!ELEMENT tienda (articulos,personal,cajas)>
+<!ELEMENT articulos (zapatero,camisetas)>
+<!ELEMENT zapatero (zapatillas*)>
+<!ELEMENT zapatillas (marca,stock,talla,precio,modelo)>
+<!ATTLIST zapatillas id ID #REQUIRED>
+<!ELEMENT marca (#PCDATA)>
+<!ELEMENT stock (#PCDATA)>
+<!ELEMENT talla (#PCDATA)>
+<!ELEMENT precio (#PCDATA)>
+<!ELEMENT modelo (#PCDATA)>
+<!ELEMENT camisetas (camiseta*)>
+<!ELEMENT camiseta (talla,precio,marca,color)>
+<!ATTLIST camiseta id ID #REQUIRED>
+<!ELEMENT color (#PCDATA)>
+<!ELEMENT personal (empleados)>
+<!ELEMENT empleados (empleado*)>
+<!ELEMENT empleado (nombre,apellidos,fechaContratacion,(jefe|gerente|trabajador))>
+<!ATTLIST empleado id NMTOKEN #REQUIRED>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT apellidos (#PCDATA)>
+<!ELEMENT fechaContratacion (dia,mes,anio)>
+<!ELEMENT dia (#PCDATA)>
+<!ELEMENT mes (#PCDATA)>
+<!ELEMENT anio (#PCDATA)>
+<!ELEMENT jefe EMPTY>
+<!ELEMENT gerente EMPTY>
+<!ELEMENT trabajador EMPTY>
+<!ELEMENT cajas (caja*)>
+<!ELEMENT caja (fecha,venta+,cajero,(cerrada|abierta))>
+<!ATTLIST caja id ID #REQUIRED>
+<!ATTLIST caja recaudado CDATA #REQUIRED>
+<!ELEMENT fecha (dia,mes,anio)>
+<!ELEMENT venta (cantidad,total)>
+<!ATTLIST venta id NMTOKEN #REQUIRED>
+<!ELEMENT cantidad (#PCDATA)>
+<!ELEMENT total (#PCDATA)>
+<!ELEMENT cajero EMPTY>
+<!ATTLIST cajero id NMTOKEN #REQUIRED>
+<!ELEMENT cerrada EMPTY>
+<!ELEMENT abierta EMPTY>

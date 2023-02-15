@@ -1,0 +1,103 @@
+/*Principal*/
+body{
+    background-color: #f3c5c5;
+    display: flex;
+    justify-content: center;
+}
+/*Cabecera*/
+header{
+    background-image:url("../images/fondo.jpg") ;
+    border-style: solid;
+    border-color: #624e52;
+    padding: 10px; 
+    display: flex; 
+    justify-content: flex-end;
+}
+h1{
+    color: #624e52;
+    text-align: center;
+    width: 50%;
+}
+
+fieldset{
+    background-color: white;
+}
+/*Cuerpo Principal*/
+
+#global{
+    background-color: #c1a3a3;
+    font-family: Segoe Print,Manny ITC, Times New Roman;
+    width: 80%;
+    padding:  2em; 
+}
+nav{
+    margin-bottom: 15px;
+    background-color: #f3c5c5;
+    border-style: solid;
+    border-color: #624e52;
+}
+nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+#main{
+    display: flex;
+}
+#articulo{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 80%;
+}
+
+article{
+    background-color: #f3c5c5;
+    border-style: solid;
+    border-color: #624e52;
+    justify-content: space-around;
+}
+
+img{
+    width: 30%;
+    display: block;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+p{
+    text-align: justify;
+    color: #624e52;
+    justify-content: space-around;
+    margin: 15px;
+}
+/*ASIDE*/
+aside{
+    width: 20%;
+    padding: 15px;
+    background-color: #af8f90;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    padding: auto;
+}
+h2{
+    color: #624e52;
+    text-align: center;
+}
+aside ul{
+    list-style-type: none;
+}
+
+/*footer style*/
+footer{
+    
+    border-style: solid;
+    border-color: #624e52;
+    background-color: #f3c5c5;
+    
+    text-align: right;
+}
+    footer p{
+        text-align: center;
+    }

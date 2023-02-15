@@ -1,0 +1,15 @@
+<Protectora xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="AG4.11_protectora_XSD.xsd">
+    <Perro id="P001">
+        <DniPropietario>72727272A</DniPropietario>
+        <Raza>Pastor</Raza>
+        <Kg>45</Kg>
+        <FechaNacimiento>2000-04-25</FechaNacimiento>
+    </Perro> 
+    <Perro id="P002">
+        <DniPropietario>73737373A</DniPropietario>
+        <Raza>Compañía</Raza>
+        <Kg>10</Kg>
+        <FechaNacimiento>2017-11-02</FechaNacimiento>
+    </Perro>   
+</Protectora>

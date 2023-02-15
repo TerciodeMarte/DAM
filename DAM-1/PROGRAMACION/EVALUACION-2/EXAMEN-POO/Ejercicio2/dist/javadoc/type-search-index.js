@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"fruteria","l":"Fruta"},{"p":"fruteria","l":"Principal"},{"p":"fruteria","l":"Producto"}];updateSearchResults();

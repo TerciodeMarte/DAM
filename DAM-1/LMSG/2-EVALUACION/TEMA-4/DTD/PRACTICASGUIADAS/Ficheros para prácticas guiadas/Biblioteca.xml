@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<biblioteca>
+	<personal>
+		<empleado>
+			<nombre>Amancio</nombre>
+			<apellidos>Rodriguez Perez</apellidos>
+			<telefono>123456789</telefono>
+			<dni>112223333-C</dni>
+			<fcontratacion>
+				<dia>9</dia>
+				<mes>12</mes>
+				<anio>2001</anio>
+			</fcontratacion>
+			<puesto>Encargado</puesto>
+		</empleado>
+	</personal>
+	<libros>
+		<libro id="1">
+			<titulo>Señales y Sistemas</titulo>
+			<autor>Alan V. Opennheim</autor>
+			<copias>25</copias>
+		</libro>
+	</libros>
+	<socios>
+		<socio num="123-abc">
+			<nombre>Estela</nombre>
+			<apellidos>Sanchez Fernandez</apellidos>
+			<telefono>987654321</telefono>
+			<dni>44555666-D</dni>
+			<librosprestados>
+				<libroprestado id="1" fecha="29/9/2021"/>
+			</librosprestados>			
+		</socio>
+	</socios>
+</biblioteca>

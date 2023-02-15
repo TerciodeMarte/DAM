@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="videoclub">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="peliculas" ></xs:element>
+				<xs:element ref="videojuegos" ></xs:element>
+				<xs:element ref="comidas" ></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="peliculas">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="pelicula" minOccurs="1"  maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="anio" type="xs:integer" />
+							<xs:element name="cantidad" type="xs:integer" />
+							<xs:element name="duracion" type="xs:string" />
+						</xs:sequence>
+						<xs:attribute name="titulo" use="required" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="videojuegos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="videojuego" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="distribuidor" type="xs:string" />
+							<xs:element name="anio" type="xs:integer" />
+							<xs:element name="genero" type="xs:string" />
+							<xs:element name="plataformas">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="plataforma" minOccurs="1" maxOccurs="unbounded" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="nombre" use="required" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="comidas">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="comida">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="producto" type="xs:string" />
+							<xs:element name="stock" type="xs:string" />
+							<xs:element name="proveedor" type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

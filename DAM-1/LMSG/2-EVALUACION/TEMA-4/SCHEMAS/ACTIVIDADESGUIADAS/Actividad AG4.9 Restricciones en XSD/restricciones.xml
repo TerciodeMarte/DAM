@@ -1,0 +1,4 @@
+<prueba xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" 
+xs:noNamespaceSchemaLocation="prueba.xsd">
+ <numero>123.23</numero>
+</prueba>

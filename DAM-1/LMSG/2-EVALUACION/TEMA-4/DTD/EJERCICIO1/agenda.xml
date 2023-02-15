@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE agenda SYSTEM "DTD/validador.dtd">
+<agenda>
+    <propietario>
+        <nombre>Albano</nombre>
+        <apellido>Diez</apellido>
+        <apellido>Paulino</apellido>
+        <direccion>Santoña</direccion>
+        <telefono>666666666</telefono>
+        <telefono>555555555</telefono>
+        <email>hola@hola.es</email>
+    </propietario>
+    
+    <contacto>
+        <id>1</id>
+        <nombre>Ramiro</nombre>
+        <apellido>Gomez</apellido>
+        <apellido>Gomez</apellido>
+        <direccion>Santander</direccion>
+        <telefono>444444444</telefono>
+        <email>adios@adios.es</email>
+        <email>educantabria@educantabria.es</email>
+    </contacto>
+
+    <contacto>
+        <id>2</id>
+        <nombre>Juan</nombre>
+        <apellido>Perez</apellido>
+        <apellido>Perez</apellido>
+        <direccion>Perez</direccion>
+        <telefono>333333333</telefono>
+        <telefono>234567891</telefono>
+        <email>email@email.com</email>
+    </contacto>
+</agenda>
