@@ -1,4 +1,4 @@
-<div style="display: flex">
+<div align="center">
 <img src="https://github.com/TerciodeMarte/DAM/blob/main/agusto-logo.png"  style="width: 30%"  />
 <br>
 <img src="https://github.com/TerciodeMarte/DAM/blob/main/departamento-logo.png" style="width: 30%"  />
