@@ -25,15 +25,14 @@
         <!-- Declaracion de claves forenea-->
 
         <xs:keyref name="fkcliente" refer="pkcliente">
-            <xs:selector xpath="empresa/pedidos/pedido"/>
-            <xs:field xpath="cliente"/>
+            <xs:selector xpath="empresa/pedidos/pedido" />
+            <xs:field xpath="cliente" />
         </xs:keyref>
 
         <xs:keyref name="fkempleado" refer="pkempleado">
-            <xs:selector xpath="empresa/pedidos/pedido"/>
-            <xs:field xpath="cliente"/>
+            <xs:selector xpath="empresa/pedidos/pedido" />
+            <xs:field xpath="cliente" />
         </xs:keyref>
-
 
 
     </xs:element>
@@ -44,17 +43,14 @@
             <xs:sequence>
                 <xs:element name="cliente" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
-                        <xs:complexContent>
-                            <xs:extension base="datosPersonales">
-                                <xs:sequence>
-                                    <xs:element ref="direccion"></xs:element>
-                                    <xs:element name="vip" minOccurs="0">
-                                        <xs:complexType></xs:complexType>
-                                    </xs:element>
-                                </xs:sequence>
-                                <xs:attribute name="numCli" use="required" type="xs:string" />
-                            </xs:extension>
-                        </xs:complexContent>
+                        <xs:sequence>
+                            <xs:group ref="datosPersonales"></xs:group>
+                            <xs:element ref="direccion"></xs:element>
+                            <xs:element name="vip" minOccurs="0">
+                                <xs:complexType></xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="numCli" use="required" type="xs:string" />
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
@@ -67,16 +63,13 @@
             <xs:sequence>
                 <xs:element name="empleado" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
-                        <xs:complexContent>
-                            <xs:extension base="datosPersonales">
-                                <xs:sequence>
-                                    <xs:element name="puesto" type="xs:string" />
-                                    <xs:element name="antiguedad" type="tipoAntiguedad" />
-                                    <xs:element name="salario" type="tipoMoneda" />
-                                </xs:sequence>
-                                <xs:attribute name="numEmp" use="required" type="xs:string" /> 
-                            </xs:extension>
-                        </xs:complexContent>
+                        <xs:sequence>
+                            <xs:group ref="datosPersonales"/>
+                            <xs:element name="puesto" type="xs:string" />
+                            <xs:element name="antiguedad" type="tipoAntiguedad" />
+                            <xs:element name="salario" type="tipoMoneda" />
+                        </xs:sequence>
+                        <xs:attribute name="numEmp" use="required" type="xs:string" />
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
@@ -102,14 +95,14 @@
     </xs:element>
 
     <!-- Declarar elemento complejo DatosPersonales y Direccion-->
-    <xs:complexType name="datosPersonales">
+    <xs:group name="datosPersonales">
         <xs:sequence>
             <xs:element name="nombre" type="xs:string" />
             <xs:element name="apellidos" type="xs:string" />
             <xs:element name="dni" type="tipoDNI" />
             <xs:element name="telefono" type="tipoTelofono" />
         </xs:sequence>
-    </xs:complexType>
+    </xs:group>
 
     <xs:element name="direccion">
         <xs:complexType>
@@ -159,6 +152,5 @@
         </xs:restriction>
     </xs:simpleType>
 
-    
 
 </xs:schema>

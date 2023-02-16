@@ -28,24 +28,24 @@
         </xs:key>
         <!-- Declaracion de claves forenea-->
         <xs:keyref name="fk_supervisor_operario" refer="pkoperario">
-            <xs:selector xpath="almacen/empleados/operario"/>
-            <xs:field xpath="supervisor"/>
+            <xs:selector xpath="almacen/empleados/operario" />
+            <xs:field xpath="supervisor" />
         </xs:keyref>
         <xs:keyref name="fk_pedidos_operario" refer="pkoperario">
-            <xs:selector xpath="almacen/pedidos/pedido"/>
-            <xs:field xpath="ope"/>
+            <xs:selector xpath="almacen/pedidos/pedido" />
+            <xs:field xpath="ope" />
         </xs:keyref>
         <xs:keyref name="fk_supervisor_administrador" refer="pkadministrador">
-            <xs:selector xpath="almacen/empleados/administrativo"/>
-            <xs:field xpath="supervisor"/>
+            <xs:selector xpath="almacen/empleados/administrativo" />
+            <xs:field xpath="supervisor" />
         </xs:keyref>
         <xs:keyref name="fk_pedido_administrador" refer="pkadministrador">
-            <xs:selector xpath="almacen/pedidos/pedido"/>
-            <xs:field xpath="adm"/>
+            <xs:selector xpath="almacen/pedidos/pedido" />
+            <xs:field xpath="adm" />
         </xs:keyref>
         <xs:keyref name="fk_pedido_clientes" refer="pkcliente">
-            <xs:selector xpath="almacen/pedidos/pedido"/>
-            <xs:field xpath="cli"/>
+            <xs:selector xpath="almacen/pedidos/pedido" />
+            <xs:field xpath="cli" />
         </xs:keyref>
     </xs:element>
 
@@ -62,9 +62,7 @@
     <xs:element name="operario">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="nombre" type="xs:string" />
-                <xs:element name="apellidos" type="xs:string" />
-                <xs:element name="dni" type="tipoDNI" />
+                <xs:group ref="datos"></xs:group>
                 <xs:element ref="fechaNac"></xs:element>
                 <xs:element ref="fechaAlt"></xs:element>
                 <xs:element name="antiguedad" type="xs:string" />
@@ -89,18 +87,16 @@
     <xs:element name="administrativo">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="nombre" type="xs:string" />
-                <xs:element name="apellidos" type="xs:string" />
-                <xs:element name="dni" type="tipoDNI" />
+                <xs:group ref="datos"></xs:group>
                 <xs:element ref="fechaNac"></xs:element>
                 <xs:element ref="fechaAlt"></xs:element>
                 <xs:element name="antiguedad" type="xs:string" />
                 <xs:choice>
                     <xs:element name="jefe" minOccurs="0">
-                    <xs:complexType></xs:complexType>
+                        <xs:complexType></xs:complexType>
                     </xs:element>
                     <xs:element name="supervisor" minOccurs="0" type="xs:string" />
-                </xs:choice> 
+                </xs:choice>
             </xs:sequence>
             <xs:attribute name="numAdm" use="required" type="tiponumAdm" />
         </xs:complexType>
@@ -112,9 +108,7 @@
                 <xs:element name="cliente" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="nombre" type="xs:string" />
-                            <xs:element name="apellidos" type="xs:string" />
-                            <xs:element name="dni" type="tipoDNI" />
+                            <xs:group ref="datos"></xs:group>
                             <xs:element name="direccion" type="xs:string" />
                             <xs:element name="telefono" type="tipoTelefono" />
                         </xs:sequence>
@@ -143,25 +137,37 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="fechaNac">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="dia" type="tipoDia" />
-                <xs:element name="mes" type="tipoMes" />
-                <xs:element name="anio" type="tipoAnio" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <xs:group name="datos">
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string" />
+            <xs:element name="apellidos" type="xs:string" />
+            <xs:element name="dni" type="tipoDNI" />
+        </xs:sequence>
+    </xs:group>
+
+    <xs:group name="fecha">
+        <xs:sequence>
+            <xs:element name="dia" type="tipoDia" />
+            <xs:element name="mes" type="tipoMes" />
+            <xs:element name="anio" type="tipoAnio" />
+        </xs:sequence>
+    </xs:group>
 
     <xs:element name="fechaAlt">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="dia" type="tipoDia" />
-                <xs:element name="mes" type="tipoMes" />
-                <xs:element name="anio" type="tipoAnio" />
+                <xs:group ref="fecha"></xs:group>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <xs:element name="fechaNac">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="fecha"></xs:group>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
 
     <!-- Declaracion de Tipos-->
 
@@ -220,8 +226,4 @@
             <xs:maxInclusive value="2022"></xs:maxInclusive>
         </xs:restriction>
     </xs:simpleType>
-
-
-
-
 </xs:schema>
