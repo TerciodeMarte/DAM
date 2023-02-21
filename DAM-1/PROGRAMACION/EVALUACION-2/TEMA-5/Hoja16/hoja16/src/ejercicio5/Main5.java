@@ -14,7 +14,7 @@ estos datos como parámetros. Debéis capturar las posibles excepciones que se
 produzcan en el lugar donde se produce la llamada, no en los propios métodos*/
 public class Main5 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {   
         int divisor = 0, dividendo = 0;
         boolean control = false;
         Scanner sc = new Scanner(System.in);
