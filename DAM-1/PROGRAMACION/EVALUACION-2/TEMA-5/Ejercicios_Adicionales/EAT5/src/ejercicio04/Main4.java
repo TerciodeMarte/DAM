@@ -13,7 +13,7 @@ public class Main4 {
         for (int i = 0; i < 10; i++) {
             array[i]=i;
         }
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < array.length; i++) {
             array2[i]=array[(array.length-1)-i];
             System.out.println(array2[i]);
         }
