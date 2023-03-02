@@ -2,6 +2,4 @@
 *.java linguist-detectable=true
 *.html linguist-detectable=true
 *.css linguist-detectable=true
-*.xml linguist-detectable=true
-*.dtd linguist-detectable=true
 *.xsd linguist-detectable=true
