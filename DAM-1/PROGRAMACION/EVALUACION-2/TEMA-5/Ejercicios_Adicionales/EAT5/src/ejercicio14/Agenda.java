@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class Agenda {
     private int contador;
     private Persona p1[];
-   
-
+    
+    
     public Agenda(int dimension) {
         contador=0;
         p1=new Persona[dimension];
