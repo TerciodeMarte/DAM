@@ -25,11 +25,11 @@ drop user 'ADP2'@'192.168.24.%';
 /*Ejercicio2*/
 use ejercicio2;
 -- Apartado C/A
-select Nombre,Altura,Posicion,Nombre_equipo from jugadores where Posicion="G" order by Altura desc limit 5;
+select Nombre,Altura,Posicion,Nombre_equipo from jugadores where Posicion like "%G%" order by Altura desc limit 5;
 
 -- Apartado C/b
 
-select equipo_local,equipo_visitante,puntos_local from partidos where equipo_local in ("Kings","Lakers","Clipers","Warriors") order by puntos_local desc limit 10;
+select equipo_local,equipo_visitante as rival,puntos_local from partidos where equipo_local in ("Kings","Lakers","Clippers","Warriors") order by puntos_local desc limit 10;
 
 -- Apartado C/c
 
