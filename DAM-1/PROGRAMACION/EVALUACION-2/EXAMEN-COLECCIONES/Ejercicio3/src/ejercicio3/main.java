@@ -1,5 +1,6 @@
 package ejercicio3;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +20,9 @@ public class main {
         for (int i = 0; i < array.length; i++) {
             array[i]=(int) (Math.random()*10);
         }
+        System.out.println("El array generado es :");
+        System.out.println(Arrays.toString(array));
+        
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < array.length; j++) {
                 if (array[j]==i) {
