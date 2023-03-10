@@ -28,3 +28,16 @@ select golesloc+golesvis as Goles,l.nombre,v.nombre from partidos inner join equ
 where numjornada=1;
 
 /*7.a.- Obtén cuantos goles en total se marcaron en la jornada número 2.*/
+select count(*) from goles group by jornada having jornada='2';
+
+/*7.b.- Obtén cuantos goles en total se han marcado en cada jornada. En cada fila debe 
+salir el número de jornada y el número total de goles.*/
+select jornada,count(*) from goles group by jornada;
+
+/*8.a.- Obtén el jugador más joven, entre los que tienen registrada fecha de nacimiento, 
+del equipo de nombre S.D. Laredo. Debe salir el nombre y apellidos, el alias, el puesto 
+y la fecha de nacimiento.*/
+
+select jugadores.nombre,apellidos,alias,puesto,fechanac as menor from jugadores 
+where fechanac = (select max(fechanac) from jugadores inner join equipos on equipo = codeq where equipos.nombre = 'S.D Laredo');
+
