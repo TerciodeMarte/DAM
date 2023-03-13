@@ -45,8 +45,10 @@ where fechanac = (select max(fechanac) from jugadores inner join equipos on equi
 de cada equipo. Debe salir el nombre del equipo, y el nombre y apellidos, el alias, el 
 puesto y la fecha de nacimiento del jugador más joven.*/
 
-select equipos.nombre,jugadores.nombre,apellidos,alias,puesto,fechanac from jugadores inner join equipos on equipo = codeq
-where numjug in (select numjug from jugadores where fechanac in (select max(fechanac) from jugadores group by equipo having max(fechanac)));
+select jugadores.nombre,apellidos,alias,puesto,fechanac,equipos.nombre from jugadores 
+inner join (select max(fechanac) as fecha,equipo as eq from jugadores group by equipo having max(fechanac)) as sub on fechanac=sub.fecha 
+and jugadores.equipo=sub.eq 
+inner join equipos on sub.eq=codeq ;
 
 
 /*9.- Obtén el nombre y apellidos del jugador más joven de la liga y el equipo al que 
