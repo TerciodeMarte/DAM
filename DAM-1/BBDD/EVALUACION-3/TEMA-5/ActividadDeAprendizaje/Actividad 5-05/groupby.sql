@@ -38,6 +38,22 @@ select jornada,count(*) from goles group by jornada;
 del equipo de nombre S.D. Laredo. Debe salir el nombre y apellidos, el alias, el puesto 
 y la fecha de nacimiento.*/
 
-select jugadores.nombre,apellidos,alias,puesto,fechanac as menor from jugadores 
+select jugadores.nombre,apellidos,alias,puesto,fechanac from jugadores 
 where fechanac = (select max(fechanac) from jugadores inner join equipos on equipo = codeq where equipos.nombre = 'S.D Laredo');
 
+/*8.b.- Obtén el jugador más joven, entre los que tienen registrada fecha de nacimiento, 
+de cada equipo. Debe salir el nombre del equipo, y el nombre y apellidos, el alias, el 
+puesto y la fecha de nacimiento del jugador más joven.*/
+
+select equipos.nombre,jugadores.nombre,apellidos,alias,puesto,fechanac from jugadores inner join equipos on equipo = codeq
+where numjug in (select numjug from jugadores where fechanac in (select max(fechanac) from jugadores group by equipo having max(fechanac)));
+
+
+/*9.- Obtén el nombre y apellidos del jugador más joven de la liga y el equipo al que 
+pertenece.*/
+select jugadores.nombre,apellidos,equipos.nombre from jugadores inner join equipos on equipo = codeq
+where fechanac = (select max(fechanac) from jugadores);
+
+/*10.- Obtener en cuantos partidos la diferencia de goles entre un equipo y el otro fue 
+superior a dos goles.*/
+select count(*) from partidos where golesloc-golesvis>2 or golesvis-golesloc>2;
