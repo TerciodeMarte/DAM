@@ -11,7 +11,7 @@
 ("Ciclos Formativos de Grado Medio (se trata de obtener el elemento <ciclo>completo):"),
 //ciclo[grado="Medio"],
 ("Nombre de los Ciclos Formativos de Grado Superior:"),
-//ciclo[grado="Superior"]/nombre/text(),
+//ciclo[grado="Superior"]/nombre,
 ("Nombre de los Ciclos Formativos anteriores a 2010:"),
 //ciclo[decretoTitulo/@año<2010]/nombre/text(),
 ("Nombre de los Ciclos Formativos de 2008 o 2010:"),
