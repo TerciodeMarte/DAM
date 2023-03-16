@@ -1,0 +1,10 @@
+("Nombre de las flores que cuestan 23€"),
+//flor[precio="23€"]/nombre/text(),
+("Precio de las flores con número lote mayor que 200"),
+//origen[@nLote>200]/../precio/text(),
+("Todas las flores que sean de España o Italia"),
+//flor[origen="España" or origen="Italia"]/nombre/text(),
+("Número de lote de las flores de España con precio 30€"),
+//flor[precio="23€" and origen="España"]/origen/@nLote/number(),
+("Nombre de la anteúltima flor"),
+//flor[last()-1]/nombre/text()
