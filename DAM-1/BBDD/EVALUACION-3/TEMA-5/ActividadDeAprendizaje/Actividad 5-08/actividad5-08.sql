@@ -31,6 +31,8 @@ select titulo,count(usuario) from canciones left join votos on cancion=numCancio
 
 /*4.- Obtener cuantas canciones han recibido votos.*/
 select count(*) from (select count(*) from votos group by cancion) as subtable;
+-- La de ramiro muy guapa
+select count(distinct cancion) as votadas from votos;
 
 /*5.- Obtener los nombres, apellidos y función de los componentes que forman el 
 grupo al que pertenece Jorge Guirao.*/
