@@ -31,3 +31,22 @@ select titulo,count(usuario) from canciones left join votos on cancion=numCancio
 
 /*4.- Obtener cuantas canciones han recibido votos.*/
 select count(*) from (select count(*) from votos group by cancion) as subtable;
+
+/*5.- Obtener los nombres, apellidos y función de los componentes que forman el 
+grupo al que pertenece Jorge Guirao.*/
+select nombre,apellido,funcion from componentes where grupo=(select grupo from componentes where nombre='Jorge' and apellido='Guirao');
+
+/*6.- Obtener el nombre y apellidos del usuario registrado más joven, su edad (al 
+finalizar el año actual) y los títulos de las canciones que ha votado.*/
+
+select nombre,apellidos,(curdate()-fechanac)/10000 as edad,titulo from usuarios inner join votos on user=usuario 
+inner join canciones on numCancion=cancion where user=(select user from usuarios order by (curdate()-fechanac)/10000 limit 1); 
+
+/*7.- Obtener el nombre de cada grupo y la duración menor de sus canciones.*/
+select nombre,min(duracion) from grupos inner join canciones on grupo=codgrupo group by nombre;
+
+/*8.- Obtener el nombre de cada grupo y el título de su canción de duración menor. Para 
+hacer esto requieres usar una subconsulta que genera una tabla derivada (subconsulta 
+en FROM).*/
+select nombre,titulo,duracion from canciones inner join grupos on codgrupo = canciones.grupo inner join
+(select grupo,min(duracion) as duracion2 from canciones group by grupo) as subtable on subtable.grupo = canciones.grupo and duracion2= duracion;
