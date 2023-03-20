@@ -15,4 +15,5 @@
 ("Nombre de los Ciclos Formativos anteriores a 2010:"),
 //ciclo[decretoTitulo/@año<2010]/nombre/text(),
 ("Nombre de los Ciclos Formativos de 2008 o 2010:"),
-//ciclo[decretoTitulo/@año=2010 or decretoTitulo/@año=2008]/nombre/text()
+//ciclo[decretoTitulo/@año=2010 or decretoTitulo/@año=2008]/nombre/text(),
+//@año[.=2010 or .=2008]/../../nombre/text()
