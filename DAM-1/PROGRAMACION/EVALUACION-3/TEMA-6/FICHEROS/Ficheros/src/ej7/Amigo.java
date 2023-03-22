@@ -2,7 +2,7 @@
 package ej7;
 
 
-public class Amigo {
+public class Amigo {//Tiene que ser serializable
    
     private String nombre;
     private int telefono;

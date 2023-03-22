@@ -5,7 +5,7 @@ import java.io.*;
 public class AlmacenarObjetos {
 
     public static void main(String[] args) {
-        //Almacena objetos en forma de bytes en el archivo.bat
+        //Almacena objetos en forma de bytes en el archivo.dat
         Amigo am1 = new Amigo("Pablo", 987987987);
         Amigo am2 = new Amigo("Laura", 678678678);
         Amigo am3 = new Amigo("Carlos", 876876876);
@@ -15,7 +15,7 @@ public class AlmacenarObjetos {
        
         try {
             
-            fos = new FileOutputStream("amigos.txt"); //debe de ser amigos.bat
+            fos = new FileOutputStream("amigos.txt"); //debe de ser amigos.dat
          
             flujosalidaobjetos = new ObjectOutputStream(fos);
 
@@ -27,7 +27,7 @@ public class AlmacenarObjetos {
             System.err.println("Ha ocurrido una IOException");
         } finally {
             try {
-                if (flujosalidaobjetos != null) {
+                if (flujosalidaobjetos != null) {//La condicion del if deberia de ser con fos
                     flujosalidaobjetos.close();                   
                     fos.close();                             
                 }

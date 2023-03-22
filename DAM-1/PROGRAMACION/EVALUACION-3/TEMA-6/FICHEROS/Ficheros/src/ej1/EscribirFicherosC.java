@@ -16,7 +16,7 @@ public class EscribirFicherosC {
         } catch (IOException e) {
             System.err.println("Ha ocurrido una IOException");
         } finally {
-            try {
+            try {//Falta comprobar que el fw este cerrado
                 fw.close();   
             } catch (IOException e) {    
                 System.err.println("Ha ocurrido una IOException");

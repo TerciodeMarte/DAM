@@ -5,7 +5,7 @@ import java.io.*;
 public class RecuperarObjetos {
 
     public static void main(String[] args) {
-        //Lee el archivo en formato byte amigos.bat
+        //Lee el archivo en formato byte amigos.dat
 
         File fichero;
         FileInputStream fis = null;
@@ -13,14 +13,14 @@ public class RecuperarObjetos {
 
         try {
 
-            fichero = new File("amigos.txt");//Debe de ser amigos.bat
+            fichero = new File("amigos.txt");//Debe de ser amigos.dat
 
             if (fichero.exists()) {
 
                 fis = new FileInputStream(fichero);
                 flujoentradaobjetos = new ObjectInputStream(fis);
 
-                while (true) {
+                while (true) {//Bucle Infinito
                     Amigo a = (Amigo) flujoentradaobjetos.readObject();
                     System.out.println(a.toString());
                 }
@@ -37,7 +37,7 @@ public class RecuperarObjetos {
             System.err.println("Error de programa: " + e);
         } finally {
             try {
-                if (flujoentradaobjetos != null) {
+                if (flujoentradaobjetos != null) {//cerrar por fis
                     flujoentradaobjetos.close();
                     fis.close();
                 }

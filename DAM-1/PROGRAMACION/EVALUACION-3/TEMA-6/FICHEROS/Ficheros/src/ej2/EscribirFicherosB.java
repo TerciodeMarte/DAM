@@ -17,12 +17,12 @@ public class EscribirFicherosB {
           
             for (int i = 0; i < texto.length(); i++) {   
                 c = texto.charAt(i);  
-                fos.write((byte) c);                     
+                fos.write((byte) c);// no es necesario el recasteo explicito                  
             }                                            
         } catch (IOException e) {
             System.err.println("Ha ocurrido una IOException");
         } finally {
-            try {
+            try {//Falta un if para comprobar que el flujo no se ha abierto
                 fos.close();                    		
             } catch (IOException e) {             
                 System.err.println("Ha ocurrido una IOException");

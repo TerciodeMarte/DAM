@@ -14,7 +14,7 @@ public class LeerFicherosC {
             fr = new FileReader("datos1.txt");
            
             do {                              
-                c = (char) fr.read();            
+                c = (char) fr.read();//Sobra el recasteo        
                 texto = texto + c;          
             } while (c != '.');
             System.out.println(texto);
