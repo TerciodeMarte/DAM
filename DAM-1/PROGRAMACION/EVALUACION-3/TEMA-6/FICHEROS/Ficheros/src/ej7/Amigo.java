@@ -3,6 +3,7 @@ package ej7;
 
 
 public class Amigo {//Tiene que ser serializable
+    //Sobra esta clase
    
     private String nombre;
     private int telefono;

@@ -18,11 +18,11 @@ public class Main6 {
         try {
             fis = new FileInputStream("alumnos.dat");
             ois = new ObjectInputStream(fis);
-            while (fis.available()>0) {
-                  Alumno a= (Alumno)ois.readObject();
+            while (fis.available() > 0) {
+                Alumno a = (Alumno) ois.readObject();
                 System.out.println(a.getNombre() + a.getCalificaciones());
             }
-           
+
         } catch (FileNotFoundException e) {
             System.err.println(e.getMessage());
         } catch (IOException e) {
