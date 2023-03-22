@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -30,7 +31,7 @@ public class MetodosAlumnos {
             System.out.println("Alumnos Guardados correctamente");
 
         } catch (IOException e) {
-            System.err.println("Se a producido un error");
+            System.err.println("Ha ocurido una IOexception");
         } finally {
             try {
                 if (fos != null) {
@@ -38,7 +39,7 @@ public class MetodosAlumnos {
                     fos.close();
                 }
             } catch (IOException e) {
-                System.err.println("Se a producido un error");
+                System.err.println("Ha ocurido una IOexception");
             }
         }
     }
@@ -56,7 +57,7 @@ public class MetodosAlumnos {
             }
 
         } catch (FileNotFoundException e) {
-            System.err.println(e.getMessage());
+            System.err.println("No se ha encontrado el fichero");
         } catch (IOException e) {
             System.err.println(e.getMessage());
         } catch (ClassNotFoundException ex) {
@@ -68,7 +69,7 @@ public class MetodosAlumnos {
                     fis.close();
                 }
             } catch (IOException e) {
-                System.err.println(e.getMessage());
+                System.err.println("Ha ocurido una IOexception");
             }
 
         }
@@ -101,9 +102,67 @@ public class MetodosAlumnos {
 
     /*public static void listar_alumnos(): recorre el arraylist con un bucle for, un bucle for-each, o un iterador, 
     imprimiendo cada objeto Alumno contenido en el ArrayList.*/
-    public static void listar_alumnos(){
+    public static void listar_alumnos() {
         for (Alumno i : arrayAlumnos) {
             System.out.println(i.toString());
         }
     }
+
+    /*buscar_alumno() que permita buscar un alumno concreto (por nombre). No es 
+    necesario leer nada del fichero, se recorre el arraylist buscando.*/
+    public static void buscar_alumno() {
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+        try {
+            System.out.println("Dime el nombre a buscar");
+            String nombre = br.readLine();
+            for (Alumno i : arrayAlumnos) {
+                if (i.getNombre().equals(nombre)) {
+                    System.out.println("Alumno encontrado");
+                    System.out.println("Su nota es:"+i.getCalificaciones());
+                    break;
+                }else{
+                    System.out.println("Alumno no encontrado");
+                }
+
+            }
+
+        } catch (IOException e) {
+            System.err.println("Ha ocurido una IOexception");
+        }
+
+    }
+    
+    /* borrar_alumno() que permita borrar un alumno concreto preguntando antes todos los 
+    datos del mismo. No es necesario leer nada del fichero, se recorre el arraylist 
+    buscando. Una vez encontrado se borra el objeto concreto con los métodos de 
+    ArrayList.*/
+    public static void borrar_alumno(){
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+        try {
+            System.out.println("Dime el nombre a borrar");
+            String nombre = br.readLine();
+            Iterator<Alumno> it=arrayAlumnos.iterator();
+            
+            while (it.hasNext()) {
+                Alumno next = it.next();
+                if (next.getNombre().equals(nombre)) {
+                    System.out.println("Alumno encontrado");
+                    System.out.println("Alumno borrado");
+                    it.remove();
+                    break;
+                }else{
+                    System.out.println("Alumno no encontrado");
+                } 
+            }
+            
+        } catch (IOException e) {
+            System.err.println("Ha ocurido una IOexception");
+        }
+    }
+    
+    /*borrarFichero() que borre la existencia del fichero creado.*/
+    
+
 }
