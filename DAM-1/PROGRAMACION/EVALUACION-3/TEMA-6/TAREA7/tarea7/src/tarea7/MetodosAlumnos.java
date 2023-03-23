@@ -12,6 +12,8 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,9 +21,20 @@ import java.util.Iterator;
  */
 public class MetodosAlumnos {
 
-    static ArrayList<Alumno> arrayAlumnos = new ArrayList();
-    static File f = new File("alumnos.dat");
-
+    static private ArrayList<Alumno> arrayAlumnos = new ArrayList();
+    static private String nombreFichero;
+    static File f=null;
+    
+    public static void setNombreFichero() {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Dime el nombre del fichero");
+        try {
+            MetodosAlumnos.nombreFichero=br.readLine() ;
+            f=new File(nombreFichero+".dat");
+        } catch (IOException ex) {
+            System.err.println("Ha ocurido una IOexception");
+        }
+    }
 
     /* public static void grabar_coleccion_en_fichero(): graba el arraylist en el fichero.*/
     public static void grabar_coleccion_en_fichero() {

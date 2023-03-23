@@ -31,6 +31,7 @@ public class main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String opcion = "";
         boolean control = true;
+        MetodosAlumnos.setNombreFichero();
 
         do {
             try {
