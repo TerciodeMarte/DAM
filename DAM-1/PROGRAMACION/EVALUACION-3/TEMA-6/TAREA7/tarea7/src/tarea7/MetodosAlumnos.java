@@ -125,7 +125,7 @@ public class MetodosAlumnos {
             System.out.println("Dime el nombre a buscar");
             String nombre = br.readLine();
             for (Alumno i : arrayAlumnos) {
-                if (i.getNombre().equals(nombre)) {
+                if (i.getNombre().equalsIgnoreCase(nombre)) {
                     System.out.println("Alumno encontrado");
                     System.out.println("Su nota es:" + i.getCalificaciones());
                     control = false;
@@ -159,7 +159,7 @@ public class MetodosAlumnos {
 
             while (it.hasNext()) {
                 Alumno next = it.next();
-                if (next.getNombre().equals(nombre)) {
+                if (next.getNombre().equalsIgnoreCase(nombre)) {
                     System.out.println("Alumno encontrado");
                     System.out.println("Alumno borrado");
                     it.remove();
@@ -271,7 +271,7 @@ public class MetodosAlumnos {
                 String nombre = br.readLine();
 
                 for (Alumno i : arrayAlumnos) {
-                    if (i.getNombre().equals(nombre)) {
+                    if (i.getNombre().equalsIgnoreCase(nombre)) {
                         System.out.println("Alumno encontrado");
                         
                         do {
