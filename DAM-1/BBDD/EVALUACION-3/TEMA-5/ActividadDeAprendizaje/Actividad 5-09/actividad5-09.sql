@@ -27,7 +27,7 @@ select round(rand(),2) as Aleatorio01, round(rand()*50+1) as Aleatorio150;
 /*7.- Obtener los datos de un contrato cuyo número de contrato sea igual a un número 
 obtenido aleatoriamente inferior a 16*/
 
-set @numero=cast((rand()*16+1) as unsigned);
+set @numero=cast((rand()*16) as unsigned);
 select * from contratos where numcontrato=@numero;
 
 /*8.- Obtener los nombres y apellidos de los clientes que han realizado contratos. El 
