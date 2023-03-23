@@ -56,7 +56,7 @@ string-length(//asignatura[2]/nombre),
 avg(//curso[nivel="4º ESO"]/alumnos),
 ("22. Obtén el nombre de la asignatura que imparte la profesora 
 Cristina en 4º de la ESO grupo A."),
-//asignatura[@prof=[//profesor[nombre="Carmen"]/@id] and @curso=[//curso[nivel="4º ESO" and grupo="A"]/@id]]/nombre/text(),
+//asignatura[@prof=[//profesor[nombre="Cristina"]/@id] and @curso=[//curso[nivel="4º ESO" and grupo="A"]/@id]]/nombre/text,
 ("23. Muestra el nombre del tercer profesor en mayúsculas."),
 upper-case(//profesor[3]/nombre/text()),
 ("24. Calcula el número total de alumnos que están cursando 
