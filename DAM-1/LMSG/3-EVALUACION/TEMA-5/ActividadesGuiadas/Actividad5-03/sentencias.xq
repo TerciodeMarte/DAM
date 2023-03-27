@@ -1,5 +1,5 @@
 ("1. Todos los elementos de las actividades infantiles."),
-//actividad[@nivel="infantil"],
+//actividad[@nivel="infantil"]/node(),
 ("2. El nombre de las actividades para adultos."),
 //actividad[@nivel="adultos"]/titulo/text(),
 ("3. El nombre de las actividades con dos sesiones semanales."),
