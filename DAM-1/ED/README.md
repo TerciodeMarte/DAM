@@ -14,7 +14,8 @@ Repositiorio para publicar todo lo que aprendo en la Asignatura de Entornos de D
 ## Creditos ✒️
 
 * **Albano Díez de Paulino** - *Alumno* - [TerciodeMarte](https://github.com/TerciodeMarte)
-* **Yolanda Moreno** - *Profesora* - [Yolanda Moreno](https://www.iesaglinares.com/)
+* **Yolanda Moreno** - *Profesora (1ª y 2ª Evaluacion)* - [Yolanda Moreno](https://www.iesaglinares.com/)
+* **Maria Lobato** - *Profesora (3ª Evaluacion)* - [Maria Lobato](https://www.iesaglinares.com/)
 
 ## Licencia 📄
 
