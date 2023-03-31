@@ -51,6 +51,7 @@ public class JFrame extends javax.swing.JFrame {
         producto = new javax.swing.JButton();
         resta = new javax.swing.JButton();
         resultado = new javax.swing.JButton();
+        raiz = new javax.swing.JButton();
         Salir = new javax.swing.JButton();
         n2 = new javax.swing.JTextField();
         n1 = new javax.swing.JTextField();
@@ -270,11 +271,23 @@ public class JFrame extends javax.swing.JFrame {
             }
         });
 
+        raiz.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        raiz.setText("√");
+        raiz.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        raiz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                raizActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout OperadoresLayout = new javax.swing.GroupLayout(Operadores);
         Operadores.setLayout(OperadoresLayout);
         OperadoresLayout.setHorizontalGroup(
             OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 87, Short.MAX_VALUE)
+            .addGroup(OperadoresLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(raiz)
+                .addContainerGap(55, Short.MAX_VALUE))
             .addGroup(OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(OperadoresLayout.createSequentialGroup()
                     .addGap(19, 19, 19)
@@ -291,7 +304,10 @@ public class JFrame extends javax.swing.JFrame {
         );
         OperadoresLayout.setVerticalGroup(
             OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 145, Short.MAX_VALUE)
+            .addGroup(OperadoresLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(raiz)
+                .addContainerGap(111, Short.MAX_VALUE))
             .addGroup(OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(OperadoresLayout.createSequentialGroup()
                     .addContainerGap()
@@ -315,6 +331,7 @@ public class JFrame extends javax.swing.JFrame {
             }
         });
 
+        n2.setBackground(new java.awt.Color(244, 244, 244));
         n2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         n2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         n2.setEnabled(false);
@@ -609,6 +626,10 @@ public class JFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_C10ActionPerformed
 
+    private void raizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raizActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_raizActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -667,6 +688,7 @@ public class JFrame extends javax.swing.JFrame {
     private javax.swing.JTextField n1;
     private javax.swing.JTextField n2;
     private javax.swing.JButton producto;
+    private javax.swing.JButton raiz;
     private javax.swing.JButton resta;
     private javax.swing.JButton resultado;
     private javax.swing.JButton suma;
