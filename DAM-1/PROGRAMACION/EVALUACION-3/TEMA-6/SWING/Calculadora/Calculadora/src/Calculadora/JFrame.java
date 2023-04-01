@@ -4,6 +4,7 @@
  */
 package Calculadora;
 
+import java.io.IOException;
 /**
  *
  * @author carra
@@ -52,6 +53,7 @@ public class JFrame extends javax.swing.JFrame {
         resta = new javax.swing.JButton();
         resultado = new javax.swing.JButton();
         raiz = new javax.swing.JButton();
+        elevado = new javax.swing.JButton();
         Salir = new javax.swing.JButton();
         n2 = new javax.swing.JTextField();
         n1 = new javax.swing.JTextField();
@@ -165,7 +167,7 @@ public class JFrame extends javax.swing.JFrame {
         Digitos.setLayout(DigitosLayout);
         DigitosLayout.setHorizontalGroup(
             DigitosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 118, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(DigitosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DigitosLayout.createSequentialGroup()
                     .addGap(11, 11, 11)
@@ -196,7 +198,7 @@ public class JFrame extends javax.swing.JFrame {
                             .addComponent(C8)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(C9)))
-                    .addContainerGap(11, Short.MAX_VALUE)))
+                    .addContainerGap(20, Short.MAX_VALUE)))
         );
         DigitosLayout.setVerticalGroup(
             DigitosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,14 +282,28 @@ public class JFrame extends javax.swing.JFrame {
             }
         });
 
+        elevado.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        elevado.setText("^");
+        elevado.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        elevado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                elevadoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout OperadoresLayout = new javax.swing.GroupLayout(Operadores);
         Operadores.setLayout(OperadoresLayout);
         OperadoresLayout.setHorizontalGroup(
             OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(OperadoresLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(raiz)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGroup(OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(OperadoresLayout.createSequentialGroup()
+                        .addComponent(elevado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(producto))
+                    .addComponent(raiz))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(OperadoresLayout.createSequentialGroup()
                     .addGap(19, 19, 19)
@@ -298,7 +314,6 @@ public class JFrame extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(resta)
-                                .addComponent(producto)
                                 .addComponent(suma))))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -307,14 +322,16 @@ public class JFrame extends javax.swing.JFrame {
             .addGroup(OperadoresLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(raiz)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(elevado)
+                    .addComponent(producto))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(OperadoresLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(division)
-                    .addGap(9, 9, 9)
-                    .addComponent(producto)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGap(43, 43, 43)
                     .addComponent(resta)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -359,10 +376,10 @@ public class JFrame extends javax.swing.JFrame {
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(n1)
                     .addComponent(n2)
-                    .addGroup(PanelLayout.createSequentialGroup()
-                        .addComponent(Digitos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Operadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLayout.createSequentialGroup()
+                        .addComponent(Digitos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Operadores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(Salir, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -375,8 +392,8 @@ public class JFrame extends javax.swing.JFrame {
                 .addComponent(n2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Operadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Digitos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Operadores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Digitos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(Salir)
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -630,6 +647,16 @@ public class JFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_raizActionPerformed
 
+    private void elevadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elevadoActionPerformed
+        try {
+            java.awt.Desktop.getDesktop().browse(new java.net.URI("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+        } catch (IOException ex) {
+            System.err.println("Ha ocurrido una IOException");
+        } catch (java.net.URISyntaxException ex) {
+            System.err.println("No ha encontrado la URL");
+        }
+    }//GEN-LAST:event_elevadoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -685,6 +712,7 @@ public class JFrame extends javax.swing.JFrame {
     private javax.swing.JPanel Panel;
     private javax.swing.JButton Salir;
     private javax.swing.JButton division;
+    private javax.swing.JButton elevado;
     private javax.swing.JTextField n1;
     private javax.swing.JTextField n2;
     private javax.swing.JButton producto;
