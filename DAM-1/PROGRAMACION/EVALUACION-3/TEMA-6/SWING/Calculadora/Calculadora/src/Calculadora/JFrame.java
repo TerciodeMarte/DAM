@@ -5,6 +5,7 @@
 package Calculadora;
 
 import java.io.IOException;
+
 /**
  *
  * @author carra
@@ -14,7 +15,7 @@ public class JFrame extends javax.swing.JFrame {
     /**
      * Creates new form calculadora2
      */
-    private double num1 = 0, num2 = 0,res=-1;
+    private double num1 = 0, num2 = 0, res = -1;
     private String aux = "";
     private boolean operacion = false;
     private byte control = -1;
@@ -433,89 +434,121 @@ public class JFrame extends javax.swing.JFrame {
         num2 = 0;
         aux = "";
         operacion = false;
-        res=-1;
+        res = -1;
     }//GEN-LAST:event_CActionPerformed
 
     private void restaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restaActionPerformed
         operacion = true;
-        if (operacion) {
-            if (!aux.equalsIgnoreCase("")) {
-                num1 = Double.parseDouble(aux);
-            }
+        try {
+            if (operacion) {
+                if (!aux.equalsIgnoreCase("")) {
+                    num1 = Double.parseDouble(aux);
+                }
 
-            n1.setText(Double.toString(num1) + " - ");
-            n2.setText("");
+                n1.setText(Double.toString(num1) + " - ");
+                n2.setText("");
+                aux = "";
+                control = 2;
+            }
+        } catch (NumberFormatException e) {
+            n1.setText("Error");
+            n2.setText("Error");
+            num1 = 0;
+            num2 = 0;
             aux = "";
-            control = 2;
+            operacion = false;
+            res = -1;
         }
+
 
     }//GEN-LAST:event_restaActionPerformed
 
     private void divisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divisionActionPerformed
         operacion = true;
-        if (operacion) {
-            if (!aux.equalsIgnoreCase("")) {
-                num1 = Double.parseDouble(aux);
-            }
+        try {
+            if (operacion) {
+                if (!aux.equalsIgnoreCase("")) {
+                    num1 = Double.parseDouble(aux);
+                }
 
-            n1.setText(Double.toString(num1) + " ÷ ");
-            n2.setText("");
+                n1.setText(Double.toString(num1) + " ÷ ");
+                n2.setText("");
+                aux = "";
+                control = 4;
+            }
+        } catch (NumberFormatException e) {
+            n1.setText("Error");
+            n2.setText("Error");
+            num1 = 0;
+            num2 = 0;
             aux = "";
-            control = 4;
+            operacion = false;
+            res = -1;
         }
+
     }//GEN-LAST:event_divisionActionPerformed
 
     private void resultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultadoActionPerformed
-        if (aux.equalsIgnoreCase("")) {
-            n1.setText(Double.toString(num1));
-            n2.setText("");
-        } else {
-            num2 = Double.parseDouble(aux);
-            aux = "";
-            switch (control) {
-                case 1:
-                    n1.setText(Double.toString(num1) + " + " + Double.toString(num2));
-                    res=num1 + num2;
-                    n2.setText(Double.toString(res));
-                    num1 = res;
-                    num2 = 0;
-                    
-                    break;
-                case 2:
-                    n1.setText(Double.toString(num1) + " - " + Double.toString(num2));
-                    res=num1-num2;
-                    n2.setText(Double.toString(res));
-                    num1 = res;
-                    num2 = 0;
-                   
-                    break;
-                case 3:
-                    n1.setText(Double.toString(num1) + " x " + Double.toString(num2));
-                    res=num1*num2;
-                    n2.setText(Double.toString(res));
-                    num1 = res;
-                    num2 = 0;
-                   
-                    break;
-                case 4:
-                    if (num2 != 0) {
-                        n1.setText(Double.toString(num1) + " ÷ " + Double.toString(num2));
-                        res=num1/num2;
-                        n2.setText(Double.toString(num1 / num2));
+        try {
+            if (aux.equalsIgnoreCase("")) {
+                n1.setText(Double.toString(num1));
+                n2.setText("");
+            } else {
+                num2 = Double.parseDouble(aux);
+                aux = "";
+                switch (control) {
+                    case 1:
+                        n1.setText(Double.toString(num1) + " + " + Double.toString(num2));
+                        res = num1 + num2;
+                        n2.setText(Double.toString(res));
                         num1 = res;
                         num2 = 0;
-                  
-                    } else {
-                        n1.setText(Double.toString(num1) + " ÷ " + Double.toString(num2));
-                        n2.setText("MathError");
-                        num1 = 0;
+
+                        break;
+                    case 2:
+                        n1.setText(Double.toString(num1) + " - " + Double.toString(num2));
+                        res = num1 - num2;
+                        n2.setText(Double.toString(res));
+                        num1 = res;
                         num2 = 0;
 
-                    }
-                    break;
-                default:
+                        break;
+                    case 3:
+                        n1.setText(Double.toString(num1) + " x " + Double.toString(num2));
+                        res = num1 * num2;
+                        n2.setText(Double.toString(res));
+                        num1 = res;
+                        num2 = 0;
 
+                        break;
+                    case 4:
+                        //No puedo capturar la exception de dividir entre 0 porque estoy usando numeros doubles y no salta exception con ellos asi 
+                        //lo controlo con un if
+                        if (num2 != 0) {
+                            n1.setText(Double.toString(num1) + " ÷ " + Double.toString(num2));
+                            res = num1 / num2;
+                            n2.setText(Double.toString(res));
+                            num1 = res;
+                            num2 = 0;
+
+                        } else {
+                            n1.setText(Double.toString(num1) + " ÷ " + Double.toString(num2));
+                            n2.setText("MathError");
+                            num1 = 0;
+                            num2 = 0;
+                        }
+                        break;
+                    default:
+                }
             }
+        } catch (NumberFormatException e) {
+            n1.setText("Error");
+            n2.setText("Error");
+            num1 = 0;
+            num2 = 0;
+            aux = "";
+            operacion = false;
+            res = -1;
         }
 
 
@@ -523,31 +556,53 @@ public class JFrame extends javax.swing.JFrame {
 
     private void sumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumaActionPerformed
         operacion = true;
-        if (operacion) {
-            if (!aux.equalsIgnoreCase("")) {
-                num1 = Double.parseDouble(aux);
-            }
+        try {
+            if (operacion) {
+                if (!aux.equalsIgnoreCase("")) {
+                    num1 = Double.parseDouble(aux);
+                }
 
-            n1.setText(Double.toString(num1) + " + ");
-            n2.setText("");
+                n1.setText(Double.toString(num1) + " + ");
+                n2.setText("");
+                aux = "";
+                control = 1;
+            }
+        } catch (NumberFormatException e) {
+            n1.setText("Error");
+            n2.setText("Error");
+            num1 = 0;
+            num2 = 0;
             aux = "";
-            control = 1;
+            operacion = false;
+            res = -1;
         }
-        
+
+
     }//GEN-LAST:event_sumaActionPerformed
 
     private void productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productoActionPerformed
         operacion = true;
-        if (operacion) {
-            if (!aux.equalsIgnoreCase("")) {
-                num1 = Double.parseDouble(aux);
-            }
+        try {
+            if (operacion) {
+                if (!aux.equalsIgnoreCase("")) {
+                    num1 = Double.parseDouble(aux);
+                }
 
-            n1.setText(Double.toString(num1) + " x ");
-            n2.setText("");
+                n1.setText(Double.toString(num1) + " x ");
+                n2.setText("");
+                aux = "";
+                control = 3;
+            }
+        } catch (NumberFormatException e) {
+            n1.setText("Error");
+            n2.setText("Error");
+            num1 = 0;
+            num2 = 0;
             aux = "";
-            control = 3;
+            operacion = false;
+            res = -1;
         }
+
     }//GEN-LAST:event_productoActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
@@ -644,7 +699,37 @@ public class JFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_C10ActionPerformed
 
     private void raizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raizActionPerformed
-        // TODO add your handling code here:
+        operacion = true;
+        //El metodo Math.sqrt() no lanza una exception con numeros negativos asi que lo controlo con un if
+        try {
+            if (operacion) {
+                if (!aux.equalsIgnoreCase("")) {
+                    num1 = Double.parseDouble(aux);
+                }
+                if (num1 > 0) {
+                    n1.setText("√" + Double.toString(num1));
+                    res = Math.sqrt(num1);
+                    n2.setText(Double.toString(res));
+                    num1 = res;
+                    num2 = 0;
+                    aux = "";
+                    control = -1;
+                } else {
+                    n1.setText("√" + Double.toString(num1));
+                    n2.setText("Input Number Negative");
+                }
+            }
+
+        } catch (NumberFormatException e) {
+            n1.setText("Error");
+            n2.setText("Error");
+            num1 = 0;
+            num2 = 0;
+            aux = "";
+            operacion = false;
+            res = -1;
+        }
+
     }//GEN-LAST:event_raizActionPerformed
 
     private void elevadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elevadoActionPerformed
