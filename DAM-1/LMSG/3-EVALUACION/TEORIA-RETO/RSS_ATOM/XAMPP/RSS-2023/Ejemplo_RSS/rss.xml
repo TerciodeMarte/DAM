@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+	<channel>
+		<title>Ejemplo UT3 para RSS</title>
+		<link>http://localhost/RSS-2023/Ejemplo_RSS/rss.xml</link> <!--URL web que oferta el canal-->
+		<description>La Web de LMSGI</description>
+		<!--secciones de noticias-->
+		
+		<item>
+			<title>Educantabria, portal educativo.</title>
+			<!--La URL a la noticia: -->
+			<link>http://www.educantabria.es</link>
+			<!-- El identificador de la noticia-->
+			<guid>http://www.educantabria.es</guid>
+			<description>El portal web de la Consejería de Educación. Todas las noticias sobre la educación en Cantabria</description>
+		</item>
+
+		<item>
+			<title>Web oficial del IES Augusto Gónzález de Linares</title>
+			<link>http://www.iesaglinares.com/</link>
+			<description>Web del IES Augusto González de Linares en Santander.</description>
+			<guid>http://www.iesaglinares.com/</guid>
+		</item>
+		<item>
+			<title>Blog de IES Augusto González de Linares</title>
+			<link>https://agustoenelaugusto.com/</link>
+			<description>Blog oficial del IES Augusto González de Linares - Santander</description>
+			<guid>https://agustoenelaugusto.com/</guid>
+			</item>
+		<item>
+			<title>Novedades musicales 2023</title>
+			<!--La URL a la noticia: -->
+			<link>http://localhost/RSS-2023/Ejemplo_RSS/mi_web/</link> 
+			<!-- El identificador de la noticia-->
+			<guid>http://localhost/RSS-2023/Ejemplo_RSS/mi_web/</guid>
+			<description>Nuevo album de Revolver  - 2023</description>
+		</item>
+	</channel>
+</rss>

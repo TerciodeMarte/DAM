@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!--Se crea el canal, se determina el estándar a utilizar y el idioma del documento -->
+
+<feed xmlns="http://www.w3.org/2005/Atom"  xml:lang="es-es">
+	<title type="text">Ejemplo UT3 para ATOM</title>
+	<link rel="self" type="application/atom+xml" href="http://localhost/RSS-2023/Ejemplo_ATOM/" />
+	<link rel="alternate" type="text/html" href="http://localhost/RSS-2023/Ejemplo_ATOM/"/>
+	<id>http://localhost/RSS-2023/Ejemplo_ATOM/</id>
+
+  <!--Se definen las secciones que forman el canal ttp://localhost/ATOM/noticia/noticia1.html-->
+
+	<entry>
+		<title>Educantabria, portal educativo.</title>
+		<link rel="alternate" type="text/html" href="http://www.educantabria.es" />
+		<id>http://www.educantabria.es</id>
+		<author>
+			 <name>Un autor</name>
+			 <email>un.autor@gmail.com</email>
+		</author>
+		<summary>El portal web de la Consejería de Educación. Todas las noticias sobre la educación en Cantabria.</summary>
+	</entry>
+
+	<entry>
+		<title>Web oficial del IES Augusto González de linares.</title>
+		<link rel="alternate" type="text/html" href="http://www.iesaglinares.com/" />
+		<id>http://www.iesaglinares.com/</id>
+		<author>
+			 <name>Un autor</name>
+			 <email>un.autor@gmail.com</email>
+		</author>
+		<summary>Web del IES Augusto González de Linares en Santander.</summary>
+	</entry>
+
+	<entry>
+		<title>Blog de IES Augusto González de Linares</title>
+		<link rel="alternate" type="text/html" href="https://agustoenelaugusto.com/" />
+		<id>https://agustoenelaugusto.com/</id>
+		<author>
+			 <name>Un autor</name>
+			 <email>un.autor@gmail.com</email>
+		</author>
+		<summary>Blog oficial del IES Augusto González de Linares - Santander.</summary>
+	</entry>
+
+	<entry>
+		<title>Novedades musicales 2023</title>
+		<link rel="alternate" type="text/html" href="http://localhost/RSS-2023/Ejemplo_RSS/mi_web/" />
+		<updated>2023-03-26</updated>
+		<id>http://localhost/RSS-2023/Ejemplo_RSS/mi_web/</id>
+		<author>
+			 <name>Un autor</name>
+		</author>
+		<summary>Nuevo album de Revolver - 2023</summary>
+	</entry>
+</feed>
