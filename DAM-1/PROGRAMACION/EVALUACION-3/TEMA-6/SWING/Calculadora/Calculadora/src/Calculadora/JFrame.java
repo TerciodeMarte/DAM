@@ -4,6 +4,8 @@
  */
 package Calculadora;
 
+import java.io.IOException;
+
 /**
  *
  * @author carra
@@ -13,7 +15,7 @@ public class JFrame extends javax.swing.JFrame {
     /**
      * Creates new form calculadora2
      */
-    private double num1 = 0, num2 = 0,res=-1;
+    private double num1 = 0, num2 = 0, res = -1;
     private String aux = "";
     private boolean operacion = false;
     private byte control = -1;
@@ -52,6 +54,7 @@ public class JFrame extends javax.swing.JFrame {
         resta = new javax.swing.JButton();
         resultado = new javax.swing.JButton();
         raiz = new javax.swing.JButton();
+        elevado = new javax.swing.JButton();
         Salir = new javax.swing.JButton();
         n2 = new javax.swing.JTextField();
         n1 = new javax.swing.JTextField();
@@ -165,7 +168,7 @@ public class JFrame extends javax.swing.JFrame {
         Digitos.setLayout(DigitosLayout);
         DigitosLayout.setHorizontalGroup(
             DigitosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 118, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(DigitosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DigitosLayout.createSequentialGroup()
                     .addGap(11, 11, 11)
@@ -196,7 +199,7 @@ public class JFrame extends javax.swing.JFrame {
                             .addComponent(C8)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(C9)))
-                    .addContainerGap(11, Short.MAX_VALUE)))
+                    .addContainerGap(20, Short.MAX_VALUE)))
         );
         DigitosLayout.setVerticalGroup(
             DigitosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,14 +283,28 @@ public class JFrame extends javax.swing.JFrame {
             }
         });
 
+        elevado.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        elevado.setText("^");
+        elevado.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        elevado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                elevadoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout OperadoresLayout = new javax.swing.GroupLayout(Operadores);
         Operadores.setLayout(OperadoresLayout);
         OperadoresLayout.setHorizontalGroup(
             OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(OperadoresLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(raiz)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGroup(OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(OperadoresLayout.createSequentialGroup()
+                        .addComponent(elevado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(producto))
+                    .addComponent(raiz))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(OperadoresLayout.createSequentialGroup()
                     .addGap(19, 19, 19)
@@ -298,7 +315,6 @@ public class JFrame extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(resta)
-                                .addComponent(producto)
                                 .addComponent(suma))))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -307,14 +323,16 @@ public class JFrame extends javax.swing.JFrame {
             .addGroup(OperadoresLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(raiz)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(elevado)
+                    .addComponent(producto))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(OperadoresLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(division)
-                    .addGap(9, 9, 9)
-                    .addComponent(producto)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGap(43, 43, 43)
                     .addComponent(resta)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(OperadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -359,10 +377,10 @@ public class JFrame extends javax.swing.JFrame {
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(n1)
                     .addComponent(n2)
-                    .addGroup(PanelLayout.createSequentialGroup()
-                        .addComponent(Digitos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Operadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLayout.createSequentialGroup()
+                        .addComponent(Digitos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Operadores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(Salir, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -375,8 +393,8 @@ public class JFrame extends javax.swing.JFrame {
                 .addComponent(n2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Operadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Digitos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Operadores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Digitos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(Salir)
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -416,89 +434,121 @@ public class JFrame extends javax.swing.JFrame {
         num2 = 0;
         aux = "";
         operacion = false;
-        res=-1;
+        res = -1;
     }//GEN-LAST:event_CActionPerformed
 
     private void restaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restaActionPerformed
         operacion = true;
-        if (operacion) {
-            if (!aux.equalsIgnoreCase("")) {
-                num1 = Double.parseDouble(aux);
-            }
+        try {
+            if (operacion) {
+                if (!aux.equalsIgnoreCase("")) {
+                    num1 = Double.parseDouble(aux);
+                }
 
-            n1.setText(Double.toString(num1) + " - ");
-            n2.setText("");
+                n1.setText(Double.toString(num1) + " - ");
+                n2.setText("");
+                aux = "";
+                control = 2;
+            }
+        } catch (NumberFormatException e) {
+            n1.setText("Error");
+            n2.setText("Error");
+            num1 = 0;
+            num2 = 0;
             aux = "";
-            control = 2;
+            operacion = false;
+            res = -1;
         }
+
 
     }//GEN-LAST:event_restaActionPerformed
 
     private void divisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divisionActionPerformed
         operacion = true;
-        if (operacion) {
-            if (!aux.equalsIgnoreCase("")) {
-                num1 = Double.parseDouble(aux);
-            }
+        try {
+            if (operacion) {
+                if (!aux.equalsIgnoreCase("")) {
+                    num1 = Double.parseDouble(aux);
+                }
 
-            n1.setText(Double.toString(num1) + " ÷ ");
-            n2.setText("");
+                n1.setText(Double.toString(num1) + " ÷ ");
+                n2.setText("");
+                aux = "";
+                control = 4;
+            }
+        } catch (NumberFormatException e) {
+            n1.setText("Error");
+            n2.setText("Error");
+            num1 = 0;
+            num2 = 0;
             aux = "";
-            control = 4;
+            operacion = false;
+            res = -1;
         }
+
     }//GEN-LAST:event_divisionActionPerformed
 
     private void resultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultadoActionPerformed
-        if (aux.equalsIgnoreCase("")) {
-            n1.setText(Double.toString(num1));
-            n2.setText("");
-        } else {
-            num2 = Double.parseDouble(aux);
-            aux = "";
-            switch (control) {
-                case 1:
-                    n1.setText(Double.toString(num1) + " + " + Double.toString(num2));
-                    res=num1 + num2;
-                    n2.setText(Double.toString(res));
-                    num1 = res;
-                    num2 = 0;
-                    
-                    break;
-                case 2:
-                    n1.setText(Double.toString(num1) + " - " + Double.toString(num2));
-                    res=num1-num2;
-                    n2.setText(Double.toString(res));
-                    num1 = res;
-                    num2 = 0;
-                   
-                    break;
-                case 3:
-                    n1.setText(Double.toString(num1) + " x " + Double.toString(num2));
-                    res=num1*num2;
-                    n2.setText(Double.toString(res));
-                    num1 = res;
-                    num2 = 0;
-                   
-                    break;
-                case 4:
-                    if (num2 != 0) {
-                        n1.setText(Double.toString(num1) + " ÷ " + Double.toString(num2));
-                        res=num1/num2;
-                        n2.setText(Double.toString(num1 / num2));
+        try {
+            if (aux.equalsIgnoreCase("")) {
+                n1.setText(Double.toString(num1));
+                n2.setText("");
+            } else {
+                num2 = Double.parseDouble(aux);
+                aux = "";
+                switch (control) {
+                    case 1:
+                        n1.setText(Double.toString(num1) + " + " + Double.toString(num2));
+                        res = num1 + num2;
+                        n2.setText(Double.toString(res));
                         num1 = res;
                         num2 = 0;
-                  
-                    } else {
-                        n1.setText(Double.toString(num1) + " ÷ " + Double.toString(num2));
-                        n2.setText("MathError");
-                        num1 = 0;
+
+                        break;
+                    case 2:
+                        n1.setText(Double.toString(num1) + " - " + Double.toString(num2));
+                        res = num1 - num2;
+                        n2.setText(Double.toString(res));
+                        num1 = res;
                         num2 = 0;
 
-                    }
-                    break;
-                default:
+                        break;
+                    case 3:
+                        n1.setText(Double.toString(num1) + " x " + Double.toString(num2));
+                        res = num1 * num2;
+                        n2.setText(Double.toString(res));
+                        num1 = res;
+                        num2 = 0;
 
+                        break;
+                    case 4:
+                        //No puedo capturar la exception de dividir entre 0 porque estoy usando numeros doubles y no salta exception con ellos asi 
+                        //lo controlo con un if
+                        if (num2 != 0) {
+                            n1.setText(Double.toString(num1) + " ÷ " + Double.toString(num2));
+                            res = num1 / num2;
+                            n2.setText(Double.toString(res));
+                            num1 = res;
+                            num2 = 0;
+
+                        } else {
+                            n1.setText(Double.toString(num1) + " ÷ " + Double.toString(num2));
+                            n2.setText("MathError");
+                            num1 = 0;
+                            num2 = 0;
+                        }
+                        break;
+                    default:
+                }
             }
+        } catch (NumberFormatException e) {
+            n1.setText("Error");
+            n2.setText("Error");
+            num1 = 0;
+            num2 = 0;
+            aux = "";
+            operacion = false;
+            res = -1;
         }
 
 
@@ -506,31 +556,53 @@ public class JFrame extends javax.swing.JFrame {
 
     private void sumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumaActionPerformed
         operacion = true;
-        if (operacion) {
-            if (!aux.equalsIgnoreCase("")) {
-                num1 = Double.parseDouble(aux);
-            }
+        try {
+            if (operacion) {
+                if (!aux.equalsIgnoreCase("")) {
+                    num1 = Double.parseDouble(aux);
+                }
 
-            n1.setText(Double.toString(num1) + " + ");
-            n2.setText("");
+                n1.setText(Double.toString(num1) + " + ");
+                n2.setText("");
+                aux = "";
+                control = 1;
+            }
+        } catch (NumberFormatException e) {
+            n1.setText("Error");
+            n2.setText("Error");
+            num1 = 0;
+            num2 = 0;
             aux = "";
-            control = 1;
+            operacion = false;
+            res = -1;
         }
-        
+
+
     }//GEN-LAST:event_sumaActionPerformed
 
     private void productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productoActionPerformed
         operacion = true;
-        if (operacion) {
-            if (!aux.equalsIgnoreCase("")) {
-                num1 = Double.parseDouble(aux);
-            }
+        try {
+            if (operacion) {
+                if (!aux.equalsIgnoreCase("")) {
+                    num1 = Double.parseDouble(aux);
+                }
 
-            n1.setText(Double.toString(num1) + " x ");
-            n2.setText("");
+                n1.setText(Double.toString(num1) + " x ");
+                n2.setText("");
+                aux = "";
+                control = 3;
+            }
+        } catch (NumberFormatException e) {
+            n1.setText("Error");
+            n2.setText("Error");
+            num1 = 0;
+            num2 = 0;
             aux = "";
-            control = 3;
+            operacion = false;
+            res = -1;
         }
+
     }//GEN-LAST:event_productoActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
@@ -627,8 +699,48 @@ public class JFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_C10ActionPerformed
 
     private void raizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raizActionPerformed
-        // TODO add your handling code here:
+        operacion = true;
+        //El metodo Math.sqrt() no lanza una exception con numeros negativos asi que lo controlo con un if
+        try {
+            if (operacion) {
+                if (!aux.equalsIgnoreCase("")) {
+                    num1 = Double.parseDouble(aux);
+                }
+                if (num1 > 0) {
+                    n1.setText("√" + Double.toString(num1));
+                    res = Math.sqrt(num1);
+                    n2.setText(Double.toString(res));
+                    num1 = res;
+                    num2 = 0;
+                    aux = "";
+                    control = -1;
+                } else {
+                    n1.setText("√" + Double.toString(num1));
+                    n2.setText("Input Number Negative");
+                }
+            }
+
+        } catch (NumberFormatException e) {
+            n1.setText("Error");
+            n2.setText("Error");
+            num1 = 0;
+            num2 = 0;
+            aux = "";
+            operacion = false;
+            res = -1;
+        }
+
     }//GEN-LAST:event_raizActionPerformed
+
+    private void elevadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elevadoActionPerformed
+        try {
+            java.awt.Desktop.getDesktop().browse(new java.net.URI("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+        } catch (IOException ex) {
+            System.err.println("Ha ocurrido una IOException");
+        } catch (java.net.URISyntaxException ex) {
+            System.err.println("No ha encontrado la URL");
+        }
+    }//GEN-LAST:event_elevadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -685,6 +797,7 @@ public class JFrame extends javax.swing.JFrame {
     private javax.swing.JPanel Panel;
     private javax.swing.JButton Salir;
     private javax.swing.JButton division;
+    private javax.swing.JButton elevado;
     private javax.swing.JTextField n1;
     private javax.swing.JTextField n2;
     private javax.swing.JButton producto;
