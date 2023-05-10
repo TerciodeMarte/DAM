@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<paises>
+	<pais>
+		<nombre> Espana</nombre>
+		<capital>madrid</capìtal>
+	</pais>
+	<pais>
+		<nombre> francia</nombre>
+		<capital>paris</capìtal>
+	</pais>
+</paises>
