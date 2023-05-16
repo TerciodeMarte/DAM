@@ -11,9 +11,9 @@
   <h1>DICCIONARIO SIMPLE</h1>
   <table>
   <tr>
-  <td>IDIOMA</td>
-  <td>SALUDO</td>
-  <td>DESPEDIDA</td>
+  <th id="cred">IDIOMA</th>
+  <th id="cgreen">SALUDO</th>
+  <th id="cyellow">DESPEDIDA</th>
   </tr>
   <xsl:for-each select="Diccionario/*">
    <tr>

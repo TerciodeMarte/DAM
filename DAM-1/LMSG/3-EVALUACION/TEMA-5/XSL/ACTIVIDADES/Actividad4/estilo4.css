@@ -1,0 +1,12 @@
+body {
+    background-color: white;
+    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /*Para centrar la pagina web que me parece mas bonito
+     text-align: center;
+    */
+}
+
+h1{
+    color: goldenrod;
+}

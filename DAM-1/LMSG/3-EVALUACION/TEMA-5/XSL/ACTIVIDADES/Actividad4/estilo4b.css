@@ -1,0 +1,23 @@
+body {
+    background-color: white;
+    color: goldenrod;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /*Para centrar la pagina web que me parece mas bonito
+     text-align: center;
+    */
+}
+
+table {
+    border: 2px solid blue;
+    color: black;
+    /*Para centrar la pagina web que me parece mas bonito
+    margin-left: auto;
+    margin-right: auto;
+    */
+}
+
+th {
+    text-align: center;
+    color: red;
+    background-color: lightskyblue;
+}

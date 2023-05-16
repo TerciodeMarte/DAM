@@ -15,8 +15,8 @@
           <h3>Entrenador: <xsl:value-of select="entrenador"/></h3>
           <table>
             <tr>
-              <td>Jugador</td>
-              <td>Posición</td>
+              <th>Jugador</th>
+              <th>Posición</th>
             </tr>
             <xsl:for-each select="jugadores/jugador">
               <tr>

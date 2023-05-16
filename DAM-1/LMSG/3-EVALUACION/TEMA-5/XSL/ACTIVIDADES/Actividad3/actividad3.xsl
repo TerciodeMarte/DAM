@@ -9,9 +9,10 @@
       </head>
       <body>
         <h1>Modulos</h1>
+        <h1></h1>
         <table>
-          <tr>Nombre</tr>
-          <tr>Ciclos</tr>
+          <th>Nombre</th>
+          <th colspan="3">Ciclos</th>
           <xsl:for-each select="//modulo">
           <xsl:sort select="nombre"></xsl:sort>
             <tr>
@@ -28,6 +29,5 @@
         </table>
       </body>
     </html>
-    
   </xsl:template>
 </xsl:stylesheet>

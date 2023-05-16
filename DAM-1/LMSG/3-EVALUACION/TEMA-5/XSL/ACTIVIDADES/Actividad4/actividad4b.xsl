@@ -5,17 +5,17 @@
     <html>
       <head>
         <title>Actividad4b</title>
-        <link rel="stylesheet" type="text/css" href="estilos4b.css"/>
+        <link rel="stylesheet" type="text/css" href="estilo4b.css"/>
       </head>
       <body>
         <h1>Alumnos</h1>
         <h2>Convocatoria: <xsl:value-of select="//alumno[@convocatoria='Junio']/@convocatoria"/> </h2>
         <table>
           <tr>
-            <td>Nombre</td>
-            <td>Apellidos</td>
-            <td>Nota final</td>
-            <td>Calificacion</td>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Nota final</th>
+            <th>Calificacion</th>
           </tr>
           <xsl:for-each select="//alumno[@convocatoria='Junio']">
             <tr>
