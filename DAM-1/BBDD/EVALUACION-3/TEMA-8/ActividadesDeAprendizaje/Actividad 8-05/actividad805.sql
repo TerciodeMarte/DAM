@@ -1,6 +1,6 @@
-create database if not exists aa804;
+create database if not exists aa805;
 
-use aa804;
+use aa805;
 
 
 /*Ejercicio1*/
