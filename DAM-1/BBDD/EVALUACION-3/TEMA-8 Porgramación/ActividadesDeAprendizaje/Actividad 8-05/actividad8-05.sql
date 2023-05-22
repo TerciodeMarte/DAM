@@ -56,7 +56,10 @@ FLUSH PRIVILEGES;*/
 CREATE USER 'invitado'@'%' IDENTIFIED BY '1234' PASSWORD EXPIRE INTERVAL 1 DAY;
 grant select on datosorigen.* to 'invitado'@'%';
 grant execute on datosorigen.* to 'invitado'@'%';
+flush privileges;
 
 /*6.- Comprueba si el usuario creado puede acceder desde el equipo para el que has 
 creado la cuenta, si puede hacer SELECT sobre las tablas de datosorigen y si puede 
 ejecutar los procedimientos que se han creado en esta actividad.*/
+
+-- El usuario se puede conectar y ejecutar los procedimientos correctamente
