@@ -15,7 +15,7 @@ set max = (select max(hasta) from municipios);
 set municipio = (select nommunicipio from municipios where hasta >= round(rand()*max) limit 1); 
 set provincia2 = (select provincia from municipios where nommunicipio = municipio);
 
-update personas set direccion = auxdir , localidad = municipio , provincia = provincia2  where num = numper;
+update personas set calle = auxdir , localidad = municipio , provincia = provincia2  where num = numper;
 set existe=true;
 else
 set existe=false;
