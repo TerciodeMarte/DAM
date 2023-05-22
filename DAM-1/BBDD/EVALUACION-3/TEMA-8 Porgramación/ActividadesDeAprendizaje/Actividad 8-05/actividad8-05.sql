@@ -31,4 +31,32 @@ la columna hasta de la tabla de municipios.
 ● En la columna provincia carga el nombre de la provincia del municipio obtenido 
 anteriormente*/
 
-call asgina_direccion(3);
+call asigna_direccion(3);
+
+/*3.- Modifica el procedimiento anterior para que:
+Si no existe el número de persona, escribirá un mensaje en pantalla indicando tal 
+circunstancia.*/
+call asigna_direccion(1000);
+
+/*4.- Modifica el procedimiento anterior para que no escriba el mensaje de error en 
+pantalla, sino que devuelva en una variable booleana si se pudo realizar la 
+modificación por existir el número de persona o si no se realizó por no existir.*/
+set @persona=false;
+call asigna_direccion(1000,@persona);
+select @persona;
+
+/*5.- Crea una cuenta de usuario para acceder al servidor MySQL con el identificador 
+invitado desde otro equipo de la red (si trabajas con máquina virtual, desde la real).
+Establece que con esa cuenta de usuario se puedan realizar consultas (privilegio 
+SELECT) y ejecutar procedimientos (privilegio EXECUTE) sobre la base de datos 
+datosorigen.
+Actualiza privilegios:
+FLUSH PRIVILEGES;*/
+
+CREATE USER 'invitado'@'%' IDENTIFIED BY '1234' PASSWORD EXPIRE INTERVAL 1 DAY;
+grant select on datosorigen.* to 'invitado'@'%';
+grant execute on datosorigen.* to 'invitado'@'%';
+
+/*6.- Comprueba si el usuario creado puede acceder desde el equipo para el que has 
+creado la cuenta, si puede hacer SELECT sobre las tablas de datosorigen y si puede 
+ejecutar los procedimientos que se han creado en esta actividad.*/
