@@ -5,8 +5,14 @@ declare ultimo int;
 declare primero int;
 declare i int;
 
+if (select max(num) from personas) != false then
 set primero=(select max(num) from personas);
-set i=primero;
+else
+set primero =1;
+end if;
+
+set i = primero;
+
 
 call generar_nombres(numper,ultimo);
 call carga_apellidos(primero,ultimo);
