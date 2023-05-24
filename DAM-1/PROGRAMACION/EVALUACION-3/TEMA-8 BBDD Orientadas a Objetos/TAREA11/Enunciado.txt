@@ -1,0 +1,18 @@
+Implementa la clase Producto, cuyos atributos serán el nombre, categoría, precio y stock del producto. Incluye un constructor con parámetros, los métodos set y get, y un método que muestre por pantalla el valor de los atributos.
+
+Añade 20 productos distintos al inventario y realiza las siguientes consultas:
+
+1.-Productos de la categoría "Electrodomésticos".
+
+2.-Productos con un precio de 100 €.
+
+3.-Productos que cuestan más de 200 €.
+
+4.-Productos con más de 50 unidades en stock.
+5.-Productos con 0 unidades en stock (usando QBE).
+6.-Productos con 0 unidades en stock (usando SODA).
+7.-Productos que cuestan menos de 150 € (usando QBE).
+
+8.-Productos que cuestan menos de 150 € (usando SODA).
+9.-Productos en stock (usando QBE).
+10.-Productos con el nombre "ordenador".
