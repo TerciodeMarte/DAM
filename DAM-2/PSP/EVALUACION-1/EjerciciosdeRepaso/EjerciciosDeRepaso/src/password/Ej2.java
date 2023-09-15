@@ -1,5 +1,7 @@
 package password;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Albano Díez de Paulino
@@ -7,55 +9,56 @@ package password;
 public class Ej2 {
 
     public static void main(String[] args) {
-        
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Dime una contrasena");
+        String password = sc.nextLine();
+        if (!comprobarLongitud(password)) {
+            System.out.println("No tiene 8 caracteres o mas");
+        } else if (!comprobarNumero(password) || !comprobarEspecial(password) || !comprobarMiniscula(password) || !comprobarMayuscula(password)) {
+            System.out.println("La contrasena no cumple los requsitios especiales");
+        } else {
+            System.out.println("Contrasena correcta");
+        }
     }
-    
-    public static boolean comprobar_longitud(String password) {
-        if (password.length() >= 8) {
-            return false;
+
+    public static boolean comprobarLongitud(String password) {
+        if (password.matches(".{8,}")) {
+            return true;
         } else {
             return false;
         }
     }
 
-    public static boolean comprobar_miniscula(String password) {
-        for (int i = 0; i < password.length(); i++) {
-            if (Character.isLowerCase(password.charAt(i))) {
-                return true;
-            }
-
+    public static boolean comprobarMiniscula(String password) {
+        if (password.matches(".*[a-z].*")) {
+            return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
-    public static boolean comprobar_mayuscula(String password) {
-        for (int i = 0; i < password.length(); i++) {
-            if (Character.isUpperCase(password.charAt(i))) {
-                return true;
-            }
-
+    public static boolean comprobarMayuscula(String password) {
+        if (password.matches(".*[A-Z].*")) {
+            return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
-    public static boolean comprobar_numero(String password) {
-        for (int i = 0; i < password.length(); i++) {
-            if (Character.isDigit(password.charAt(i))) {
-                return true;
-            }
-
+    public static boolean comprobarNumero(String password) {
+        if (password.matches(".*\\d.*")) {
+            return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
-    public static boolean comprobar_especial(String password) {
-        for (int i = 0; i < password.length(); i++) {
-            if (password.charAt(i) == '-' || password.charAt(i) == '_' || password.charAt(i) == '$') {
-                return true;
-            }
-
+    public static boolean comprobarEspecial(String password) {
+        if (password.matches(".*[-].*||.*[_].*||.*[$].*")) {
+            return true;
+        } else {
+            return false;
         }
-        return false;
     }
-
 }
