@@ -30,11 +30,11 @@ public class ej5 {
             int division = i / 2;
             if (i % 2 == 0 || i % 3 == 0 || i % 5 == 0 || i % 7 == 0 || i % 11 == 0 || i % 13 == 0) {
                 //cont += 1;
-                for (int j = 2; j < division; j++) {
+               for (int j = 2; j < division; j++) {
+                    division = i / j;
                     if (i % j == 0) {
-                        sumaA = sumaA + j + (i / j);
+                        sumaA += j + (division);
                     }
-                    division=(int)i/j;
                 }
 
                 //System.out.println(i);
