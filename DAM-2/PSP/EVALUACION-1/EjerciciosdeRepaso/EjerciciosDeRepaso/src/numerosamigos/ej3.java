@@ -11,7 +11,7 @@ package numerosamigos;
 public class ej3 {
 
     public static void main(String[] args) {
-        System.out.println(isAmigos(10 ,8));
+        System.out.println(isAmigos(220 ,284));
     }
 
     public static boolean isAmigos(int x, int y) {
