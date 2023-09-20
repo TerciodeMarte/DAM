@@ -170,15 +170,24 @@ public class Main extends javax.swing.JFrame {
 
             if (e.getMessage().contains(",")) {
 
-                JOptionPane.showMessageDialog(null, "Dato con coma", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane jop = new JOptionPane("Dato con coma", JOptionPane.ERROR_MESSAGE);
+                JDialog jd = jop.createDialog("ERROR");
+                jd.setLocation((int)this.getLocation().getX()+300, (int)this.getLocation().getY()+100);
+                jd.setVisible(rootPaneCheckingEnabled);
 
             } else if (e.getMessage().contains("empty")) {
 
-                JOptionPane.showMessageDialog(null, "Introduce un dato valido", "Info", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane jop = new JOptionPane("Introduce un dato valido", JOptionPane.INFORMATION_MESSAGE);
+                JDialog jd = jop.createDialog("ERROR");
+                jd.setLocation((int)this.getLocation().getX()+300, (int)this.getLocation().getY()+100);
+                jd.setVisible(rootPaneCheckingEnabled);
 
             } else {
 
-                JOptionPane.showMessageDialog(null, "Dato no numerico", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane jop = new JOptionPane("Dato no numerico", JOptionPane.ERROR_MESSAGE);
+                JDialog jd = jop.createDialog("ERROR");
+                jd.setLocation((int)this.getLocation().getX()+300, (int)this.getLocation().getY()+100);
+                jd.setVisible(rootPaneCheckingEnabled);
 
             }
 
