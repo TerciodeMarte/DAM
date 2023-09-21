@@ -5,26 +5,26 @@
 package tarea1;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Point;
-import java.awt.Toolkit;
+//import java.awt.Dimension;
+//import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author carra
+ * @author Albano Díez de Paulino
  */
-public class Main extends javax.swing.JFrame {
+public class Tarea1 extends javax.swing.JFrame {
 
     /**
      * Creates new form Main
      */
-    public Main() {
+    public Tarea1() {
         initComponents();
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+        /*Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);*/
+        this.setLocationRelativeTo(null);
 
     }
 
@@ -45,24 +45,31 @@ public class Main extends javax.swing.JFrame {
         c = new javax.swing.JLabel();
         f = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Conversor C a F");
         setLocation(new java.awt.Point(0, 0));
         setLocationByPlatform(true);
         setMaximumSize(new java.awt.Dimension(230, 220));
         setName("Conversor"); // NOI18N
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         background.setBackground(new java.awt.Color(153, 204, 255));
         background.setPreferredSize(new java.awt.Dimension(300, 200));
 
+        inputF.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         inputF.setFocusable(false);
         inputF.setRequestFocusEnabled(false);
 
         boton.setBackground(new java.awt.Color(102, 255, 0));
         boton.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         boton.setText("Convertir");
+        boton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton.setPreferredSize(new java.awt.Dimension(82, 22));
         boton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -74,11 +81,6 @@ public class Main extends javax.swing.JFrame {
         conversor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         conversor.setText("Conversor");
 
-        inputC.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                inputCFocusGained(evt);
-            }
-        });
         inputC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 inputCKeyPressed(evt);
@@ -136,18 +138,21 @@ public class Main extends javax.swing.JFrame {
         boton();
     }//GEN-LAST:event_botonMouseClicked
 
-    private void inputCFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCFocusGained
-        inputF.setText("");
-        inputC.setText("");
-    }//GEN-LAST:event_inputCFocusGained
-
     private void inputCKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCKeyPressed
         int key = evt.getKeyCode();
 
         if (key == KeyEvent.VK_ENTER) {
             boton();
         }
+
+        if (key == KeyEvent.VK_ESCAPE) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_inputCKeyPressed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosed
 
     private void boton() {
         String valorCelsius = inputC.getText();
@@ -172,21 +177,21 @@ public class Main extends javax.swing.JFrame {
 
                 JOptionPane jop = new JOptionPane("Dato con coma", JOptionPane.ERROR_MESSAGE);
                 JDialog jd = jop.createDialog("ERROR");
-                jd.setLocation((int)this.getLocation().getX()+300, (int)this.getLocation().getY()+100);
+                jd.setLocation((int) this.getLocation().getX() + 300, (int) this.getLocation().getY() + 100);
                 jd.setVisible(rootPaneCheckingEnabled);
 
             } else if (e.getMessage().contains("empty")) {
 
                 JOptionPane jop = new JOptionPane("Introduce un dato valido", JOptionPane.INFORMATION_MESSAGE);
                 JDialog jd = jop.createDialog("ERROR");
-                jd.setLocation((int)this.getLocation().getX()+300, (int)this.getLocation().getY()+100);
+                jd.setLocation((int) this.getLocation().getX() + 300, (int) this.getLocation().getY() + 100);
                 jd.setVisible(rootPaneCheckingEnabled);
 
             } else {
 
                 JOptionPane jop = new JOptionPane("Dato no numerico", JOptionPane.ERROR_MESSAGE);
                 JDialog jd = jop.createDialog("ERROR");
-                jd.setLocation((int)this.getLocation().getX()+300, (int)this.getLocation().getY()+100);
+                jd.setLocation((int) this.getLocation().getX() + 300, (int) this.getLocation().getY() + 100);
                 jd.setVisible(rootPaneCheckingEnabled);
 
             }
@@ -212,20 +217,21 @@ public class Main extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tarea1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tarea1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tarea1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tarea1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main().setVisible(true);
+                new Tarea1().setVisible(true);
             }
         });
     }
