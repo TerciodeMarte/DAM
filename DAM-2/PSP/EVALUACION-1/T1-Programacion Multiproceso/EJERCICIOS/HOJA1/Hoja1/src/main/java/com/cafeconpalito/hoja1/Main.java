@@ -13,6 +13,6 @@ public class Main {
 
     public static void main(String[] args) {
        //Estaticos.ej1(args[0]);
-       Estaticos.ej2();
+       Estaticos.ej3();
     }
 }

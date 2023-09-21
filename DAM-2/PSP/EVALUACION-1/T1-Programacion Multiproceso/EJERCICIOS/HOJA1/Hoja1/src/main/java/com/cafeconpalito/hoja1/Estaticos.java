@@ -51,16 +51,26 @@ o Abre el navegador Firefox en Ubuntu Linux.
                 Runtime rt = Runtime.getRuntime();
                 String[] comando = {"calc.exe"};
                 Process p = rt.exec(comando);
-                ProcessHandle handle = ProcessHandle.current();
-                ProcessHandle.Info processInfo = handle.info();
 
+                //¿Porque que hay que usar un manejador de procesos?
+                ProcessHandle handle = p.toHandle();
+
+                //Tambien se puede capturar el proceso asi
+                //ProcessHandle handle=ProcessHandle.current()
                 System.out.println("ID del proceso: " + handle.pid());
-                System.out.println("Nombre del comando: " + handle.info().command().orElse("Desconocido"));
+                //Si hemos cojido al hijo porque el nombre del comando es C:\Program Files\Java\jdk-20\bin\java.exe?
+                System.out.println("Nombre del comando: " + handle.info().command().get());
                 System.out.println("Argumentos usados: " + Arrays.toString(handle.info().arguments().orElse(new String[0])));
-                System.out.println("Tiempo de comienzo: " + handle.info().startInstant());
-                System.out.println("Tiempo de CPU: " + handle.info().totalCpuDuration().orElse(null));
-                System.out.println("Propietario: " + handle.info().user().orElse("Desconocido"));
-                System.out.println("Número de hijos: " + p.descendants().count());
+                System.out.println("Tiempo de comienzo: " + handle.info().startInstant().get());
+                System.out.println("Tiempo de CPU: " + handle.info().totalCpuDuration().get());
+                System.out.println("Propietario: " + handle.info().user().get());
+
+                //Para obtener el padre
+                //System.out.println("Padre"+ handle.parent().get().info().command().get());
+                //Numero de hijos 0? Porque la calculadora no es hijo de java
+                //Porque estamos cogiendo la info del proceso de la calculadora no de java
+                //Ahora magicamente tiene 2 hijos despues de 10 min
+                System.out.println("Número de hijos: " + handle.descendants().count());
             } catch (IOException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -70,9 +80,39 @@ o Abre el navegador Firefox en Ubuntu Linux.
                 String[] comando = {"firefox"};
                 Process p = rt.exec(comando);
 
+                ProcessHandle handle = p.toHandle();
+
+                System.out.println("ID del proceso: " + handle.pid());
+
+                System.out.println("Nombre del comando: " + handle.info().command().get());
+                System.out.println("Argumentos usados: " + Arrays.toString(handle.info().arguments().orElse(new String[0])));
+                System.out.println("Tiempo de comienzo: " + handle.info().startInstant().get());
+                System.out.println("Tiempo de CPU: " + handle.info().totalCpuDuration().get());
+                System.out.println("Propietario: " + handle.info().user().get());
+
+                System.out.println("Número de hijos: " + handle.descendants().count());
+
             } catch (IOException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+    }
+
+    /*3. Modifica el programa del ejercicio 1 que lanzaba el Notepad de Windows. Ahora, el padre, 
+mientras el hijo se está́ejecutando, debe realizar una tarea sencilla que consiste en generar 10 
+números aleatorios entre el 0 y el 9. ¿qué ocurre y por qué?*/
+    public static void ej3() {
+        try {
+            //Realiza los dos procesos en simultaneo porque son dos procesos independientes y mi ordenador tiene mas de un core
+            //Porque al abortar el proceso padre mata a todos sus hijos, son son idependientes?
+            Runtime rt = Runtime.getRuntime();
+            String[] comando = {"notepad.exe"};
+            Process p = rt.exec(comando);
+            for (int i = 0; i < 2000000; i++) {
+                System.out.println(Math.random() * 9);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
