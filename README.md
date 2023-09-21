@@ -16,11 +16,11 @@ Repositorio para publicar todo los ficheros del CFGS Desarrollo de Aplicaciones 
 * [Reto Final de Curso](https://github.com/TerciodeMarte/RetoFinalCurso1) - Reto Final de Curso
 
 ## DAM 2ºCurso
-* [Acceso a Datos](/AD) - AD
-* [Desarrollo de Interfaces](/DI) - DI
-* [Programacion de Servicios y Procesos](/PSP) - PSP
-* [Sistemas de Gestion Empresarial](/SGE) - SGE
-* [Programación Multimedia y Dispositivos Moviles](/PMDM) - PMDM
+* [Acceso a Datos](/DAM2/AD) - AD
+* [Desarrollo de Interfaces](/DAM2/DI) - DI
+* [Programacion de Servicios y Procesos](/DAM2/PSP) - PSP
+* [Sistemas de Gestion Empresarial](/DAM2/SGE) - SGE
+* [Programación Multimedia y Dispositivos Moviles](/DAM2/PMDM) - PMDM
 
 ## Licencia 📄
 
