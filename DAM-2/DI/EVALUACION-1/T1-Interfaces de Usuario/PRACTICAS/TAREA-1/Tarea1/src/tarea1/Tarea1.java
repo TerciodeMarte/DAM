@@ -45,7 +45,7 @@ public class Tarea1 extends javax.swing.JFrame {
         c = new javax.swing.JLabel();
         f = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Conversor C a F");
         setLocation(new java.awt.Point(0, 0));
         setLocationByPlatform(true);
