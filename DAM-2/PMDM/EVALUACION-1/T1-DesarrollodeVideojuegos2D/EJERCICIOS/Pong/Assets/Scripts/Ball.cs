@@ -40,9 +40,26 @@ public class Ball : MonoBehaviour
        
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnCollisionEnter2D(Collision2D col)
     {
         
+        if (col.gameObject.tag == "Left")
+        {
+            StartCoroutine("point",true);
+        }
+        else if(col.gameObject.tag == "Right")
+        {
+            StartCoroutine("point", false);
+        }
     }
+
+    IEnumerator point(bool isLeft)
+    {
+        if (isLeft)
+        {
+            yield return new WaitForSeconds(.1f);
+        }
+    }
+
+
 }
