@@ -13,6 +13,9 @@ public class Main {
 
     public static void main(String[] args) {
        //Estaticos.ej1(args[0]);
-       Estaticos.ej3();
+       //Estaticos.ej2();
+       //Estaticos.ej3();
+       //Estaticos.ej4();
+       Estaticos.ej5();
     }
 }

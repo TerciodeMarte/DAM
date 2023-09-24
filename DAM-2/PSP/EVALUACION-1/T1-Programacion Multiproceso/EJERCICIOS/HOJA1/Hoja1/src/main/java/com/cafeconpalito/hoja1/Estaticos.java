@@ -4,6 +4,7 @@
  */
 package com.cafeconpalito.hoja1;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.logging.Level;
@@ -113,6 +114,43 @@ números aleatorios entre el 0 y el 9. ¿qué ocurre y por qué?*/
             }
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /*4. Utilizando la clase ProcessBuilder, se debe crear un programa en Java que: 
+1. Pregunte una app con interfaz gráfica en el Sistema Operativo actual. 
+2. Abra la app. 
+3. Obtener la información del entorno del proceso.*/
+    
+    //TODO
+    public static void ej4(){
+        
+    }
+    /*5. Utilizando la clase ProcessBuilder ejecuta el comando “CMD /c ver” y redirige la salida 
+estándar a un fichero llamado “salida.txt” y la salida de error a un fichero llamado “error.txt”. 
+Para ello, utiliza los métodos redirectOutput y redirectError de ProcessBuilder. Ejecuta después 
+un comando que no exista como por ejemplo “CMD /c verr”*/
+    
+    public static void ej5(){
+        ProcessBuilder processBuilder = new ProcessBuilder("CMD", "/c", "ver");
+
+        processBuilder.redirectOutput(new File("salidaok.txt"));
+        processBuilder.redirectError(new File("errorok.txt"));
+        try {
+            Process process = processBuilder.start();
+            process.waitFor();
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        processBuilder = new ProcessBuilder("CMD", "/c", "verr");
+        processBuilder.redirectOutput(new File("salidamal.txt"));
+        processBuilder.redirectError(new File("errormal.txt"));
+        try {
+            Process process = processBuilder.start();
+            process.waitFor();
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }
