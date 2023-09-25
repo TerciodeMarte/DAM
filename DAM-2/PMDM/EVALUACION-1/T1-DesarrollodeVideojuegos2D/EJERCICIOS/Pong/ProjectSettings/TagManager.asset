@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Left
   - Right
+  - Padel1
+  - Padel2
   layers:
   - Default
   - TransparentFX
