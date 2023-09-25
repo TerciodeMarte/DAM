@@ -138,8 +138,7 @@ un comando que no exista como por ejemplo “CMD /c verr”*/
         processBuilder.redirectError(new File("errorok.txt"));
         try {
             Process process = processBuilder.start();
-            process.waitFor();
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -148,8 +147,7 @@ un comando que no exista como por ejemplo “CMD /c verr”*/
         processBuilder.redirectError(new File("errormal.txt"));
         try {
             Process process = processBuilder.start();
-            process.waitFor();
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
