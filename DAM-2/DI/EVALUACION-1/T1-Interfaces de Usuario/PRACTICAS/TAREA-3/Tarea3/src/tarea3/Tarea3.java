@@ -19,7 +19,7 @@ public class Tarea3 extends javax.swing.JFrame {
     public Tarea3() {
         initComponents();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width - this.getSize().width, 0);
+        this.setLocation(0,0);
     }
     
     private static String nombre="";
@@ -106,6 +106,7 @@ public class Tarea3 extends javax.swing.JFrame {
 
     private void dialogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dialogoActionPerformed
         JDialog jd = new JDialog(this, rootPaneCheckingEnabled);
+        jd.setLocationRelativeTo(null);
         jd.setVisible(true);
     }//GEN-LAST:event_dialogoActionPerformed
 

@@ -4,7 +4,6 @@
  */
 package tarea2;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -28,7 +27,7 @@ public class Tarea2 extends javax.swing.JFrame {
     private void boton() {
         String nombre = TF.getText();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        if (nombre.equals("")) {
+        if (nombre.isBlank()) {
             JOptionPane jop = new JOptionPane("Introduce un nombre, por favor", JOptionPane.ERROR_MESSAGE);
             JDialog jd = jop.createDialog("ERROR");
             jd.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
