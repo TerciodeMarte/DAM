@@ -82,13 +82,13 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator control()
     {
-        
-        yield return new WaitForSeconds(1);
-        textone.SetText("1");
-        texttwo.SetText("1");
-        yield return new WaitForSeconds(1);
-        textone.SetText("0");
-        texttwo.SetText("0");
+        for (int i = 2; i >=0 ; i--)
+        {
+            yield return new WaitForSeconds(1);
+            textone.SetText(i.ToString());
+            texttwo.SetText(i.ToString());
+        }
+       
         //TODO: Añadir controles de jugadores en pantalla.
 
         players.SetActive(false);

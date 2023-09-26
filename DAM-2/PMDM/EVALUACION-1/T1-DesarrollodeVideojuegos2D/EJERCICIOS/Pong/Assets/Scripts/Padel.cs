@@ -27,7 +27,7 @@ public class Padel : MonoBehaviour
         }
         //transform.position += new Vector3(0, movement * speed * Time.deltaTime, 0);
         Vector2 paddlePosition = transform.position;
-        paddlePosition.y = Math.Clamp(paddlePosition.y + movement * speed * Time.deltaTime*Ball.getcollisionpadel(), -yLimit, yLimit);
+        paddlePosition.y = Math.Clamp(paddlePosition.y + movement * speed * Time.deltaTime*Ball.Collisionpadel, -yLimit, yLimit);
         transform.position = paddlePosition;
     }
 }

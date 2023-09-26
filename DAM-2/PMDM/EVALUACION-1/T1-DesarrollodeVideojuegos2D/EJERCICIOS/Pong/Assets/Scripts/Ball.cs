@@ -15,7 +15,10 @@ public class Ball : MonoBehaviour
     private Rigidbody2D ballRb;
     private static float collisionpadel = 1f;
 
-    public static float getcollisionpadel() {  return collisionpadel; }
+    public static float Collisionpadel { get => collisionpadel; set => collisionpadel = value; }
+
+    public static float getcollisionpadel() {  return Collisionpadel; }
+
 
     public void Launch()
     {
@@ -58,8 +61,8 @@ public class Ball : MonoBehaviour
     {
         if(collision.gameObject.tag =="Padel1"|| collision.gameObject.tag == "Padel2")
         {
-            collisionpadel += 0.02f;
-            ballRb.velocity *= collisionpadel;
+            Collisionpadel += 0.02f;
+            ballRb.velocity *= Collisionpadel;
         }
     }
 
