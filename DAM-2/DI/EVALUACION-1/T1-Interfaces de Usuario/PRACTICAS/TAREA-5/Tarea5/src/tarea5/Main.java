@@ -5,7 +5,6 @@
 package tarea5;
 
 import java.util.LinkedList;
-import javax.swing.ComboBoxModel;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
@@ -19,7 +18,6 @@ public class Main extends javax.swing.JFrame {
      * Creates new form Main
      */
     private LinkedList<String> lista = new LinkedList<>();
-    private int contador = 0;
 
     public Main() {
         initComponents();
@@ -135,7 +133,7 @@ public class Main extends javax.swing.JFrame {
 
     private void anadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anadirActionPerformed
         String nombre = TF.getText();
-        if (contador < 10) {
+        if (lista.size()< 10) {
             if (nombre.isBlank()) {
                 JOptionPane jop = new JOptionPane("Introduce un nombre, por favor", JOptionPane.ERROR_MESSAGE);
                 JDialog jd = jop.createDialog("ERROR");
@@ -143,43 +141,31 @@ public class Main extends javax.swing.JFrame {
                 jd.setVisible(true);
                 jd.setAlwaysOnTop(true);
 
-            } else if (nombre.matches(".*\\d.*")) {
+            } else if (!lista.contains(nombre)) {
+                lista.add(nombre);
+                combobox.addItem(nombre);
 
-                JOptionPane jop = new JOptionPane("Introduce un nombre, por favor", JOptionPane.ERROR_MESSAGE);
-                JDialog jd = jop.createDialog("ERROR");
+
+                JOptionPane jop = new JOptionPane("¡Pelicula añadida con exito!", JOptionPane.INFORMATION_MESSAGE);
+                JDialog jd = jop.createDialog("¡Exito!");
                 jd.setLocation(0, 0);
                 jd.setVisible(true);
                 jd.setAlwaysOnTop(true);
 
             } else {
-
-                if (!lista.contains(nombre)) {
-                    lista.add(nombre);
-                    combobox.addItem(nombre);
-
-                    contador++;
-
-                    JOptionPane jop = new JOptionPane("¡Pelicula añadida con exito!", JOptionPane.INFORMATION_MESSAGE);
-                    JDialog jd = jop.createDialog("¡Exito!");
-                    jd.setLocation(0, 0);
-                    jd.setVisible(true);
-                    jd.setAlwaysOnTop(true);
-
-                } else {
-                    JOptionPane jop = new JOptionPane("Nombre Repetido, introduce otro", JOptionPane.ERROR_MESSAGE);
-                    JDialog jd = jop.createDialog("ERROR");
-                    jd.setLocation(0, 0);
-                    jd.setVisible(true);
-                    jd.setAlwaysOnTop(true);
-                }
-
-            }
-        }else{
-              JOptionPane jop = new JOptionPane("Maximo numero alcanzdo(Maximo 10 Peliculas)", JOptionPane.ERROR_MESSAGE);
+                JOptionPane jop = new JOptionPane("Nombre Repetido, introduce otro", JOptionPane.ERROR_MESSAGE);
                 JDialog jd = jop.createDialog("ERROR");
                 jd.setLocation(0, 0);
                 jd.setVisible(true);
                 jd.setAlwaysOnTop(true);
+            }
+
+        } else {
+            JOptionPane jop = new JOptionPane("Maximo numero alcanzdo(Maximo 10 Peliculas)", JOptionPane.ERROR_MESSAGE);
+            JDialog jd = jop.createDialog("ERROR");
+            jd.setLocation(0, 0);
+            jd.setVisible(true);
+            jd.setAlwaysOnTop(true);
         }
 
     }//GEN-LAST:event_anadirActionPerformed
