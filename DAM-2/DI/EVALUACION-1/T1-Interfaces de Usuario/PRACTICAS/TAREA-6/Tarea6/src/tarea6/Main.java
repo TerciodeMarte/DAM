@@ -68,9 +68,16 @@ public class Main extends javax.swing.JFrame {
         slider.setMinorTickSpacing(1);
         slider.setPaintTicks(true);
         slider.setValue(12);
+        slider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sliderStateChanged(evt);
+            }
+        });
 
         numero.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        numero.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         numero.setText("12");
+        numero.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         grupo.add(Windows);
         Windows.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -141,9 +148,9 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(numero)
-                        .addGap(18, 18, 18)
+                        .addGap(69, 69, 69)
+                        .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(slider, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
@@ -196,13 +203,13 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
-                .addGap(63, 63, 63)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(numero))
-                .addGap(36, 36, 36)
+                .addGap(62, 62, 62)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
                 .addComponent(generar)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -256,22 +263,37 @@ public class Main extends javax.swing.JFrame {
             radio = Otros.getText();
         }
         if (jCheckBox1.isSelected()) {
-            esp += jCheckBox1.getText() + "\n";
+            esp += "\n" + jCheckBox1.getText();
         }
         if (jCheckBox2.isSelected()) {
-            esp += jCheckBox2.getText() + "\n";
+            esp += "\n" + jCheckBox2.getText();
         }
         if (jCheckBox3.isSelected()) {
-            esp += jCheckBox3.getText() + "\n";
+            esp += "\n" + jCheckBox3.getText();
         }
         JOptionPane jop = new JOptionPane("Sistema operativo seleccionado: " + radio + "\n"
-                + "Especialidades seleccionadas: " + esp +"\n"
-                +"Nº de horas dedicadas: ", JOptionPane.INFORMATION_MESSAGE);
+                + "Especialidades seleccionadas: " + esp + "\n"
+                + "Nº de horas dedicadas: " + slider.getValue(), JOptionPane.INFORMATION_MESSAGE);
         JDialog jd = jop.createDialog("Muestra de datos");
         jd.setLocation(0, 0);
         jd.setVisible(true);
         jd.setAlwaysOnTop(true);
+
+        grupo.clearSelection();
+
+        jCheckBox1.setSelected(false);
+        jCheckBox2.setSelected(false);
+        jCheckBox3.setSelected(false);
+        
+        slider.setValue(12);
+        
+
     }//GEN-LAST:event_generarMouseClicked
+
+    private void sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderStateChanged
+        // TODO add your handling code here:
+        numero.setText(Integer.toString(slider.getValue()));
+    }//GEN-LAST:event_sliderStateChanged
 
     /**
      * @param args the command line arguments
