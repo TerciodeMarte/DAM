@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject ball;
 
+    private bool ispause=false;
+
     // Instancia estática para ser accedida desde cualquier lugar
     public static GameManager instance;
 
@@ -40,6 +42,18 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(control());
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+
+        }else if (Input.GetKeyDown(KeyCode.Return))
+        {
+            //TODO: LLamar al metodo pause
+        }
     }
     public void ScorePlayerOne()
     {
@@ -71,6 +85,16 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+    private void pauseGame()
+    {
+        //TODO: Lanzar Menu de pausa
+    }
+
+    private void reanudeGame()
+    {
+        //TODO: Reaunudar menu de pausa
+    }
     IEnumerator restart()
     {
         ball.GetComponent<Transform>().SetPositionAndRotation(new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
@@ -88,8 +112,6 @@ public class GameManager : MonoBehaviour
             textone.SetText(i.ToString());
             texttwo.SetText(i.ToString());
         }
-       
-        //TODO: Añadir controles de jugadores en pantalla.
 
         players.SetActive(false);
 

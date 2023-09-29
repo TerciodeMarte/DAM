@@ -1,0 +1,43 @@
+Del trabajo que llevaís realizando con la estructura del Pong, o otros juegos con los que hayais comenzado, necesito la documentación de:
+
+c) Se han identificado las tecnologías de desarrollo de aplicaciones
+para dispositivos móviles.
+d) Se han instalado, configurado y utilizado entornos de trabajo para el
+desarrollo de aplicaciones para dispositivos móviles.
+e) Se han identificado configuraciones que clasifican los dispositivos
+móviles en base a sus características.
+g) Se ha analizado la estructura de aplicaciones existentes para
+dispositivos móviles identificando las clases utilizadas.
+h) Se han realizado modificaciones sobre aplicaciones existentes.
+i) Se han utilizado emuladores para comprobar el funcionamiento de
+las aplicaciones. 
+
+RA2
+
+a) Se ha generado la estructura de clases necesaria para la 
+aplicación. 
+b) Se han analizado y utilizado las clases que modelan ventanas, 
+menús, alertas y controles para el desarrollo de aplicaciones 
+gráficas sencillas. 
+c) Se han utilizado las clases necesarias para la conexión y 
+comunicación con dispositivos inalámbricos. 
+d) Se han utilizado las clases necesarias para el intercambio de 
+mensajes de texto y multimedia. 
+e) Se han utilizado las clases necesarias para establecer conexiones y 
+comunicaciones HTTP y HTTPS. 
+f) Se han utilizado las clases necesarias para establecer conexiones 
+con almacenes de datos garantizando la persistencia. 
+g) Se han realizado pruebas de interacción usuario-aplicación para 
+optimizar las aplicaciones desarrolladas a partir de emuladores. 
+h) Se han empaquetado y desplegado las aplicaciones desarrolladas 
+en dispositivos móviles reales. 
+i) Se han documentado los procesos necesarios para el desarrollo de 
+las aplicaciones. 
+
+ 
+
+La idea es por cada punto hacer una breve investigación, sumado a lo que vais aprendiendo de la Programación Multimedia con capturas de Unity y comentarios de cada aspecto.
+
+Lo hablamos en clase.
+
+Añadirme como entrega tanto la documentación como el ejecutable del mismo para PC a poder ser. 
