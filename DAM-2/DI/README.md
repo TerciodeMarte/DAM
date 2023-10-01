@@ -1,4 +1,4 @@
-# DAM1-AC
+# DAM1-DI
 Repositiorio para publicar todo lo que aprendo en la Asignatura de Desarrollo de Interfaces del Ciclo formativo de Grado Superior Desarrollo de Aplicaciones Multiplataforma
 
 ## Pre-requisitos 📋
@@ -7,7 +7,10 @@ Repositiorio para publicar todo lo que aprendo en la Asignatura de Desarrollo de
 * [DAM](https://www.todofp.es/que-estudiar/loe/informatica-comunicaciones/des-aplicaciones-multiplataforma.html) - CFGS DAM
 
 ### Software
-
+* [Netbeans](https://netbeans.apache.org/) - IDE
+* [Java Development Kit](https://www.oracle.com/es/java/technologies/downloads/#jdk17-windows) - JDK 17
+### Librerias
+*[JCalendar](https://toedter.com/jcalendar/) - JCalendar
   
 ## Creditos ✒️
 
