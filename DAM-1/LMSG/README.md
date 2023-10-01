@@ -8,6 +8,8 @@ Repositiorio para publicar todo lo que aprendo en la Asignatura de Lenguaje de M
 
 ### Software
 * [Visual Studio Code](https://code.visualstudio.com/) - Editor de codigo
+* [XML Copy Editor](https://xml-copy-editor.sourceforge.io/) - XML Program
+* [BaseX](https://basex.org/) - XPATH Program
 
 ## Creditos ✒️
 
