@@ -1,4 +1,4 @@
-# DAM1-AC
+# DAM1-AD
 Repositiorio para publicar todo lo que aprendo en la Asignatura de Acceso a Datos del Ciclo formativo de Grado Superior Desarrollo de Aplicaciones Multiplataforma
 
 ## Pre-requisitos 📋
@@ -7,7 +7,8 @@ Repositiorio para publicar todo lo que aprendo en la Asignatura de Acceso a Dato
 * [DAM](https://www.todofp.es/que-estudiar/loe/informatica-comunicaciones/des-aplicaciones-multiplataforma.html) - CFGS DAM
 
 ### Software
-
+* [Netbeans](https://netbeans.apache.org/) - IDE
+* [Java Development Kit](https://www.oracle.com/es/java/technologies/downloads/#jdk17-windows) - JDK 17
   
 ## Creditos ✒️
 
