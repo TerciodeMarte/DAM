@@ -11,6 +11,12 @@ public class Ball : MonoBehaviour
     [SerializeField]
     private GameManager gameManager;
 
+    [SerializeField]
+    private AudioSource crash;
+
+    [SerializeField]
+    private AudioSource score;
+
 
     private Rigidbody2D ballRb;
     private static float collisionpadel = 1f;
@@ -47,14 +53,20 @@ public class Ball : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        score.Play();
+
         if (collision.gameObject.tag == "Left")
         {
-            gameManager.ScorePlayerOne();
+            gameManager.ScorePlayerTwo();
+            collisionpadel = 1f;
         }
         else if (collision.gameObject.tag == "Right")
         {
-            gameManager.ScorePlayerTwo();
+            gameManager.ScorePlayerOne();
+            collisionpadel = 1f;
         }
+
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -64,6 +76,8 @@ public class Ball : MonoBehaviour
             Collisionpadel += 0.02f;
             ballRb.velocity *= Collisionpadel;
         }
+
+        crash.Play();
     }
 
 }
