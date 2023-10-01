@@ -8,6 +8,7 @@ Repositorio para publicar todo lo que aprendo en la Asignatura de Programación 
 
 ### Software
 * [Netbeans](https://netbeans.apache.org/) - IDE
+* [Java Development Kit](https://netbeans.apache.org/) - JDK 17
 
 ## Creditos ✒️
 
