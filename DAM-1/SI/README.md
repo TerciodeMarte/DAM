@@ -7,9 +7,7 @@ Repositorio para publicar todo lo que aprendo en la Asignatura de Sistemas Infor
 * [DAM](https://www.todofp.es/que-estudiar/loe/informatica-comunicaciones/des-aplicaciones-multiplataforma.html) - CFGS DAM
 
 ### Software
-* [Virtual Box](# DAM1-LMSG
-Repositiorio para publicar todo lo que aprendo en la Asignatura de Lenguaje de Marcas y Sistemas de Gestion del Ciclo formativo de Grado Superior Desarrollo de Aplicaciones Multiplataforma
-
+* [Virtual Box](https://www.virtualbox.org/) - Software Virtualización
 ## Pre-requisitos 📋
 
 ### Curso
