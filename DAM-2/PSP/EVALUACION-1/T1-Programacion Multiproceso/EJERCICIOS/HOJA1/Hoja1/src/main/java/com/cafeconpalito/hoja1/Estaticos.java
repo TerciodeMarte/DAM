@@ -175,12 +175,13 @@ el valor de salida. */
             Runtime rt = Runtime.getRuntime();
             String[] comando = {"notepad.exe"};
             Process p = rt.exec(comando);
-            p.waitFor();
+            int salida= p.waitFor();
             for (int i = 0; i < 10; i++) {
                 System.out.println(Math.random() * 9);
             }
             System.out.println("VALOR DE SALIDA");
-            System.out.println(p.exitValue());
+            //System.out.println(p.exitValue());
+            System.out.println(salida);
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InterruptedException ex) {
