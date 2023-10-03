@@ -19,6 +19,10 @@ public class Main {
        //Estaticos.ej5();
        //Estaticos.ej6();
        //Estaticos.ej7();
-       Estaticos.ej8(args[0]);
+       //Estaticos.ej8(args[0]);
+       //Estaticos.ej101();
+       //Estaticos.ej102();
+       //Estaticos.ej111();
+       Estaticos.ej112();
     }
 }

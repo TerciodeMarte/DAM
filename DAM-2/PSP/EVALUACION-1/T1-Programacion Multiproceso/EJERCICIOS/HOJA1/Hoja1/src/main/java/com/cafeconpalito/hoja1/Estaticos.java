@@ -4,8 +4,13 @@
  */
 package com.cafeconpalito.hoja1;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -175,7 +180,7 @@ el valor de salida. */
             Runtime rt = Runtime.getRuntime();
             String[] comando = {"notepad.exe"};
             Process p = rt.exec(comando);
-            int salida= p.waitFor();
+            int salida = p.waitFor();
             for (int i = 0; i < 10; i++) {
                 System.out.println(Math.random() * 9);
             }
@@ -228,6 +233,106 @@ noches amigo!”*/
             } catch (InterruptedException ex) {
                 Logger.getLogger(Estaticos.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+    }
+
+    /*10. Obtener la salida estándar de un .jar.
+Crea dos programas en Java:
+- El primero imprime por su salida estándar 10 números aleatorios. A continuación, genera un 
+.jar del programa.
+- El segundo tiene que ejecutar el .jar del primer programa y leer su salida estándar para 
+calcular la suma de los 10 números aleatorios.*/
+    public static void ej101() {
+        for (int i = 0; i < 10; i++) {
+            System.out.println((int) (Math.random() * 9));
+        }
+    }
+
+    public static void ej102() {
+
+        try {
+            int suma = 0;
+            ProcessBuilder pb = new ProcessBuilder("CMD", "/c", "java -jar ej10.jar");
+
+            Process p = pb.start();
+
+            String linea = null;
+
+            try (InputStream is = p.getInputStream(); BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
+
+                //Inicio de lectura linea a linea
+                linea = br.readLine();
+
+                System.out.println("LOS 10 NUMEROS ALEATORIOS SON: ");
+                while (linea != null) {
+                    //mostrando las lineas por consola
+                    System.out.println(linea);
+                    suma += Integer.parseInt(linea);
+                    linea = br.readLine();
+                }
+                System.out.println("LA SUMA ES:");
+                System.out.println(suma);
+
+            } catch (IOException e) {
+                System.err.println("IOException");
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(Estaticos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /*Crea dos programas en Java:
+- El primero lee dos cadenas de texto desde la entrada estándar. Para hacerlo utiliza la 
+clase BufferedReader y su método readLine(). Para redirigir la entrada estándar 
+(System.in) a BufferedReader hay que hacer el código siguiente:
+Pídelas al usuario con los mensajes: “Introduce la primera cadena” e “introduce la 
+segunda cadena”.
+Cada cadena leída la tienes que imprimir por pantalla (salida estándar).
+Por último, crea un .jar de la aplicación.
+- El segundo programa debe lanzar un proceso con el .jar anterior y debe pasarle por su 
+entrada estándar las dos cadenas para que las lea. A continuación, comprobar que 
+funciona deberás obtener la salida estándar del proceso para imprimirla por pantalla.*/
+    public static void ej111() {
+
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            System.out.println("Introduce la primera cadena");
+            System.out.println(br.readLine());
+            System.out.println("Introduce la segunda cadena");
+            System.out.println(br.readLine());
+        } catch (IOException ex) {
+            Logger.getLogger(Estaticos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void ej112() {
+        try {
+
+            ProcessBuilder pb = new ProcessBuilder("CMD", "/c", "java -jar ej11.jar");
+
+            Process p = pb.start();
+
+            String linea = null;
+
+            try (InputStream is = p.getInputStream(); BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
+
+               
+                //Inicio de lectura linea a linea
+                linea = br.readLine();
+                 
+                while (linea != null) {
+                    //mostrando las lineas por consola
+                    System.out.println(linea);
+           
+                    linea = br.readLine();
+                }
+
+            } catch (IOException e) {
+                System.err.println("IOException");
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(Estaticos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
