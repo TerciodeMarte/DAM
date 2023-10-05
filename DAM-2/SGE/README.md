@@ -1,4 +1,4 @@
-# DAM1-AC
+# DAM1-SGE
 Repositiorio para publicar todo lo que aprendo en la Asignatura de Sistemas de Gestión Empresarial del Ciclo formativo de Grado Superior Desarrollo de Aplicaciones Multiplataforma
 
 ## Pre-requisitos 📋
