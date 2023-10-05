@@ -10,8 +10,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,7 +30,7 @@ public class Metodos {
 
             try (FileWriter fw = new FileWriter(archivo)) {
 
-                for (int j = 0; j < 10; j++) {
+                for (int j = 0; j < 200000000; j++) {
                     fw.write((int) (Math.random() * 50) + "\n");
                 }
 
@@ -60,7 +58,7 @@ public class Metodos {
             while ((cadena = br.readLine()) != null) {
                 suma += Integer.parseInt(cadena);
             }
-            fw.write(suma);
+            fw.write(String.valueOf(suma));
             System.out.println(suma);
 
         } catch (FileNotFoundException e) {
@@ -70,11 +68,84 @@ public class Metodos {
         }
     }
 
+    /**
+     * Metodo para sumar las sumas Parciales del metodo suma de forma secuencial
+     *
+     * @param argumentos ficheros de contabilidad
+     */
     public static void sumaTotalesSecuencial(String[] argumentos) {
+        
         int sumaTotal = 0;
-        for (String i : argumentos) {
 
-            try (BufferedReader br = new BufferedReader(new FileReader(i));) {
+        for (String i : argumentos) {
+            String linea = null;
+
+            ProcessBuilder pb = new ProcessBuilder("CMD", "/c", "java -jar suma.jar " + i);
+
+            Process p;
+            try {
+                //Se lanza el proceso hijo
+                p = pb.start();
+                //Se espera a finalizar
+                p.waitFor();
+            } catch (IOException ex) {
+                Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            //Se lee la suma parcial y se suma a la total
+            try (BufferedReader br = new BufferedReader(new FileReader(i + ".res"))) {
+
+                String cadena;
+
+                while ((cadena = br.readLine()) != null) {
+                    sumaTotal += Integer.parseInt(cadena);
+                }
+
+            } catch (FileNotFoundException e) {
+                Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, e);
+            } catch (IOException e) {
+                Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            //Repetir mientras queden sumas parciales
+        }
+        System.out.println(sumaTotal);
+    }
+    /**
+     * Metodo para sumar las sumas Parciales del metodo suma de forma paralela
+     *
+     * @param argumentos ficheros de contabilidad
+     */
+    public static void sumaTotalesParalelo(String[] argumentos) {
+        int sumaTotal = 0;
+        ProcessBuilder[] pb= new ProcessBuilder[argumentos.length];
+        Process[] p= new Process[argumentos.length];
+
+        //Bucle para lanzar todos los procesos hijos
+        for (int i = 0; i < argumentos.length; i++) {
+            String linea = null;
+
+            pb[i] = new ProcessBuilder("CMD", "/c", "java -jar suma.jar " + argumentos[i]);
+
+            try {
+                p[i] = pb[i].start();
+            } catch (IOException ex) {
+                Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        //Bucle para esperar ha que terminen todos los procesos hijos lanzados antes
+        for (Process i : p) {
+            try {
+                i.waitFor();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        //Bucle para leer todas las sumas parciales
+        for (String i : argumentos) {
+               try (BufferedReader br = new BufferedReader(new FileReader(i + ".res"))) {
 
                 String cadena;
 
@@ -88,5 +159,8 @@ public class Metodos {
                 Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, e);
             }
         }
+        System.out.println(sumaTotal);
     }
+
 }
+
