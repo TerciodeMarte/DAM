@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -312,23 +313,32 @@ funciona deberás obtener la salida estándar del proceso para imprimirla por pa
 
             Process p = pb.start();
 
+            try (OutputStream os = p.getOutputStream(); BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os));) {
+
+                bw.write("May the force by with you");
+                bw.newLine();
+                bw.write("Always");
+
+            } catch (Exception e) {
+                Logger.getLogger(Estaticos.class.getName()).log(Level.SEVERE, null, e);
+            }
+            
             String linea = null;
 
             try (InputStream is = p.getInputStream(); BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
 
-               
                 //Inicio de lectura linea a linea
                 linea = br.readLine();
-                 
+
                 while (linea != null) {
                     //mostrando las lineas por consola
                     System.out.println(linea);
-           
+
                     linea = br.readLine();
                 }
 
             } catch (IOException e) {
-                System.err.println("IOException");
+                Logger.getLogger(Estaticos.class.getName()).log(Level.SEVERE, null, e);
             }
 
         } catch (IOException ex) {
