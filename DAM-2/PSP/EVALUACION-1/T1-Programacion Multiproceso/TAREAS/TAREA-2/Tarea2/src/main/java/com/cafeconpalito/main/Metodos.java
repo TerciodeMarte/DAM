@@ -20,9 +20,10 @@ import java.util.logging.Logger;
 public class Metodos {
 
     /**
-     * Metodo para generar ficheros con extension .txt con 10 numeros aleatorios
+     * Metodo para generar n ficheros con extension .txt con m numeros aleatorios
      *
      * @param numeroFicheros numero de ficheros a generar
+     * @param numeros cantidad de numeros aleatorios que quieres generar
      */
     public static void generarFichero(int numeroFicheros, int numeros) {
         for (int i = 0; i < numeroFicheros; i++) {
