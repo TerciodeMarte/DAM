@@ -15,13 +15,13 @@ public class Tarea2 {
         //PARA ELEGIR QUE PROYECTO QUIERES USAR SOLO HAY QUE DESCOMENTAR EL CODIGO
         
         //Metodo para generar ficheros.txt con 10 numeros aleatorios, se le puede indicar el numero de ficheros
-        //Metodos.generarFichero(3);
+        //Metodos.generarFichero(3,100);
         
         //Metodo que suma los numeros de los ficheros generados en el apartado anterior y lo escribe en un fichero .res
         //Metodos.suma(args[0]);
         
         //Metodo para hacer las sumas totales en secuencia
-        //Metodos.sumaTotalesSecuencial(args);
+        Metodos.sumaTotalesSecuencial(args);
         
         //Metodo para hacer las sumas totales en paralelo
         //Metodos.sumaTotalesParalelo(args);

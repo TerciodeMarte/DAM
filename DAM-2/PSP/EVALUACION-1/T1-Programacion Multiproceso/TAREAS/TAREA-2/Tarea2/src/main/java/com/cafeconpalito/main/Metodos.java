@@ -24,13 +24,13 @@ public class Metodos {
      *
      * @param numeroFicheros numero de ficheros a generar
      */
-    public static void generarFichero(int numeroFicheros) {
+    public static void generarFichero(int numeroFicheros, int numeros) {
         for (int i = 0; i < numeroFicheros; i++) {
             File archivo = new File("contabilidad" + (i + 1) + ".txt");
 
             try (FileWriter fw = new FileWriter(archivo)) {
 
-                for (int j = 0; j < 200000000; j++) {
+                for (int j = 0; j < numeros; j++) {
                     fw.write((int) (Math.random() * 50) + "\n");
                 }
 
@@ -49,14 +49,14 @@ public class Metodos {
      */
     public static void suma(String nombreFichero) {
 
-        int suma = 0;
+        long suma = 0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(nombreFichero)); FileWriter fw = new FileWriter(nombreFichero + ".res")) {
 
             String cadena;
 
             while ((cadena = br.readLine()) != null) {
-                suma += Integer.parseInt(cadena);
+                suma += Long.parseLong(cadena);
             }
             fw.write(String.valueOf(suma));
             System.out.println(suma);
@@ -74,8 +74,9 @@ public class Metodos {
      * @param argumentos ficheros de contabilidad
      */
     public static void sumaTotalesSecuencial(String[] argumentos) {
-        
-        int sumaTotal = 0;
+        long startTime = System.nanoTime();
+
+        long sumaTotal = 0;
 
         for (String i : argumentos) {
             String linea = null;
@@ -100,7 +101,7 @@ public class Metodos {
                 String cadena;
 
                 while ((cadena = br.readLine()) != null) {
-                    sumaTotal += Integer.parseInt(cadena);
+                    sumaTotal += Long.parseLong(cadena);
                 }
 
             } catch (FileNotFoundException e) {
@@ -112,25 +113,31 @@ public class Metodos {
             //Repetir mientras queden sumas parciales
         }
         System.out.println(sumaTotal);
+        long endTime = System.nanoTime();
+        long timeElapsed = endTime - startTime;
+        System.out.println("Tiempo de ejecución: " + (timeElapsed / 1000000) + " milisegundos");
     }
+
     /**
      * Metodo para sumar las sumas Parciales del metodo suma de forma paralela
      *
      * @param argumentos ficheros de contabilidad
      */
     public static void sumaTotalesParalelo(String[] argumentos) {
-        int sumaTotal = 0;
-        ProcessBuilder[] pb= new ProcessBuilder[argumentos.length];
-        Process[] p= new Process[argumentos.length];
+        long startTime = System.nanoTime();
+
+        long sumaTotal = 0;
+        ProcessBuilder pb =null;
+        Process[] p = new Process[argumentos.length];
 
         //Bucle para lanzar todos los procesos hijos
         for (int i = 0; i < argumentos.length; i++) {
             String linea = null;
 
-            pb[i] = new ProcessBuilder("CMD", "/c", "java -jar suma.jar " + argumentos[i]);
+            pb = new ProcessBuilder("CMD", "/c", "java -jar suma.jar " + argumentos[i]);
 
             try {
-                p[i] = pb[i].start();
+                p[i] = pb.start();
             } catch (IOException ex) {
                 Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -145,12 +152,12 @@ public class Metodos {
         }
         //Bucle para leer todas las sumas parciales
         for (String i : argumentos) {
-               try (BufferedReader br = new BufferedReader(new FileReader(i + ".res"))) {
+            try (BufferedReader br = new BufferedReader(new FileReader(i + ".res"))) {
 
                 String cadena;
 
                 while ((cadena = br.readLine()) != null) {
-                    sumaTotal += Integer.parseInt(cadena);
+                    sumaTotal += Long.parseLong(cadena);
                 }
 
             } catch (FileNotFoundException e) {
@@ -160,7 +167,10 @@ public class Metodos {
             }
         }
         System.out.println(sumaTotal);
+        
+        long endTime = System.nanoTime();
+        long timeElapsed = endTime - startTime;
+        System.out.println("Tiempo de ejecución: " + (timeElapsed / 1000000) + " milisegundos");
     }
 
 }
-
