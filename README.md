@@ -1,4 +1,6 @@
 <div align="center">
+<img src="https://github.com/TerciodeMarte/DAM/blob/main/LOGO%20CCP/logo-rb.png"  style="width: 30%"  />
+<br>
 <img src="https://github.com/TerciodeMarte/DAM/blob/main/agusto-logo.png"  style="width: 30%"  />
 <br>
 <img src="https://github.com/TerciodeMarte/DAM/blob/main/departamento-logo.png" style="width: 30%"  />
