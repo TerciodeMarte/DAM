@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -16,11 +15,13 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    //Metodo para ser ejecutado cuando se de al boton play
     public void play()
     {
         SceneManager.LoadScene("Pong");
     }
 
+    //Metodo para ser ejecutado cuando se de al boton exit
     public void exit()
     {
         Application.Quit();
