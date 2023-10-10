@@ -15,12 +15,14 @@ public class AmigosV2 {
     public static void main(String[] args) {
         HashMap<Integer, Integer> p = new HashMap();
         TreeMap<Integer, Integer> mapaB = new TreeMap();
+        
+        int nhilos=20;
 
-        Hilos[] array = new Hilos[20];
-        int tramo = 20000000 / 20;
+        Hilos[] array = new Hilos[nhilos];
+        int tramo = 20000000 / nhilos;
         int aux = 0;
         int aux2 = tramo;
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < nhilos; i++) {
 
             array[i] = new Hilos(aux, aux2);
             aux += tramo;
