@@ -131,6 +131,23 @@ números aleatorios entre el 0 y el 9. ¿qué ocurre y por qué?*/
 3. Obtener la información del entorno del proceso.*/
     //TODO
     public static void ej4() {
+        ProcessBuilder processBuilder = new ProcessBuilder("notepad.exe");
+        try {
+            Process process = processBuilder.start();
+            ProcessHandle handle = process.toHandle();
+
+            System.out.println("ID del proceso: " + handle.pid());
+            System.out.println("Nombre del comando: " + handle.info().command().get());
+            System.out.println("Argumentos usados: " + Arrays.toString(handle.info().arguments().orElse(new String[0])));
+            System.out.println("Tiempo de comienzo: " + handle.info().startInstant().get());
+            System.out.println("Tiempo de CPU: " + handle.info().totalCpuDuration().get());
+            System.out.println("Propietario: " + handle.info().user().get());
+
+            System.out.println("Número de hijos: " + handle.descendants().count());
+
+        } catch (IOException ex) {
+            Logger.getLogger(Estaticos.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
@@ -322,7 +339,7 @@ funciona deberás obtener la salida estándar del proceso para imprimirla por pa
             } catch (Exception e) {
                 Logger.getLogger(Estaticos.class.getName()).log(Level.SEVERE, null, e);
             }
-            
+
             String linea = null;
 
             try (InputStream is = p.getInputStream(); BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
