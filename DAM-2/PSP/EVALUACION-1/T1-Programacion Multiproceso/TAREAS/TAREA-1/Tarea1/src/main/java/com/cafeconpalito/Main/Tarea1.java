@@ -72,11 +72,11 @@ public class Tarea1 {
 
             File archivo = new File("salida.txt");
             FileWriter fw = null;
-            if (archivo.exists()) {
-                archivo.delete();
-            }
+            //if (archivo.exists()) {
+              //  archivo.delete();
+           // }
             try {
-                fw = new FileWriter(archivo, true);
+                fw = new FileWriter(archivo);
                 while (linea != null) {
                     System.out.println(linea);
                     fw.write(linea + "\n");
@@ -145,19 +145,19 @@ public class Tarea1 {
 
             File archivo = new File("salida2.txt");
 
-            if (archivo.exists()) {
+            /*if (archivo.exists()) {
                 archivo.delete();
-            }
+            }*/
 
-            try (FileWriter fw = new FileWriter(archivo, true); InputStream is = p.getInputStream(); BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
+            try (FileWriter fw = new FileWriter(archivo); InputStream is = p.getInputStream(); BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
 
                 //Inicio de lectura linea a linea
                 linea = br.readLine();
 
                 while (linea != null) {
                     //mostrando las lineas por consola
-                    System.out.println(linea);
-                    fw.write(linea + "\n");
+                    System.out.println(linea+ "\n");
+                    fw.write(linea);
                     linea = br.readLine();
                 }
 
@@ -229,17 +229,17 @@ public class Tarea1 {
             File archivoer = new File("error3.txt");
             FileWriter fwer = null;
             
-            if (archivo.exists()) {
+            /*if (archivo.exists()) {
                 archivo.delete();
             }
             
             if (archivoer.exists()) {
                 archivoer.delete();
-            }
+            }*/
             
             try {
-                fw = new FileWriter(archivo, true);
-                 fwer = new FileWriter(archivoer, true);
+                fw = new FileWriter(archivo);
+                 fwer = new FileWriter(archivoer);
                 while (linea != null) {
                     System.out.println(linea);
                     fw.write(linea + "\n");
