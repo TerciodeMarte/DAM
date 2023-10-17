@@ -8,6 +8,7 @@ import java.awt.event.FocusListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import models.UserDAO;
+import view.Add;
 import view.Games;
 import view.Login;
 import view.Main;
@@ -21,6 +22,7 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
     private static Main view = new Main();
     private static Login login = new Login();
     private static Games games = new Games();
+    private static Add add = new Add(view, true);
 
     public static void main(String[] args) {
 
@@ -49,12 +51,14 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
         view.setLocationRelativeTo(null);
         view.setVisible(true);
 
-        this.login.getLogin().addActionListener(this);
-        this.login.getExit().addActionListener(this);
-        this.login.getTFEmail().addMouseListener(this);
-        this.login.getTFPass().addMouseListener(this);
-        this.login.getTFEmail().addFocusListener(this);
-        this.login.getTFPass().addFocusListener(this);
+        login.getLogin().addActionListener(this);
+        login.getExit().addActionListener(this);
+        login.getTFEmail().addMouseListener(this);
+        login.getTFPass().addMouseListener(this);
+        login.getTFEmail().addFocusListener(this);
+        login.getTFPass().addFocusListener(this);
+        games.getJLExit().addMouseListener(this);
+        games.getAdd().addActionListener(this);
 
     }
 
@@ -63,7 +67,7 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
         if (e.getActionCommand().equalsIgnoreCase("Exit")) {
             System.exit(0);
         } else if (e.getActionCommand().equalsIgnoreCase("Login")) {
-            if (UserDAO.searchEmail(this.login.getTFEmail().getText())) {
+            if (UserDAO.searchEmail(login.getTFEmail().getText())) {
                 login.getErrorE().setVisible(false);
 
                 if (UserDAO.checkPassword(String.valueOf(login.getTFPass().getPassword()))) {
@@ -82,34 +86,53 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
                 login.getErrorE().setVisible(true);
                 login.getErrorP().setVisible(false);
             }
+        }else if (e.getActionCommand().equalsIgnoreCase("AddGame")) {
+            add.setLocation(view.getX()+200, view.getY());
+            add.setVisible(true);
+            
         }
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
 
+        if (e.getComponent().getName().equals("JLExit")) {
+            this.login.getTFEmail().setText("email@steam.com");
+            this.login.getTFPass().setText("password");
+            login.getTFPass().setForeground(Color.gray);
+            login.getTFEmail().setForeground(Color.gray);
+
+            view.getFondo().removeAll();
+            view.getFondo().add(login);
+            view.getFondo().revalidate();
+            view.getFondo().repaint();
+        }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if (e.getComponent().getName().equals("TFEmail")) {
-            if (login.getTFEmail().getText().equals("email@steam.com")) {
-                login.getTFEmail().setText("");
-                login.getTFEmail().setForeground(Color.white);
+        try {
+            if (e.getComponent().getName().equals("TFEmail")) {
+                if (login.getTFEmail().getText().equals("email@steam.com")) {
+                    login.getTFEmail().setText("");
+                    login.getTFEmail().setForeground(Color.white);
+                }
+                if (String.valueOf(login.getTFPass().getPassword()).isEmpty()) {
+                    login.getTFPass().setText("password");
+                    login.getTFPass().setForeground(Color.gray);
+                }
+            } else if (e.getComponent().getName().equals("TFPass")) {
+                if (String.valueOf(login.getTFPass().getPassword()).equals("password")) {
+                    login.getTFPass().setText("");
+                    login.getTFPass().setForeground(Color.white);
+                }
+                if (login.getTFEmail().getText().isEmpty()) {
+                    login.getTFEmail().setText("email@steam.com");
+                    login.getTFEmail().setForeground(Color.gray);
+                }
             }
-            if (String.valueOf(login.getTFPass().getPassword()).isEmpty()) {
-                login.getTFPass().setText("password");
-                login.getTFPass().setForeground(Color.gray);
-            }
-        } else if (e.getComponent().getName().equals("TFPass")) {
-            if (String.valueOf(login.getTFPass().getPassword()).equals("password")) {
-                login.getTFPass().setText("");
-                login.getTFPass().setForeground(Color.white);
-            }
-            if (login.getTFEmail().getText().isEmpty()) {
-                login.getTFEmail().setText("email@steam.com");
-                login.getTFEmail().setForeground(Color.gray);
-            }
+        } catch (NullPointerException ex) {
+
         }
 
     }
@@ -131,7 +154,17 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
 
     @Override
     public void focusGained(FocusEvent e) {
-        if (e.getCause().toString().equals("ACTIVATION")) {
+        try {
+            if (e.getCause().toString().equals("ACTIVATION")) {
+            if (login.getTFEmail().getText().equals("email@steam.com")) {
+                login.getTFEmail().setText("");
+                login.getTFEmail().setForeground(Color.white);
+            }
+            if (String.valueOf(login.getTFPass().getPassword()).isEmpty()) {
+                login.getTFPass().setText("password");
+                login.getTFPass().setForeground(Color.gray);
+            }
+        } else if (e.getOppositeComponent() == null) {
             if (login.getTFEmail().getText().equals("email@steam.com")) {
                 login.getTFEmail().setText("");
                 login.getTFEmail().setForeground(Color.white);
@@ -162,6 +195,9 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
                 login.getTFPass().setForeground(Color.gray);
             }
         }
+        } catch (NullPointerException ex) {
+        }
+        
 
         //System.out.println(e.getOppositeComponent().getName());
     }

@@ -6,9 +6,15 @@ package view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,11 +27,21 @@ public class Games extends javax.swing.JPanel {
      */
     public Games() {
         initComponents();
+
+        ImageIcon image = new ImageIcon("src/resources/signout.png");
+        Image imgEscalada = image.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT);
+        ImageIcon imgFinal = new ImageIcon(imgEscalada);
+        JLExit.setIcon(imgFinal);
+
+        this.repaint();
         TBGames.getTableHeader().setOpaque(false);
         TBGames.getTableHeader().setBackground(new Color(102, 192, 244));
         TBGames.getTableHeader().setForeground(Color.white);
-        TBGames.getTableHeader().setFont(new Font("Roboto Medium",1,14));
-        
+        TBGames.getTableHeader().setFont(new Font("Roboto Medium", 1, 14));
+        jScrollPane1.getViewport().setBackground(new Color(42, 71, 94));
+        DefaultTableCellRenderer dtcr = (DefaultTableCellRenderer) TBGames.getCellRenderer(1, 1);
+        dtcr.setHorizontalAlignment(SwingConstants.CENTER);
+
     }
 
  
@@ -46,8 +62,16 @@ public class Games extends javax.swing.JPanel {
         TBGames = new javax.swing.JTable();
         copyright = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        filter = new javax.swing.JButton();
+        add = new javax.swing.JButton();
+        JLFName = new javax.swing.JLabel();
+        JLExit = new javax.swing.JLabel();
+        TFFName = new javax.swing.JTextField();
         JLName = new javax.swing.JLabel();
+        TFFGenre = new javax.swing.JTextField();
+        JLFGenre = new javax.swing.JLabel();
+        TFFCompany = new javax.swing.JTextField();
+        JLFCompany = new javax.swing.JLabel();
+        filter = new javax.swing.JButton();
 
         fondologin.setBackground(new java.awt.Color(42, 71, 94));
         fondologin.setPreferredSize(new java.awt.Dimension(700, 750));
@@ -61,41 +85,33 @@ public class Games extends javax.swing.JPanel {
         TBGames.setForeground(new java.awt.Color(255, 255, 255));
         TBGames.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {"Prueba", "Prueba", "Prueba", "Prueba", null, null},
+                {"Prueba2", "Prueba2", "Prueba2", "Prueba2", null, null}
             },
             new String [] {
-                "Name", "Genre", "Date Release", "Company"
+                "Name", "Genre", "Date Release", "Company", "Distribution", "PEGI"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
+        TBGames.setFocusable(false);
         TBGames.setSelectionBackground(new java.awt.Color(102, 192, 244));
         TBGames.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        TBGames.setShowHorizontalLines(true);
+        TBGames.setShowVerticalLines(true);
         jScrollPane1.setViewportView(TBGames);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 650, -1));
@@ -120,19 +136,70 @@ public class Games extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(23, 26, 33));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        add.setBackground(new java.awt.Color(172, 213, 80));
+        add.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        add.setForeground(new java.awt.Color(255, 255, 255));
+        add.setText("Add Game");
+        add.setToolTipText("");
+        add.setActionCommand("AddGame");
+        add.setBorder(null);
+        add.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        add.setName("AddGame"); // NOI18N
+        jPanel2.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 160, 40));
+        add.getAccessibleContext().setAccessibleName("AddGame");
+
+        JLFName.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        JLFName.setForeground(new java.awt.Color(255, 255, 255));
+        JLFName.setText("Name: ");
+        JLFName.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jPanel2.add(JLFName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 50, 40));
+
+        JLExit.setForeground(new java.awt.Color(255, 255, 255));
+        JLExit.setName("JLExit"); // NOI18N
+        jPanel2.add(JLExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, 40, 40));
+
+        TFFName.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        TFFName.setText("Name");
+        jPanel2.add(TFFName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 160, 40));
+
+        JLName.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        JLName.setForeground(new java.awt.Color(255, 255, 255));
+        JLName.setText("Welcome elpepe");
+        JLName.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jPanel2.add(JLName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 130, 40));
+
+        TFFGenre.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        TFFGenre.setText("Genre");
+        jPanel2.add(TFFGenre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 160, 40));
+
+        JLFGenre.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        JLFGenre.setForeground(new java.awt.Color(255, 255, 255));
+        JLFGenre.setText("Genre: ");
+        JLFGenre.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jPanel2.add(JLFGenre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 50, 40));
+
+        TFFCompany.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        TFFCompany.setText("Company");
+        TFFCompany.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFFCompanyActionPerformed(evt);
+            }
+        });
+        jPanel2.add(TFFCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 160, 40));
+
+        JLFCompany.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        JLFCompany.setForeground(new java.awt.Color(255, 255, 255));
+        JLFCompany.setText("Company: ");
+        JLFCompany.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jPanel2.add(JLFCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 70, 40));
+
         filter.setBackground(new java.awt.Color(172, 213, 80));
         filter.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         filter.setForeground(new java.awt.Color(255, 255, 255));
         filter.setText("Filter");
         filter.setBorder(null);
         filter.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel2.add(filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 180, 40));
-
-        JLName.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        JLName.setForeground(new java.awt.Color(255, 255, 255));
-        JLName.setText("Welcome elpepe");
-        JLName.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jPanel2.add(JLName, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 180, 40));
+        jPanel2.add(filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 160, 40));
 
         fondologin.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 160));
 
@@ -160,13 +227,9 @@ public class Games extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_copyrightMouseExited
 
-    public JLabel getJLName() {
-        return JLName;
-    }
-
-    public void setJLName(JLabel JLName) {
-        this.JLName = JLName;
-    }
+    private void TFFCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFFCompanyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFFCompanyActionPerformed
 
     public JTable getTBGames() {
         return TBGames;
@@ -177,18 +240,73 @@ public class Games extends javax.swing.JPanel {
     }
 
     public JButton getFilter() {
-        return filter;
+        return add;
     }
 
     public void setFilter(JButton filter) {
-        this.filter = filter;
+        this.add = filter;
+    }
+
+    public JLabel getJLExit() {
+        return JLExit;
+    }
+
+    public void setJLExit(JLabel JLExit) {
+        this.JLExit = JLExit;
+    }
+
+    public JLabel getJLName() {
+        return JLName;
+    }
+
+    public void setJLName(JLabel JLName) {
+        this.JLName = JLName;
+    }
+
+    public JTextField getTFFCompany() {
+        return TFFCompany;
+    }
+
+    public void setTFFCompany(JTextField TFFCompany) {
+        this.TFFCompany = TFFCompany;
+    }
+
+    public JTextField getTFFGenre() {
+        return TFFGenre;
+    }
+
+    public void setTFFGenre(JTextField TFFGenre) {
+        this.TFFGenre = TFFGenre;
+    }
+
+    public JTextField getTFFName() {
+        return TFFName;
+    }
+
+    public void setTFFName(JTextField TFFName) {
+        this.TFFName = TFFName;
+    }
+
+    public JButton getAdd() {
+        return add;
+    }
+
+    public void setAdd(JButton add) {
+        this.add = add;
     }
 
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JLExit;
+    private javax.swing.JLabel JLFCompany;
+    private javax.swing.JLabel JLFGenre;
+    private javax.swing.JLabel JLFName;
     private javax.swing.JLabel JLName;
     private javax.swing.JTable TBGames;
+    private javax.swing.JTextField TFFCompany;
+    private javax.swing.JTextField TFFGenre;
+    private javax.swing.JTextField TFFName;
+    private javax.swing.JButton add;
     private javax.swing.JLabel copyright;
     private javax.swing.JButton filter;
     private javax.swing.JPanel fondologin;

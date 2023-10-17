@@ -42,8 +42,6 @@ public class Login extends javax.swing.JPanel {
     private void initComponents() {
 
         fondologin = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         TFPass = new javax.swing.JPasswordField();
         errorP = new javax.swing.JLabel();
@@ -54,24 +52,15 @@ public class Login extends javax.swing.JPanel {
         errorE = new javax.swing.JLabel();
         exit = new javax.swing.JButton();
         login = new javax.swing.JButton();
-        logo = new javax.swing.JLabel();
         copyright = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        logo = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         fondologin.setBackground(new java.awt.Color(42, 71, 94));
         fondologin.setPreferredSize(new java.awt.Dimension(700, 750));
         fondologin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Workers");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        fondologin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 118, 37));
-
-        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Steam");
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        fondologin.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 80, 37));
 
         jPanel2.setBackground(new java.awt.Color(27, 40, 56));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -163,9 +152,8 @@ public class Login extends javax.swing.JPanel {
 
         fondologin.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 700, 190));
 
-        exit.setBackground(new java.awt.Color(172, 213, 80));
+        exit.setBackground(new java.awt.Color(204, 204, 204));
         exit.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        exit.setForeground(new java.awt.Color(255, 255, 255));
         exit.setText("Exit");
         exit.setBorder(null);
         exit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -178,7 +166,6 @@ public class Login extends javax.swing.JPanel {
         login.setBorder(null);
         login.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         fondologin.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 550, 180, 40));
-        fondologin.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 160, 80));
 
         copyright.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         copyright.setForeground(new java.awt.Color(255, 255, 255));
@@ -194,6 +181,49 @@ public class Login extends javax.swing.JPanel {
             }
         });
         fondologin.add(copyright, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 700, 70));
+
+        jPanel3.setBackground(new java.awt.Color(23, 26, 33));
+
+        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Steam");
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Workers");
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(379, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+
+        fondologin.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 160));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -287,6 +317,7 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JButton login;
     private javax.swing.JLabel logo;
     // End of variables declaration//GEN-END:variables
