@@ -6,6 +6,10 @@ package view;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -18,13 +22,16 @@ public class Login extends javax.swing.JPanel {
      */
     public Login() {
         initComponents();
-
-        ImageIcon image = new ImageIcon("src/resources/logo-valve.png");
-        Image imgEscalada = image.getImage().getScaledInstance(logo.getWidth(), logo.getHeight(), WIDTH);
+         ImageIcon image = new ImageIcon("src/resources/logo-valve.png");
+        Image imgEscalada = image.getImage().getScaledInstance(150, 80, Image.SCALE_DEFAULT);
         ImageIcon imgFinal = new ImageIcon(imgEscalada);
         logo.setIcon(imgFinal);
+        this.repaint();
     }
 
+ 
+       
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,42 +42,252 @@ public class Login extends javax.swing.JPanel {
     private void initComponents() {
 
         fondologin = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        TFPass = new javax.swing.JPasswordField();
+        errorP = new javax.swing.JLabel();
+        JLPass = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        JLEmail = new javax.swing.JLabel();
+        TFEmail = new javax.swing.JTextField();
+        errorE = new javax.swing.JLabel();
+        exit = new javax.swing.JButton();
+        login = new javax.swing.JButton();
         logo = new javax.swing.JLabel();
+        copyright = new javax.swing.JLabel();
 
-        fondologin.setBackground(new java.awt.Color(27, 40, 56));
+        fondologin.setBackground(new java.awt.Color(42, 71, 94));
+        fondologin.setPreferredSize(new java.awt.Dimension(700, 750));
+        fondologin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout fondologinLayout = new javax.swing.GroupLayout(fondologin);
-        fondologin.setLayout(fondologinLayout);
-        fondologinLayout.setHorizontalGroup(
-            fondologinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondologinLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(390, Short.MAX_VALUE))
-        );
-        fondologinLayout.setVerticalGroup(
-            fondologinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondologinLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(587, Short.MAX_VALUE))
-        );
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Workers");
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        fondologin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 118, 37));
+
+        jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Steam");
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        fondologin.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 80, 37));
+
+        jPanel2.setBackground(new java.awt.Color(27, 40, 56));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TFPass.setBackground(new java.awt.Color(42, 71, 94));
+        TFPass.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        TFPass.setForeground(new java.awt.Color(153, 153, 153));
+        TFPass.setText("password");
+        TFPass.setActionCommand("TFPass");
+        TFPass.setBorder(null);
+        TFPass.setCaretColor(new java.awt.Color(255, 255, 255));
+        TFPass.setName("TFPass"); // NOI18N
+        jPanel2.add(TFPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 420, 40));
+
+        errorP.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        errorP.setForeground(new java.awt.Color(255, 51, 51));
+        errorP.setText("Password incorrect");
+        errorP.setToolTipText("");
+        errorP.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        jPanel2.add(errorP, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 420, 40));
+
+        JLPass.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        JLPass.setForeground(new java.awt.Color(255, 255, 255));
+        JLPass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLPass.setText("PASSWORD");
+        JLPass.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        JLPass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JLPassMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JLPassMouseExited(evt);
+            }
+        });
+        jPanel2.add(JLPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 380, 40));
+
+        fondologin.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 700, 160));
+
+        jPanel1.setBackground(new java.awt.Color(27, 40, 56));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLEmail.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        JLEmail.setForeground(new java.awt.Color(255, 255, 255));
+        JLEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLEmail.setText("EMAIL");
+        JLEmail.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        JLEmail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JLEmailMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JLEmailMouseExited(evt);
+            }
+        });
+        jPanel1.add(JLEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 380, 40));
+
+        TFEmail.setBackground(new java.awt.Color(42, 71, 94));
+        TFEmail.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        TFEmail.setForeground(new java.awt.Color(153, 153, 153));
+        TFEmail.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TFEmail.setText("email@steam.com");
+        TFEmail.setActionCommand("TFEmail");
+        TFEmail.setBorder(null);
+        TFEmail.setCaretColor(new java.awt.Color(255, 255, 255));
+        TFEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        TFEmail.setName("TFEmail"); // NOI18N
+        TFEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                TFEmailFocusGained(evt);
+            }
+        });
+        TFEmail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TFEmailMousePressed(evt);
+            }
+        });
+        TFEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFEmailActionPerformed(evt);
+            }
+        });
+        jPanel1.add(TFEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 420, 40));
+
+        errorE.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        errorE.setForeground(new java.awt.Color(255, 51, 51));
+        errorE.setText("Email no found");
+        errorE.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        jPanel1.add(errorE, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 100, 420, 43));
+
+        fondologin.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 700, 190));
+
+        exit.setBackground(new java.awt.Color(172, 213, 80));
+        exit.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        exit.setForeground(new java.awt.Color(255, 255, 255));
+        exit.setText("Exit");
+        exit.setBorder(null);
+        exit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        fondologin.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 550, 180, 40));
+
+        login.setBackground(new java.awt.Color(172, 213, 80));
+        login.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        login.setForeground(new java.awt.Color(255, 255, 255));
+        login.setText("Login");
+        login.setBorder(null);
+        login.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        fondologin.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 550, 180, 40));
+        fondologin.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 160, 80));
+
+        copyright.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        copyright.setForeground(new java.awt.Color(255, 255, 255));
+        copyright.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        copyright.setText("<html>\n<body>\n© 2023 Valve Corporation. Todos los derechos reservados. <br>\nTodas las marcas registradas pertenecen a sus respectivos dueños en EE. UU. y otros países.<br>\n Todos los precios incluyen IVA (donde sea aplicable). \n</body>\n</html"); // NOI18N
+        copyright.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        copyright.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                copyrightMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                copyrightMouseExited(evt);
+            }
+        });
+        fondologin.add(copyright, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 700, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondologin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(fondologin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondologin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(fondologin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void JLEmailMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLEmailMouseEntered
+
+    }//GEN-LAST:event_JLEmailMouseEntered
+
+    private void JLEmailMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLEmailMouseExited
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_JLEmailMouseExited
+
+    private void TFEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TFEmailFocusGained
+
+    }//GEN-LAST:event_TFEmailFocusGained
+
+    private void TFEmailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFEmailMousePressed
+
+    }//GEN-LAST:event_TFEmailMousePressed
+
+    private void TFEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFEmailActionPerformed
+
+    private void JLPassMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLPassMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JLPassMouseEntered
+
+    private void JLPassMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLPassMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JLPassMouseExited
+
+    private void copyrightMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_copyrightMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_copyrightMouseEntered
+
+    private void copyrightMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_copyrightMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_copyrightMouseExited
+
+    public JTextField getTFEmail() {
+        return TFEmail;
+    }
+
+    public JPasswordField getTFPass() {
+        return TFPass;
+    }
+
+    public JLabel getErrorE() {
+        return errorE;
+    }
+
+    public JLabel getErrorP() {
+        return errorP;
+    }
+
+    public JButton getExit() {
+        return exit;
+    }
+
+    public JButton getLogin() {
+        return login;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JLEmail;
+    private javax.swing.JLabel JLPass;
+    private javax.swing.JTextField TFEmail;
+    private javax.swing.JPasswordField TFPass;
+    private javax.swing.JLabel copyright;
+    private javax.swing.JLabel errorE;
+    private javax.swing.JLabel errorP;
+    private javax.swing.JButton exit;
     private javax.swing.JPanel fondologin;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton login;
     private javax.swing.JLabel logo;
     // End of variables declaration//GEN-END:variables
 }
