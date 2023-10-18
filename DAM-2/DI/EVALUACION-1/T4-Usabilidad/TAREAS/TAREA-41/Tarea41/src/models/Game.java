@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 package models;
 
 import java.io.Serializable;
@@ -14,23 +13,20 @@ import javax.swing.ImageIcon;
  */
 public class Game implements Serializable {
 
-    private int id;
-    
-    private String nombre,genre,date,company,distribution,pegi;
-    
+    private String nombre, genre, date, company, distribution, pegi;
+
     private String descripcion;
-    
+
     private ImageIcon image;
-    
-    private String nversiona , nversionb;
-    
-    private double pversiona, pversionb;
+
+    private String version;
+
+    private double precio;
 
     public Game() {
     }
 
-    public Game(int id, String nombre, String genre, String date, String company, String distribution, String pegi, String descripcion, ImageIcon image, String nversiona, double pversiona) {
-        this.id = id;
+    public Game(String nombre, String genre, String date, String company, String distribution, String pegi, String descripcion, ImageIcon image, String version, double precio) {
         this.nombre = nombre;
         this.genre = genre;
         this.date = date;
@@ -39,27 +35,11 @@ public class Game implements Serializable {
         this.pegi = pegi;
         this.descripcion = descripcion;
         this.image = image;
-        this.nversiona = nversiona;
-        this.pversiona = pversiona;
+        this.version = version;
+        this.precio = precio;
     }
 
-    public Game(int id, String nombre, String genre, String date, String company, String distribution, String pegi, String descripcion, ImageIcon image, String nversiona, String nversionb, double pversiona, double pversionb) {
-        this.id = id;
-        this.nombre = nombre;
-        this.genre = genre;
-        this.date = date;
-        this.company = company;
-        this.distribution = distribution;
-        this.pegi = pegi;
-        this.descripcion = descripcion;
-        this.image = image;
-        this.nversiona = nversiona;
-        this.nversionb = nversionb;
-        this.pversiona = pversiona;
-        this.pversionb = pversionb;
-    }
-    
-    
+   
 
     public String getDistribution() {
         return distribution;
@@ -75,14 +55,6 @@ public class Game implements Serializable {
 
     public void setPegi(String pegi) {
         this.pegi = pegi;
-    }
-    
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNombre() {
@@ -133,43 +105,26 @@ public class Game implements Serializable {
         this.image = image;
     }
 
-    public String getNversiona() {
-        return nversiona;
+    public String getVersion() {
+        return version;
     }
 
-    public void setNversiona(String nversiona) {
-        this.nversiona = nversiona;
+    public void setVersion(String version) {
+        this.version = version;
     }
 
-    public String getNversionb() {
-        return nversionb;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setNversionb(String nversionb) {
-        this.nversionb = nversionb;
-    }
-
-    public double getPversiona() {
-        return pversiona;
-    }
-
-    public void setPversiona(double pversiona) {
-        this.pversiona = pversiona;
-    }
-
-    public double getPversionb() {
-        return pversionb;
-    }
-
-    public void setPversionb(double pversionb) {
-        this.pversionb = pversionb;
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
     @Override
     public String toString() {
-        return "Game{" + "nombre=" + nombre + ", genre=" + genre + ", date=" + date + ", company=" + company + ", descripcion=" + descripcion + ", image=" + image + ", nversiona=" + nversiona + ", nversionb=" + nversionb + ", pversiona=" + pversiona + ", pversionb=" + pversionb + '}';
+        return "Game{" + "nombre=" + nombre + ", genre=" + genre + ", date=" + date + ", company=" + company + ", distribution=" + distribution + ", pegi=" + pegi + ", descripcion=" + descripcion + ", image=" + image + ", version=" + version + ", precio=" + precio + '}';
     }
-    
-    
-   
+
+
 }

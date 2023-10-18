@@ -58,7 +58,18 @@ public class Add extends javax.swing.JDialog {
         fondo.add(copyright, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 700, 70));
 
         formulario.setBackground(new java.awt.Color(27, 40, 56));
-        formulario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout formularioLayout = new javax.swing.GroupLayout(formulario);
+        formulario.setLayout(formularioLayout);
+        formularioLayout.setHorizontalGroup(
+            formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+        );
+        formularioLayout.setVerticalGroup(
+            formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 510, Short.MAX_VALUE)
+        );
+
         fondo.add(formulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 700, 510));
 
         jPanel1.setBackground(new java.awt.Color(23, 26, 33));

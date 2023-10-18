@@ -4,6 +4,14 @@
  */
 package view;
 
+import com.toedter.calendar.JDateChooser;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+
 /**
  *
  * @author carra
@@ -15,6 +23,11 @@ public class Form1 extends javax.swing.JPanel {
      */
     public Form1() {
         initComponents();
+        ImageIcon image = new ImageIcon("src/resources/flecha-derecha.png");
+        Image imgEscalada = image.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT);
+        ImageIcon imgFinal = new ImageIcon(imgEscalada);
+        next.setIcon(imgFinal);
+        this.repaint();
     }
 
     /**
@@ -27,19 +40,86 @@ public class Form1 extends javax.swing.JPanel {
     private void initComponents() {
 
         fondo = new javax.swing.JPanel();
+        TFFName = new javax.swing.JTextField();
+        JLFName = new javax.swing.JLabel();
+        next = new javax.swing.JLabel();
+        TFGenre = new javax.swing.JTextField();
+        JLGenre = new javax.swing.JLabel();
+        JLGenre1 = new javax.swing.JLabel();
+        ComboCompany = new javax.swing.JComboBox<>();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        JLCompany2 = new javax.swing.JLabel();
+        ComboDistribution = new javax.swing.JComboBox<>();
+        JLContinent = new javax.swing.JLabel();
+        JLContinent1 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
 
         fondo.setBackground(new java.awt.Color(27, 40, 56));
+        fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
-        fondo.setLayout(fondoLayout);
-        fondoLayout.setHorizontalGroup(
-            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        fondoLayout.setVerticalGroup(
-            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
-        );
+        TFFName.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        TFFName.setText("Name");
+        fondo.add(TFFName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 220, 40));
+
+        JLFName.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        JLFName.setForeground(new java.awt.Color(255, 255, 255));
+        JLFName.setText("Name: ");
+        JLFName.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        fondo.add(JLFName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 50, 40));
+
+        next.setName("JNext1"); // NOI18N
+        fondo.add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 40, 40));
+
+        TFGenre.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        TFGenre.setText("Genre");
+        fondo.add(TFGenre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 220, 40));
+
+        JLGenre.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        JLGenre.setForeground(new java.awt.Color(255, 255, 255));
+        JLGenre.setText("Genre: ");
+        JLGenre.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        fondo.add(JLGenre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 50, 40));
+
+        JLGenre1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        JLGenre1.setForeground(new java.awt.Color(255, 255, 255));
+        JLGenre1.setText("Date Release: ");
+        JLGenre1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        fondo.add(JLGenre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 100, 40));
+
+        ComboCompany.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        ComboCompany.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "Valve Corporation", "Paradox Interactive", "Microsoft Games", "Blizzard Games" }));
+        fondo.add(ComboCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 220, 40));
+
+        jDateChooser1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jDateChooser1.setMaxSelectableDate(new java.util.Date(2524608080000L));
+        jDateChooser1.setMinSelectableDate(new java.util.Date(1697324480000L));
+        fondo.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 220, 40));
+
+        JLCompany2.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        JLCompany2.setForeground(new java.awt.Color(255, 255, 255));
+        JLCompany2.setText("Company: ");
+        JLCompany2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        fondo.add(JLCompany2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 80, 40));
+
+        ComboDistribution.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        ComboDistribution.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "America", "Europa", "Asia", "Africa", "Oceania" }));
+        fondo.add(ComboDistribution, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 220, 40));
+
+        JLContinent.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        JLContinent.setForeground(new java.awt.Color(255, 255, 255));
+        JLContinent.setText("PEGI: ");
+        JLContinent.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        fondo.add(JLContinent, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 100, 40));
+
+        JLContinent1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        JLContinent1.setForeground(new java.awt.Color(255, 255, 255));
+        JLContinent1.setText("Distribution: ");
+        JLContinent1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        fondo.add(JLContinent1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 100, 40));
+
+        jSpinner1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jSpinner1.setModel(new javax.swing.SpinnerListModel(new String[] {"+3", "+7", "+12", "+16", "+18"}));
+        fondo.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, 220, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -53,8 +133,48 @@ public class Form1 extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public JComboBox<String> getComboCompany() {
+        return ComboCompany;
+    }
+
+    public JComboBox<String> getComboDistribution() {
+        return ComboDistribution;
+    }
+
+    public JTextField getTFFName() {
+        return TFFName;
+    }
+
+    public JTextField getTFGenre() {
+        return TFGenre;
+    }
+
+    public JDateChooser getjDateChooser1() {
+        return jDateChooser1;
+    }
+
+    public JSpinner getjSpinner1() {
+        return jSpinner1;
+    }
+
+    public JLabel getNext() {
+        return next;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboCompany;
+    private javax.swing.JComboBox<String> ComboDistribution;
+    private javax.swing.JLabel JLCompany2;
+    private javax.swing.JLabel JLContinent;
+    private javax.swing.JLabel JLContinent1;
+    private javax.swing.JLabel JLFName;
+    private javax.swing.JLabel JLGenre;
+    private javax.swing.JLabel JLGenre1;
+    private javax.swing.JTextField TFFName;
+    private javax.swing.JTextField TFGenre;
     private javax.swing.JPanel fondo;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JLabel next;
     // End of variables declaration//GEN-END:variables
 }
