@@ -64,6 +64,6 @@ public class GameDAO {
                 return false;
             }
         }
-        return true;
+        return false;
     }
 }

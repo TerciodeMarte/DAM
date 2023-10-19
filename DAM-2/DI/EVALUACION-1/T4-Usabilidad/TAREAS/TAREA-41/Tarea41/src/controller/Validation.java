@@ -10,10 +10,13 @@ public class Validation {
 
     public static boolean name(String name) {
         if (GameDAO.searchOneGame(name)) {
+          
             return true;
         } else if (name.isBlank()) {
+        
             return true;
         } else if (name.equalsIgnoreCase("Name")) {
+           
             return true;
         } else {
             return false;

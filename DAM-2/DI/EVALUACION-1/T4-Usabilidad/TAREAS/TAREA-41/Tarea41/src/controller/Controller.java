@@ -7,8 +7,12 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -176,8 +180,39 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
             }
 
         } else if (e.getComponent().getName().equals("JNext2")) {
+            if (Validation.description(form2.getTADes().getText())
+                    || Validation.ruta(form2.getTFRuta().getText())
+                    || Validation.version(form2.getTFVersion1().getText())
+                    || Validation.price(form2.getPrecio().getValue().toString())) {
 
-            
+                JOptionPane jop = new JOptionPane("One field contains an error", JOptionPane.ERROR_MESSAGE);
+                JDialog jd = jop.createDialog("ERROR");
+                jd.setLocationRelativeTo(null);
+                jd.setVisible(true);
+                jd.setAlwaysOnTop(true);
+
+            } else {
+                GameDAO.almacenarGame(new Game(form1.getTFFName().getText(),
+                        form1.getTFGenre().getText(),
+                        form1.getjDateChooser1().getDate().toString(),
+                        form1.getComboCompany().getSelectedItem().toString(),
+                        form1.getComboDistribution().getSelectedItem().toString(),
+                        form1.getjSpinner1().getValue().toString(),
+                        form2.getTADes().getText(),
+                        ruta,
+                        form2.getTFVersion1().getText(),
+                        Double.parseDouble(form2.getPrecio().getValue().toString())));
+                add.dispose();
+
+                JOptionPane jop = new JOptionPane("Game successfully inserted ", JOptionPane.OK_OPTION);
+                JDialog jd = jop.createDialog("INFO");
+                jd.setLocationRelativeTo(null);
+                jd.setVisible(true);
+                jd.setAlwaysOnTop(true);
+
+                cargarTabla();
+            }
+
         } else if (e.getComponent().getName().equals("JBack2")) {
             add.getFormulario().removeAll();
             add.getFormulario().add(form1);
@@ -208,16 +243,24 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
 
                 //Ecribe la ruta del fichero seleccionado en el campo de texto
                 form2.getTFRuta().setText(fichero.getAbsolutePath());
+                System.out.println(fichero.getAbsolutePath());
+                System.out.println(fichero.getName());
 
                 ProcessBuilder pb = null;
-                
 
-                pb = new ProcessBuilder("CMD", "/c", "copy " + ruta + " " + "images/"+fichero.getName());
+                pb = new ProcessBuilder("CMD", "/c", "copy " + ruta + " " + "images/" + fichero.getName());
 
                 try {
-                   Process p = pb.start();
-               
+                    Process p = pb.start();
+                    p.waitFor();
+                    
+                    if (p.exitValue() == 0) {
+                        ruta = "images/" + fichero.getName();
+                    }
+
                 } catch (IOException ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InterruptedException ex) {
                     Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
