@@ -23,13 +23,13 @@ public class Form2 extends javax.swing.JPanel {
      */
     public Form2() {
         initComponents();
-        ImageIcon image = new ImageIcon("src/resources/check.png");
+        ImageIcon image = new ImageIcon("resources/check.png");
         Image imgEscalada = image.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT);
         ImageIcon imgFinal = new ImageIcon(imgEscalada);
         next.setIcon(imgFinal);
         this.repaint();
         
-        ImageIcon image2 = new ImageIcon("src/resources/flecha-izquierda.png");
+        ImageIcon image2 = new ImageIcon("resources/flecha-izquierda.png");
         Image imgEscalada2 = image2.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT);
         ImageIcon imgFinal2= new ImageIcon(imgEscalada2);
         back.setIcon(imgFinal2);

@@ -7,18 +7,22 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import models.Game;
@@ -45,18 +49,31 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
     private static Form2 form2 = new Form2();
 
     private static String ruta = "";
+    private static int contador = 0;
 
     public static void main(String[] args) {
 
         Controller c = new Controller();
         c.run();
+
         //UserDAO.registerUsers();
         //UserDAO.listUser();
         //String nombre+, String genre+, String date+, String company+, String distribution+, String pegi+, String descripcion, String image, String version, double precio
         //GameDAO.almacenarGame(new Game("Minecraft", "SandBox", "2012-12-01", "Microsoft", "Europa", "+3", "Juego de cubos", "src/resources/logo-steam", "Basic", 12));
         //GameDAO.almacenarGame(new Game("TF2", "Shooter", "2023-01-31", "Valve", "America", "+17", "Red vs Blue", "src/resources/logo-steam", "Free", 0));
-
         //GameDAO.leerGames();
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void run() {
@@ -83,8 +100,11 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
         login.getTFPass().addMouseListener(this);
         login.getTFEmail().addFocusListener(this);
         login.getTFPass().addFocusListener(this);
+
         games.getJLExit().addMouseListener(this);
         games.getAdd().addActionListener(this);
+        games.getFilterb().addMouseListener(this);
+
         form1.getNext().addMouseListener(this);
         form2.getNext().addMouseListener(this);
         form2.getBack().addMouseListener(this);
@@ -102,7 +122,7 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
 
                 if (UserDAO.checkPassword(String.valueOf(login.getTFPass().getPassword()))) {
 
-                    cargarTabla();
+                    cargarTabla(games.getTFFName().getText(), games.getTFFGenre().getText(), games.getTFFCompany().getText());
                     games.getJLName().setText("Welcome " + UserDAO.getUser().getName());
                     view.getFondo().removeAll();
                     view.getFondo().add(games);
@@ -118,17 +138,23 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
                 login.getErrorP().setVisible(false);
             }
         } else if (e.getActionCommand().equalsIgnoreCase("AddGame")) {
-            add.setLocation(view.getX() + 200, view.getY());
+            if (contador == 0) {
+                add.setLocation(view.getX() + 200, view.getY());
 
-            form1.setSize(700, 510);
-            form1.setLocation(0, 0);
+                limpiarFormularios();
+                form1.setSize(700, 510);
+                form1.setLocation(0, 0);
 
-            add.getFormulario().removeAll();
-            add.getFormulario().add(form1);
-            add.getFormulario().revalidate();
-            add.getFormulario().repaint();
+                add.getFormulario().removeAll();
+                add.getFormulario().add(form1);
+                add.getFormulario().revalidate();
+                add.getFormulario().repaint();
 
-            add.setVisible(true);
+                add.setVisible(true);
+                contador = 1;
+            } else {
+                contador = 0;
+            }
 
         }
     }
@@ -202,15 +228,17 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
                         ruta,
                         form2.getTFVersion1().getText(),
                         Double.parseDouble(form2.getPrecio().getValue().toString())));
+
                 add.dispose();
 
-                JOptionPane jop = new JOptionPane("Game successfully inserted ", JOptionPane.OK_OPTION);
+                JOptionPane jop = new JOptionPane("Game successfully inserted ", JOptionPane.INFORMATION_MESSAGE);
                 JDialog jd = jop.createDialog("INFO");
                 jd.setLocationRelativeTo(null);
                 jd.setVisible(true);
                 jd.setAlwaysOnTop(true);
 
-                cargarTabla();
+                cargarTabla(games.getTFFName().getText(), games.getTFFGenre().getText(), games.getTFFCompany().getText());
+                limpiarFormularios();
             }
 
         } else if (e.getComponent().getName().equals("JBack2")) {
@@ -241,30 +269,24 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
                 File fichero = fc.getSelectedFile();
                 ruta = fichero.getAbsolutePath();
 
-                //Ecribe la ruta del fichero seleccionado en el campo de texto
-                form2.getTFRuta().setText(fichero.getAbsolutePath());
-                System.out.println(fichero.getAbsolutePath());
-                System.out.println(fichero.getName());
-
-                ProcessBuilder pb = null;
-
-                pb = new ProcessBuilder("CMD", "/c", "copy " + ruta + " " + "images/" + fichero.getName());
+                Path origenPath = FileSystems.getDefault().getPath(ruta);
+                Path destinoPath = FileSystems.getDefault().getPath("images/" + fichero.getName());
 
                 try {
-                    Process p = pb.start();
-                    p.waitFor();
-                    
-                    if (p.exitValue() == 0) {
-                        ruta = "images/" + fichero.getName();
-                    }
+                    Files.copy(origenPath, destinoPath, StandardCopyOption.REPLACE_EXISTING);
+
+                    ruta = "images/" + fichero.getName();
+                    //Ecribe la ruta del fichero seleccionado en el campo de texto
+                    form2.getTFRuta().setText(fichero.getAbsolutePath());
 
                 } catch (IOException ex) {
-                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (InterruptedException ex) {
                     Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
+        } else if (e.getComponent().getName().equals("Filter")) {
+            System.out.println("Entre");
+            cargarTabla(games.getTFFName().getText(), games.getTFFGenre().getText(), games.getTFFCompany().getText());
         }
     }
 
@@ -365,20 +387,66 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
 
     }
 
-    private static void cargarTabla() {
+    private static void cargarTabla(String nombre, String genero, String company) {
 
         GameDAO.leerGames();
-
         LinkedList<Game> lista = GameDAO.getListgame();
         DefaultTableModel modelo = (DefaultTableModel) games.getTBGames().getModel();
-
         modelo.setRowCount(0);
 
-        for (Game game : lista) {
-            String[] row = {game.getNombre(), game.getGenre(), game.getDate(), game.getCompany(), game.getDistribution(), game.getPegi()};
-            modelo.addRow(row);
+        if ((nombre.equalsIgnoreCase("Name") || nombre.isBlank())
+                && (genero.equalsIgnoreCase("Genre") || genero.isBlank())
+                && (company.equalsIgnoreCase("Company") || company.isBlank())) {
+            for (Game game : lista) {
+                String[] row = {game.getNombre(), game.getGenre(), game.getDate(), game.getCompany(), game.getDistribution(), game.getPegi()};
+                modelo.addRow(row);
+            }
+        } else {
+
+            Iterator<Game> it = lista.iterator();
+            while (it.hasNext()) {
+                Game game = it.next();
+
+                if (game.getNombre().contains(nombre)) {
+                    continue;
+                }
+                if (game.getCompany().contains(company)) {
+                    continue;
+                }
+                if (game.getGenre().contains(genero)) {
+                    continue;
+                }
+                it.remove();
+            }
+            for (Game game : lista) {
+                String[] row = {game.getNombre(), game.getGenre(), game.getDate(), game.getCompany(), game.getDistribution(), game.getPegi()};
+                modelo.addRow(row);
+            }
+
         }
 
     }
 
+    private static void limpiarFormularios() {
+
+        //Limpiar formulario 1
+        form1.getTFFName().setText("Name");
+        form1.getTFFName().setForeground(Color.GRAY);
+        form1.getTFGenre().setText("Genre");
+        form1.getTFGenre().setForeground(Color.GRAY);
+        form1.getComboCompany().setSelectedIndex(0);
+        form1.getComboCompany().setForeground(Color.GRAY);
+        form1.getComboDistribution().setSelectedIndex(0);
+        form1.getComboDistribution().setForeground(Color.GRAY);
+        Date limpieza = null;
+        form1.getjDateChooser1().setDate(limpieza);
+        form1.getjSpinner1().setValue("+3");
+
+        //Limpiar formulario 2
+        form2.getTADes().setText("");
+        form2.getTFRuta().setText("");
+        form2.getTFVersion1().setText("");
+        form2.getPrecio().setValue(0);
+
+    }
 }

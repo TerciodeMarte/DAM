@@ -27,7 +27,7 @@ public class Form1 extends javax.swing.JPanel {
      */
     public Form1() {
         initComponents();
-        ImageIcon image = new ImageIcon("src/resources/flecha-derecha.png");
+        ImageIcon image = new ImageIcon("resources/flecha-derecha.png");
         Image imgEscalada = image.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT);
         ImageIcon imgFinal = new ImageIcon(imgEscalada);
         next.setIcon(imgFinal);
@@ -79,13 +79,13 @@ public class Form1 extends javax.swing.JPanel {
                 TFFNameKeyTyped(evt);
             }
         });
-        fondo.add(TFFName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 220, 40));
+        fondo.add(TFFName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 220, 40));
 
         JLFNameError.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         JLFNameError.setForeground(new java.awt.Color(255, 51, 51));
         JLFNameError.setText("This Game already exists or Field Null");
         JLFNameError.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        fondo.add(JLFNameError, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 260, 40));
+        fondo.add(JLFNameError, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 260, 40));
 
         next.setName("JNext1"); // NOI18N
         fondo.add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 40, 40));
@@ -98,19 +98,19 @@ public class Form1 extends javax.swing.JPanel {
                 TFGenreFocusGained(evt);
             }
         });
-        fondo.add(TFGenre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 220, 40));
+        fondo.add(TFGenre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 220, 40));
 
         JLGenre.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         JLGenre.setForeground(new java.awt.Color(255, 255, 255));
         JLGenre.setText("Genre: ");
         JLGenre.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        fondo.add(JLGenre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 50, 40));
+        fondo.add(JLGenre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 50, 40));
 
         JLGenre1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         JLGenre1.setForeground(new java.awt.Color(255, 255, 255));
         JLGenre1.setText("Date Release: ");
         JLGenre1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        fondo.add(JLGenre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 100, 40));
+        fondo.add(JLGenre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 100, 40));
 
         ComboCompany.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         ComboCompany.setForeground(new java.awt.Color(153, 153, 153));
@@ -120,18 +120,18 @@ public class Form1 extends javax.swing.JPanel {
                 ComboCompanyFocusGained(evt);
             }
         });
-        fondo.add(ComboCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 220, 40));
+        fondo.add(ComboCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 220, 40));
 
         jDateChooser1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jDateChooser1.setMaxSelectableDate(new java.util.Date(2524608080000L));
         jDateChooser1.setMinSelectableDate(new java.util.Date(455324462000L));
-        fondo.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 220, 40));
+        fondo.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 220, 40));
 
         JLCompany2.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         JLCompany2.setForeground(new java.awt.Color(255, 255, 255));
         JLCompany2.setText("Company: ");
         JLCompany2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        fondo.add(JLCompany2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 80, 40));
+        fondo.add(JLCompany2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 80, 40));
 
         ComboDistribution.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         ComboDistribution.setForeground(new java.awt.Color(153, 153, 153));
@@ -141,29 +141,29 @@ public class Form1 extends javax.swing.JPanel {
                 ComboDistributionFocusGained(evt);
             }
         });
-        fondo.add(ComboDistribution, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 220, 40));
+        fondo.add(ComboDistribution, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 220, 40));
 
         JLContinent.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         JLContinent.setForeground(new java.awt.Color(255, 255, 255));
         JLContinent.setText("PEGI: ");
         JLContinent.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        fondo.add(JLContinent, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 100, 40));
+        fondo.add(JLContinent, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 100, 40));
 
         JLContinent1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         JLContinent1.setForeground(new java.awt.Color(255, 255, 255));
         JLContinent1.setText("Distribution: ");
         JLContinent1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        fondo.add(JLContinent1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 100, 40));
+        fondo.add(JLContinent1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 100, 40));
 
         jSpinner1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jSpinner1.setModel(new javax.swing.SpinnerListModel(new String[] {"+3", "+7", "+12", "+16", "+18"}));
-        fondo.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, 220, 40));
+        fondo.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 220, 40));
 
         JLFName1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         JLFName1.setForeground(new java.awt.Color(255, 255, 255));
         JLFName1.setText("Name: ");
         JLFName1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        fondo.add(JLFName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 50, 40));
+        fondo.add(JLFName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 50, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

@@ -23,7 +23,7 @@ public class Main extends javax.swing.JFrame {
     
     @Override
     public Image getIconImage() {
-        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("resources/logo-steam.png"));
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("resource/logo-steam.png"));
         return retValue;
     }
 
