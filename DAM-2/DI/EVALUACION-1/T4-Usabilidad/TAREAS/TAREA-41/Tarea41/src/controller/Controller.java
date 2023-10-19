@@ -7,8 +7,18 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
+import models.Game;
+import models.GameDAO;
 import models.UserDAO;
 import view.Add;
 import view.Form1;
@@ -30,13 +40,19 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
     private static Form1 form1 = new Form1();
     private static Form2 form2 = new Form2();
 
+    private static String ruta = "";
+
     public static void main(String[] args) {
 
         Controller c = new Controller();
         c.run();
         //UserDAO.registerUsers();
         //UserDAO.listUser();
+        //String nombre+, String genre+, String date+, String company+, String distribution+, String pegi+, String descripcion, String image, String version, double precio
+        //GameDAO.almacenarGame(new Game("Minecraft", "SandBox", "2012-12-01", "Microsoft", "Europa", "+3", "Juego de cubos", "src/resources/logo-steam", "Basic", 12));
+        //GameDAO.almacenarGame(new Game("TF2", "Shooter", "2023-01-31", "Valve", "America", "+17", "Red vs Blue", "src/resources/logo-steam", "Free", 0));
 
+        //GameDAO.leerGames();
     }
 
     public void run() {
@@ -68,6 +84,7 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
         form1.getNext().addMouseListener(this);
         form2.getNext().addMouseListener(this);
         form2.getBack().addMouseListener(this);
+        form2.getLoad().addMouseListener(this);
 
     }
 
@@ -81,6 +98,7 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
 
                 if (UserDAO.checkPassword(String.valueOf(login.getTFPass().getPassword()))) {
 
+                    cargarTabla();
                     games.getJLName().setText("Welcome " + UserDAO.getUser().getName());
                     view.getFondo().removeAll();
                     view.getFondo().add(games);
@@ -158,12 +176,52 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
             }
 
         } else if (e.getComponent().getName().equals("JNext2")) {
-            System.out.println("Formulario3");
+
+            
         } else if (e.getComponent().getName().equals("JBack2")) {
             add.getFormulario().removeAll();
             add.getFormulario().add(form1);
             add.getFormulario().revalidate();
             add.getFormulario().repaint();
+        } else if (e.getComponent().getName().equals("LoadImage")) {
+            //Creamos el objeto JFileChooser
+            JFileChooser fc = new JFileChooser();
+
+            //Indicamos lo que podemos seleccionar
+            fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+
+            //Creamos el filtro
+            FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.png", "png");
+
+            //Le indicamos el filtro
+            fc.setFileFilter(filtro);
+
+            //Abrimos la ventana, guardamos la opcion seleccionada por el usuario
+            int seleccion = fc.showOpenDialog(add);
+
+            //Si el usuario, pincha en aceptar
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+
+                //Seleccionamos el fichero
+                File fichero = fc.getSelectedFile();
+                ruta = fichero.getAbsolutePath();
+
+                //Ecribe la ruta del fichero seleccionado en el campo de texto
+                form2.getTFRuta().setText(fichero.getAbsolutePath());
+
+                ProcessBuilder pb = null;
+                
+
+                pb = new ProcessBuilder("CMD", "/c", "copy " + ruta + " " + "images/"+fichero.getName());
+
+                try {
+                   Process p = pb.start();
+               
+                } catch (IOException ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
         }
     }
 
@@ -261,6 +319,22 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
 
     @Override
     public void focusLost(FocusEvent e) {
+
+    }
+
+    private static void cargarTabla() {
+
+        GameDAO.leerGames();
+
+        LinkedList<Game> lista = GameDAO.getListgame();
+        DefaultTableModel modelo = (DefaultTableModel) games.getTBGames().getModel();
+
+        modelo.setRowCount(0);
+
+        for (Game game : lista) {
+            String[] row = {game.getNombre(), game.getGenre(), game.getDate(), game.getCompany(), game.getDistribution(), game.getPegi()};
+            modelo.addRow(row);
+        }
 
     }
 

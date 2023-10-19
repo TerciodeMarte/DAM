@@ -91,12 +91,12 @@ public class Form2 extends javax.swing.JPanel {
         load.setBackground(new java.awt.Color(172, 213, 80));
         load.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         load.setForeground(new java.awt.Color(255, 255, 255));
-        load.setText("Load Image");
+        load.setText("LoadImage");
         load.setToolTipText("");
-        load.setActionCommand("AddGame");
+        load.setActionCommand("LoadImage");
         load.setBorder(null);
         load.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        load.setName("AddGame"); // NOI18N
+        load.setName("LoadImage"); // NOI18N
         load.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loadActionPerformed(evt);
@@ -114,7 +114,6 @@ public class Form2 extends javax.swing.JPanel {
         TFRuta.setBackground(new java.awt.Color(255, 255, 255));
         TFRuta.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         TFRuta.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        TFRuta.setEnabled(false);
         fondo.add(TFRuta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 350, 40));
 
         JLDescripcion3.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
@@ -140,11 +139,15 @@ public class Form2 extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -206,6 +209,18 @@ public class Form2 extends javax.swing.JPanel {
 
     public void setLoad(JButton load) {
         this.load = load;
+    }
+
+    public JTextArea getTADes() {
+        return TADes;
+    }
+
+    public JTextField getTFRuta() {
+        return TFRuta;
+    }
+
+    public JSpinner getPrecio() {
+        return precio;
     }
     
     

@@ -1,5 +1,7 @@
 package controller;
 
+import models.GameDAO;
+
 /**
  *
  * @author Albano Díez de Paulino
@@ -7,7 +9,9 @@ package controller;
 public class Validation {
 
     public static boolean name(String name) {
-        if (name.isBlank()) {
+        if (GameDAO.searchOneGame(name)) {
+            return true;
+        } else if (name.isBlank()) {
             return true;
         } else if (name.equalsIgnoreCase("Name")) {
             return true;
@@ -44,6 +48,36 @@ public class Validation {
 
     public static boolean date(String date) {
         if (date.isBlank()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean description(String description) {
+        if (description.isBlank()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean version(String version) {
+        if (version.isBlank()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public static boolean price(String price){
+        if (price.isBlank()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+     public static boolean ruta(String ruta){
+        if (ruta.isBlank()) {
             return true;
         } else {
             return false;

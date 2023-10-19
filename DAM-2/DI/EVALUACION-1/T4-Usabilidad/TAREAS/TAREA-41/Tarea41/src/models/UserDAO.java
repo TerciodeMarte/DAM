@@ -24,7 +24,7 @@ public class UserDAO {
 
     public static boolean searchEmail(String email) {
 
-        try (FileInputStream fis = new FileInputStream("users.dat"); ObjectInputStream ois = new ObjectInputStream(fis)){
+        try (FileInputStream fis = new FileInputStream("files/users.dat"); ObjectInputStream ois = new ObjectInputStream(fis)){
             
           
             LinkedList<User> a = new LinkedList();
@@ -70,7 +70,7 @@ public class UserDAO {
 
         try {
             //se le pasa la ruta del archivo
-            fos = new FileOutputStream("users.dat");
+            fos = new FileOutputStream("files/users.dat");
             //se le pasa el fos como parametro
             oos = new ObjectOutputStream(fos);
 
@@ -103,7 +103,7 @@ public class UserDAO {
         ObjectInputStream ois = null;
 
         try {
-            fis = new FileInputStream("users.dat");
+            fis = new FileInputStream("files/users.dat");
             ois = new ObjectInputStream(fis);
             LinkedList<User> a = new LinkedList();
             

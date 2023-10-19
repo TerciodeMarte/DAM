@@ -17,7 +17,7 @@ public class Game implements Serializable {
 
     private String descripcion;
 
-    private ImageIcon image;
+    private String image;
 
     private String version;
 
@@ -26,7 +26,7 @@ public class Game implements Serializable {
     public Game() {
     }
 
-    public Game(String nombre, String genre, String date, String company, String distribution, String pegi, String descripcion, ImageIcon image, String version, double precio) {
+    public Game(String nombre, String genre, String date, String company, String distribution, String pegi, String descripcion, String image, String version, double precio) {
         this.nombre = nombre;
         this.genre = genre;
         this.date = date;
@@ -97,11 +97,11 @@ public class Game implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public ImageIcon getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(ImageIcon image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

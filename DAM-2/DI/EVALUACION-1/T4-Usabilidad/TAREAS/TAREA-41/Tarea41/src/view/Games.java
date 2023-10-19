@@ -85,8 +85,7 @@ public class Games extends javax.swing.JPanel {
         TBGames.setForeground(new java.awt.Color(255, 255, 255));
         TBGames.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Prueba", "Prueba", "Prueba", "Prueba", null, null},
-                {"Prueba2", "Prueba2", "Prueba2", "Prueba2", null, null}
+
             },
             new String [] {
                 "Name", "Genre", "Date Release", "Company", "Distribution", "PEGI"
