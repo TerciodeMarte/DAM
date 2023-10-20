@@ -59,9 +59,10 @@ public class GameDAO {
     public static boolean searchOneGame(String name){
         for (Game game1 : listgame) {
             if (game1.getNombre().equalsIgnoreCase(name)) {
+                game=game1;
                 return true;
             }else{
-                return false;
+                continue;
             }
         }
         return false;

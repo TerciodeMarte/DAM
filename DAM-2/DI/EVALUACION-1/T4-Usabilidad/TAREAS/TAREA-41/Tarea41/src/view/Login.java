@@ -22,7 +22,7 @@ public class Login extends javax.swing.JPanel {
      */
     public Login() {
         initComponents();
-         ImageIcon image = new ImageIcon("resources/logo-valve.png");
+        ImageIcon image = new ImageIcon("resources/logo-valve.png");
         Image imgEscalada = image.getImage().getScaledInstance(150, 80, Image.SCALE_DEFAULT);
         ImageIcon imgFinal = new ImageIcon(imgEscalada);
         logo.setIcon(imgFinal);

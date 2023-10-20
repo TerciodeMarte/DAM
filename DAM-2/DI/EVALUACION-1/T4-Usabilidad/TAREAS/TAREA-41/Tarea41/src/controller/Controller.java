@@ -13,6 +13,8 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -31,6 +33,7 @@ import models.UserDAO;
 import view.Add;
 import view.Form1;
 import view.Form2;
+import view.GameView;
 import view.Games;
 import view.Login;
 import view.Main;
@@ -47,6 +50,7 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
     private static Add add = new Add(view, true);
     private static Form1 form1 = new Form1();
     private static Form2 form2 = new Form2();
+    private static GameView gameview = new GameView(view, true);
 
     private static String ruta = "";
     private static int contador = 0;
@@ -104,8 +108,10 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
         games.getJLExit().addMouseListener(this);
         games.getAdd().addActionListener(this);
         games.getFilterb().addMouseListener(this);
+        games.getInfo().addMouseListener(this);
 
         form1.getNext().addMouseListener(this);
+
         form2.getNext().addMouseListener(this);
         form2.getBack().addMouseListener(this);
         form2.getLoad().addMouseListener(this);
@@ -218,9 +224,13 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
                 jd.setAlwaysOnTop(true);
 
             } else {
+                DateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
+
+                String date = formatter1.format(form1.getjDateChooser1().getDate());
+
                 GameDAO.almacenarGame(new Game(form1.getTFFName().getText(),
                         form1.getTFGenre().getText(),
-                        form1.getjDateChooser1().getDate().toString(),
+                        date,
                         form1.getComboCompany().getSelectedItem().toString(),
                         form1.getComboDistribution().getSelectedItem().toString(),
                         form1.getjSpinner1().getValue().toString(),
@@ -285,8 +295,34 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
 
             }
         } else if (e.getComponent().getName().equals("Filter")) {
-            System.out.println("Entre");
             cargarTabla(games.getTFFName().getText(), games.getTFFGenre().getText(), games.getTFFCompany().getText());
+        } else if (e.getComponent().getName().equals("info")) {
+            if (games.getTBGames().getSelectedRow() == -1) {
+                JOptionPane jop = new JOptionPane("No game selected", JOptionPane.ERROR_MESSAGE);
+                JDialog jd = jop.createDialog("ERROR");
+                jd.setLocationRelativeTo(null);
+                jd.setVisible(true);
+                jd.setAlwaysOnTop(true);
+            } else {
+                DefaultTableModel modelo = (DefaultTableModel) games.getTBGames().getModel();
+                String nombre = (String) modelo.getValueAt(games.getTBGames().getSelectedRow(), 0);
+
+                GameDAO.searchOneGame(nombre);
+                Game juego = GameDAO.getGame();
+                System.out.println(juego);
+
+                gameview.gettitle().setText(juego.getNombre());
+                gameview.getCompany().setText(juego.getCompany());
+                gameview.getGenre().setText(juego.getGenre());
+                gameview.getPegi().setText("PEGI " + juego.getPegi());
+                gameview.getDescription().setText("<html><body>" + juego.getDescripcion() + "</body></html>");
+                gameview.getVersion1().setText("Version 1: " + juego.getVersion());
+                gameview.getPrice().setText(String.valueOf(juego.getPrecio()) + "€");
+                gameview.setImagen(juego.getImage());
+                gameview.setLocation(view.getX() + 200, view.getY());
+                gameview.setVisible(true);
+            }
+
         }
     }
 

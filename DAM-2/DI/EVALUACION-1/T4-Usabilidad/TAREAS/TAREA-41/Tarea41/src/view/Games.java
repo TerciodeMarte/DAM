@@ -119,6 +119,7 @@ public class Games extends javax.swing.JPanel {
         info.setActionCommand("+Info");
         info.setBorder(null);
         info.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        info.setName("info"); // NOI18N
         jPanel1.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, 160, 40));
         info.getAccessibleContext().setAccessibleName("+Info");
 
