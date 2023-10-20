@@ -280,12 +280,12 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
                 ruta = fichero.getAbsolutePath();
 
                 Path origenPath = FileSystems.getDefault().getPath(ruta);
-                Path destinoPath = FileSystems.getDefault().getPath("images/" + fichero.getName());
+                Path destinoPath = FileSystems.getDefault().getPath("images/" + form1.getTFFName().getText()+"-logo.png");
 
                 try {
                     Files.copy(origenPath, destinoPath, StandardCopyOption.REPLACE_EXISTING);
 
-                    ruta = "images/" + fichero.getName();
+                    ruta = "images/" + form1.getTFFName().getText()+"-logo.png";
                     //Ecribe la ruta del fichero seleccionado en el campo de texto
                     form2.getTFRuta().setText(fichero.getAbsolutePath());
 
@@ -309,7 +309,6 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
 
                 GameDAO.searchOneGame(nombre);
                 Game juego = GameDAO.getGame();
-                System.out.println(juego);
 
                 gameview.gettitle().setText(juego.getNombre());
                 gameview.getCompany().setText(juego.getCompany());
@@ -430,35 +429,46 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
         DefaultTableModel modelo = (DefaultTableModel) games.getTBGames().getModel();
         modelo.setRowCount(0);
 
-        if ((nombre.equalsIgnoreCase("Name") || nombre.isBlank())
-                && (genero.equalsIgnoreCase("Genre") || genero.isBlank())
-                && (company.equalsIgnoreCase("Company") || company.isBlank())) {
-            for (Game game : lista) {
-                String[] row = {game.getNombre(), game.getGenre(), game.getDate(), game.getCompany(), game.getDistribution(), game.getPegi()};
-                modelo.addRow(row);
-            }
-        } else {
+        Iterator<Game> it = lista.iterator();
+        while (it.hasNext()) {
 
-            Iterator<Game> it = lista.iterator();
-            while (it.hasNext()) {
-                Game game = it.next();
-
-                if (game.getNombre().contains(nombre)) {
-                    continue;
+            Game game = it.next();
+            if (!(nombre.equalsIgnoreCase("Name") || nombre.isBlank())) {
+                if (!(game.getNombre().contains(nombre))) {
+                    it.remove();
                 }
-                if (game.getCompany().contains(company)) {
-                    continue;
-                }
-                if (game.getGenre().contains(genero)) {
-                    continue;
-                }
-                it.remove();
-            }
-            for (Game game : lista) {
-                String[] row = {game.getNombre(), game.getGenre(), game.getDate(), game.getCompany(), game.getDistribution(), game.getPegi()};
-                modelo.addRow(row);
             }
 
+        }
+
+        Iterator<Game> it2 = lista.iterator();
+        while (it2.hasNext()) {
+
+            Game game = it2.next();
+
+            if (!(genero.equalsIgnoreCase("Genre") || genero.isBlank())) {
+                if (!(game.getGenre().contains(genero))) {
+                    it2.remove();
+                }
+            }
+
+        }
+
+        Iterator<Game> it3 = lista.iterator();
+        while (it3.hasNext()) {
+
+            Game game = it3.next();
+
+            if (!(company.equalsIgnoreCase("Company") || company.isBlank())) {
+                if (!(game.getCompany().contains(company))) {
+                    it3.remove();
+                }
+            }
+
+        }
+        for (Game game : lista) {
+            String[] row = {game.getNombre(), game.getGenre(), game.getDate(), game.getCompany(), game.getDistribution(), game.getPegi()};
+            modelo.addRow(row);
         }
 
     }

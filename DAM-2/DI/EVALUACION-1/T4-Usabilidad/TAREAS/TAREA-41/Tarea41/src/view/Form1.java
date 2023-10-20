@@ -114,7 +114,7 @@ public class Form1 extends javax.swing.JPanel {
 
         ComboCompany.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         ComboCompany.setForeground(new java.awt.Color(153, 153, 153));
-        ComboCompany.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "Valve Corporation", "Paradox Interactive", "Microsoft Games", "Blizzard Games" }));
+        ComboCompany.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "Valve Corporation", "Paradox Interactive", "Microsoft Games", "Blizzard Games", "Soviet Union", "Hipster Whale", "Pokemon Company" }));
         ComboCompany.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 ComboCompanyFocusGained(evt);
