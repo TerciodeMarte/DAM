@@ -87,6 +87,7 @@ public class Form1 extends javax.swing.JPanel {
         JLFNameError.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         fondo.add(JLFNameError, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 260, 40));
 
+        next.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         next.setName("JNext1"); // NOI18N
         fondo.add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 40, 40));
 

@@ -4,18 +4,24 @@
  */
 package view;
 
+import controller.Controller;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import models.UserDAO;
 
 /**
  *
  * @author carra
  */
 public class Login extends javax.swing.JPanel {
+
+    private static Games games = new Games();
+    private static Main view = new Main();
 
     /**
      * Creates new form Login
@@ -29,9 +35,6 @@ public class Login extends javax.swing.JPanel {
         this.repaint();
     }
 
- 
-       
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -156,6 +159,7 @@ public class Login extends javax.swing.JPanel {
         exit.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         exit.setText("Exit");
         exit.setBorder(null);
+        exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         fondologin.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 550, 180, 40));
 
@@ -164,6 +168,7 @@ public class Login extends javax.swing.JPanel {
         login.setForeground(new java.awt.Color(255, 255, 255));
         login.setText("Login");
         login.setBorder(null);
+        login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         login.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         fondologin.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 550, 180, 40));
 

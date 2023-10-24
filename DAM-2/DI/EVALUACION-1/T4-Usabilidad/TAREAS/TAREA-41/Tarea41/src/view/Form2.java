@@ -63,9 +63,11 @@ public class Form2 extends javax.swing.JPanel {
         fondo.setBackground(new java.awt.Color(27, 40, 56));
         fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        back.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         back.setName("JBack2"); // NOI18N
         fondo.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 40, 40));
 
+        next.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         next.setName("JNext2"); // NOI18N
         fondo.add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 40, 40));
 
@@ -93,8 +95,8 @@ public class Form2 extends javax.swing.JPanel {
         load.setForeground(new java.awt.Color(255, 255, 255));
         load.setText("LoadImage");
         load.setToolTipText("");
-        load.setActionCommand("LoadImage");
         load.setBorder(null);
+        load.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         load.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         load.setName("LoadImage"); // NOI18N
         load.addActionListener(new java.awt.event.ActionListener() {

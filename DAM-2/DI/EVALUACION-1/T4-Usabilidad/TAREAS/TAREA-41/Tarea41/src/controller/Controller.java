@@ -295,6 +295,12 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
 
             }
         } else if (e.getComponent().getName().equals("Filter")) {
+            games.getTFFName().setText("Name");
+            games.getTFFName().setForeground(Color.gray);
+            games.getTFFGenre().setText("Genre");
+            games.getTFFGenre().setForeground(Color.gray);
+            games.getTFFCompany().setText("Company");
+            games.getTFFCompany().setForeground(Color.gray);
             cargarTabla(games.getTFFName().getText(), games.getTFFGenre().getText(), games.getTFFCompany().getText());
         } else if (e.getComponent().getName().equals("info")) {
             if (games.getTBGames().getSelectedRow() == -1) {
@@ -422,7 +428,7 @@ public class Controller implements ActionListener, MouseListener, FocusListener 
 
     }
 
-    private static void cargarTabla(String nombre, String genero, String company) {
+    public static void cargarTabla(String nombre, String genero, String company) {
 
         GameDAO.leerGames();
         LinkedList<Game> lista = GameDAO.getListgame();

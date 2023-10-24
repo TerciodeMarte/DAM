@@ -7,6 +7,8 @@ package view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.util.Iterator;
+import java.util.LinkedList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -14,6 +16,9 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import models.Game;
+import models.GameDAO;
 
 /**
  *
@@ -40,6 +45,58 @@ public class Games extends javax.swing.JPanel {
         jScrollPane1.getViewport().setBackground(new Color(42, 71, 94));
         DefaultTableCellRenderer dtcr = (DefaultTableCellRenderer) TBGames.getCellRenderer(1, 1);
         dtcr.setHorizontalAlignment(SwingConstants.CENTER);
+
+    }
+
+    private void filtrar(String nombre, String genero, String company) {
+
+        GameDAO.leerGames();
+        LinkedList<Game> lista = GameDAO.getListgame();
+        DefaultTableModel modelo = (DefaultTableModel) TBGames.getModel();
+
+        modelo.setRowCount(0);
+
+        Iterator<Game> it = lista.iterator();
+        while (it.hasNext()) {
+
+            Game game = it.next();
+            if (!(nombre.equalsIgnoreCase("Name") || nombre.isBlank())) {
+                if (!(game.getNombre().toLowerCase().contains(nombre))) {
+                    it.remove();
+                }
+            }
+
+        }
+
+        Iterator<Game> it2 = lista.iterator();
+        while (it2.hasNext()) {
+
+            Game game = it2.next();
+
+            if (!(genero.equalsIgnoreCase("Genre") || genero.isBlank())) {
+                if (!(game.getGenre().toLowerCase().contains(genero))) {
+                    it2.remove();
+                }
+            }
+
+        }
+
+        Iterator<Game> it3 = lista.iterator();
+        while (it3.hasNext()) {
+
+            Game game = it3.next();
+
+            if (!(company.equalsIgnoreCase("Company") || company.isBlank())) {
+                if (!(game.getCompany().toLowerCase().contains(company))) {
+                    it3.remove();
+                }
+            }
+
+        }
+        for (Game game : lista) {
+            String[] row = {game.getNombre(), game.getGenre(), game.getDate(), game.getCompany(), game.getDistribution(), game.getPegi()};
+            modelo.addRow(row);
+        }
 
     }
 
@@ -118,6 +175,7 @@ public class Games extends javax.swing.JPanel {
         info.setText("+ Info");
         info.setActionCommand("+Info");
         info.setBorder(null);
+        info.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         info.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         info.setName("info"); // NOI18N
         jPanel1.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, 160, 40));
@@ -150,6 +208,7 @@ public class Games extends javax.swing.JPanel {
         add.setToolTipText("");
         add.setActionCommand("AddGame");
         add.setBorder(null);
+        add.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         add.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add.setName("AddGame"); // NOI18N
         jPanel2.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 160, 40));
@@ -173,6 +232,11 @@ public class Games extends javax.swing.JPanel {
                 TFFNameFocusGained(evt);
             }
         });
+        TFFName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TFFNameKeyReleased(evt);
+            }
+        });
         jPanel2.add(TFFName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 160, 40));
 
         JLName.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
@@ -187,6 +251,11 @@ public class Games extends javax.swing.JPanel {
         TFFGenre.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 TFFGenreFocusGained(evt);
+            }
+        });
+        TFFGenre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TFFGenreKeyReleased(evt);
             }
         });
         jPanel2.add(TFFGenre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 160, 40));
@@ -210,6 +279,11 @@ public class Games extends javax.swing.JPanel {
                 TFFCompanyActionPerformed(evt);
             }
         });
+        TFFCompany.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TFFCompanyKeyReleased(evt);
+            }
+        });
         jPanel2.add(TFFCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 160, 40));
 
         JLFCompany.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
@@ -221,8 +295,9 @@ public class Games extends javax.swing.JPanel {
         filterb.setBackground(new java.awt.Color(102, 192, 244));
         filterb.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         filterb.setForeground(new java.awt.Color(255, 255, 255));
-        filterb.setText("Filter");
+        filterb.setText("Clear");
         filterb.setBorder(null);
+        filterb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         filterb.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         filterb.setName("Filter"); // NOI18N
         jPanel2.add(filterb, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 160, 40));
@@ -302,6 +377,18 @@ public class Games extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_TFFCompanyFocusGained
 
+    private void TFFNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFFNameKeyReleased
+        filtrar(TFFName.getText().toLowerCase(), TFFGenre.getText().toLowerCase(), TFFCompany.getText().toLowerCase());
+    }//GEN-LAST:event_TFFNameKeyReleased
+
+    private void TFFGenreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFFGenreKeyReleased
+        filtrar(TFFName.getText().toLowerCase(), TFFGenre.getText().toLowerCase(), TFFCompany.getText().toLowerCase());
+    }//GEN-LAST:event_TFFGenreKeyReleased
+
+    private void TFFCompanyKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFFCompanyKeyReleased
+        filtrar(TFFName.getText().toLowerCase(), TFFGenre.getText().toLowerCase(), TFFCompany.getText().toLowerCase());
+    }//GEN-LAST:event_TFFCompanyKeyReleased
+
     public JTable getTBGames() {
         return TBGames;
     }
@@ -314,7 +401,6 @@ public class Games extends javax.swing.JPanel {
         return filterb;
     }
 
-    
     public JLabel getJLExit() {
         return JLExit;
     }
