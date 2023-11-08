@@ -1,0 +1,21 @@
+Realiza un modelo MVC sobre una aplicación que gestione una base de datos.
+
+La base de datos versará sobre la temática de los videojuegos.
+
+Tendrá, al menos, tres usuarios en la base de datos (root, nombre, nombre1) y tres entidades, juegos, jugadores y sesiones (con 10 registros distintos)
+
+·      En la entidad juegos, deberá aparecer el nombre del juego, el tipo (psp, switch,…).
+
+·      En la entidad jugadores, tendrá alias y un nombre.
+
+·      En la entidad sesiones, deberá aparecer el juego y el jugador que ha jugado al juego.
+
+En Netbeans, realiza un proyecto con las siguientes características:
+
+1.     Tienes que realizar, al menos, dos clases en el la vista, una para acceder a la base de datos y otra que muestre varios botones:
+
+·      1ª clase: acceso a la bbdd con el usuario y su contraseña. Además me dará información si no está el usuario (usuario no registrado o clave incorrecta).
+
+·      2ª clase: que me muestre todas las consultas..
+
+2.       En el controlador, tienes que realizar los métodos necesarios para que un usuario se conecte a la base de datos, se muestren todos los usuarios, juegos, una lista donde se muestre el nombre del juego y el alias (Nick).
