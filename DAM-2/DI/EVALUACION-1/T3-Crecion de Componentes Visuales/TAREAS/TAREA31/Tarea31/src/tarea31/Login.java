@@ -1,33 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package tarea31;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
 import java.io.File;
 import java.io.Serializable;
-import java.util.Date;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
  *
  * @author Albano Díez de Paulino
  */
-public class Logueo extends javax.swing.JPanel implements Serializable {
+public class Login extends javax.swing.JPanel implements Serializable {
 
     /**
      * Creates new form Logueo
      */
-    public Logueo() {
+    public Login() {
         initComponents();
     }
 
     private File rutaImage;
-    private String userName,Date;
-    
+    private String userName, Date;
+
     public JLabel getjLabelDate() {
         return jLabelDate;
     }
@@ -59,7 +51,6 @@ public class Logueo extends javax.swing.JPanel implements Serializable {
         jLabelDate.setText(Date);
     }
 
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -68,11 +59,17 @@ public class Logueo extends javax.swing.JPanel implements Serializable {
         jLabelDate = new javax.swing.JLabel();
         jPanelImagen = new tarea31.JPanelImagen();
 
+        setOpaque(false);
+
         jLabelUsername.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabelUsername.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUsername.setText("Username");
 
         jLabelDate.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabelDate.setForeground(new java.awt.Color(255, 255, 255));
         jLabelDate.setText("DateLogin");
+
+        jPanelImagen.setOpaque(false);
 
         javax.swing.GroupLayout jPanelImagenLayout = new javax.swing.GroupLayout(jPanelImagen);
         jPanelImagen.setLayout(jPanelImagenLayout);
