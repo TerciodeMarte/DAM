@@ -1,23 +1,19 @@
-package com.cafeconpalito.Main;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package views;
 
 /**
  *
  * @author Albano Díez de Paulino
  */
-public class Ejercicio2 extends javax.swing.JFrame {
-
-    private static ConexionBBDD conBD = new ConexionBBDD();
-    private static Connection con = conBD.conectar();
+public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Ejercicio2
      */
-    public Ejercicio2() {
+    public Login() {
         initComponents();
         
     }
@@ -50,6 +46,7 @@ public class Ejercicio2 extends javax.swing.JFrame {
         jLabel2.setText("Contraseña :");
 
         login.setText("Login");
+        login.setName("Login"); // NOI18N
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginActionPerformed(evt);
@@ -57,6 +54,7 @@ public class Ejercicio2 extends javax.swing.JFrame {
         });
 
         cancel.setText("Cancelar");
+        cancel.setName("Cancelar"); // NOI18N
         cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelActionPerformed(evt);
@@ -131,90 +129,27 @@ public class Ejercicio2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        if (!loginUsuario(con, TFUser.getText())) {
-            TFMensage.setText("Usuario no existe");
-        }else if(!loginContrasena(con, TFUser.getText(), TFPass.getText())){
-            TFMensage.setText("Contraseña Incorrecta");
-        }else{
-            TFMensage.setText("Login Realizado");
-        }
+
 
     }//GEN-LAST:event_loginActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-        TFPass.setText("");
-        TFUser.setText("");
-        TFMensage.setText("");
+        
     }//GEN-LAST:event_cancelActionPerformed
 
     private void TFMensageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFMensageActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TFMensageActionPerformed
 
-    public static boolean loginUsuario(Connection con, String usuario) {
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        // se prepara la sentencia para la BBDD como un String
-        String selectLogUsuario = "select name from users where name = ?";
-
-        try {
-
-            ps = con.prepareStatement(selectLogUsuario);
-
-            ps.setString(1, usuario);
-
-            rs = ps.executeQuery();
-
-            if (rs.next() && usuario.equals(rs.getString(1))) {
-                return true;
-            }
-            return false;
-
-        } catch (SQLException e) {
-            //System.err.println("ERROR AL LEER Login Usuario");
-            return false;
-        }
-
-    }
-    
-    public static boolean loginContrasena(Connection con, String usuario, String contrasena) {
-
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        //debuelve 1 para true 0 para false
-        String selectComprobarContraseña = "select password from users where name = ?;";
-
-        try {
-
-            ps = con.prepareStatement(selectComprobarContraseña);
-            ps.setString(1, usuario);
-      
-
-            rs = ps.executeQuery();
-
-            if (rs.next() && contrasena.equals(rs.getString(1))) {
-                return true;
-            }
-
-            return false;
-
-        } catch (SQLException e) {
-            //System.err.println("ERROR AL LEER Loging");
-            return false;
-        }
-
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TFMensage;
-    private javax.swing.JTextField TFPass;
-    private javax.swing.JTextField TFUser;
-    private javax.swing.JButton cancel;
+    public javax.swing.JTextField TFMensage;
+    public javax.swing.JTextField TFPass;
+    public javax.swing.JTextField TFUser;
+    public javax.swing.JButton cancel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton login;
+    public javax.swing.JButton login;
     // End of variables declaration//GEN-END:variables
 }
