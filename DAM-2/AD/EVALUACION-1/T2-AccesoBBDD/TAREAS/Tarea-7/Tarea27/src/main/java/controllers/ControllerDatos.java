@@ -2,13 +2,12 @@ package controllers;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.sql.Connection;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
+import models.Model;
 import views.Datos;
-import views.Login;
 
 /**
  *
@@ -44,6 +43,11 @@ public class ControllerDatos implements MouseListener {
             DefaultTableModel modelo = (DefaultTableModel) view.jTable1.getModel();
             modelo.setRowCount(0);
 
+            ArrayList<String[]> al = Model.jugador();
+            for (String[] strings : al) {
+                modelo.addRow(strings);
+            }
+
         } else if (e.getComponent().getName().equalsIgnoreCase("juegos")) {
 
             JTableHeader tableHeader = view.jTable1.getTableHeader();
@@ -55,6 +59,12 @@ public class ControllerDatos implements MouseListener {
 
             DefaultTableModel modelo = (DefaultTableModel) view.jTable1.getModel();
             modelo.setRowCount(0);
+            
+            ArrayList<String[]> al = Model.juego();
+
+            for (String[] strings : al) {
+                modelo.addRow(strings);
+            }
 
         } else if (e.getComponent().getName().equalsIgnoreCase("ambos")) {
             JTableHeader tableHeader = view.jTable1.getTableHeader();
@@ -66,6 +76,12 @@ public class ControllerDatos implements MouseListener {
 
             DefaultTableModel modelo = (DefaultTableModel) view.jTable1.getModel();
             modelo.setRowCount(0);
+            
+             ArrayList<String[]> al = Model.jugadorSesionJuego();
+
+            for (String[] strings : al) {
+                modelo.addRow(strings);
+            }
 
         } else if (e.getComponent().getName().equalsIgnoreCase("exit")) {
 
