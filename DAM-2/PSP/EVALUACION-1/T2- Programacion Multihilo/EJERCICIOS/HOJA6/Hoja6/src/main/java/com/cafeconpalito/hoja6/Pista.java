@@ -38,7 +38,7 @@ public class Pista {
 
         try {
 
-            Thread.sleep((long) (Math.random() * 2000));
+            Thread.sleep((long) (Math.random() * ((2000-1000+1)+1000)));
             encarrera--;
             if (encarrera != 0) {
                 System.out.println("Pasando el testigo");
