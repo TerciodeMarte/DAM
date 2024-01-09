@@ -1,0 +1,9 @@
+El objetivo del ejercicio es crear una aplicación cliente/servidor multihilo que permita el envío
+de ficheros a los clientes que lo soliciten. Para ello, el cliente se conectará al servidor por el
+puerto 2223 y le solicitará el nombre de un fichero del servidor.
+Si el fichero existe, el servidor, le enviará el fichero al cliente y éste lo mostrará por pantalla.
+El servidor abrirá el fichero y enviará línea a línea el contenido del fichero al cliente. Cuando
+termine de enviar todas las líneas, el servidor enviará al cliente un mensaje de que ya ha
+terminado de enviar las líneas (EOF).
+El cliente, leerá las líneas enviadas por el servidor y las mostrará por pantalla hasta que se reciba
+el mensaje EOF.
