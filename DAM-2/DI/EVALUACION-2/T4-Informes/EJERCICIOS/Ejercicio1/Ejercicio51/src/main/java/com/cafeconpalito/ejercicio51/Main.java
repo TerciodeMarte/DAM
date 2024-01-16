@@ -8,6 +8,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.HashMap;
 import java.util.Map;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
 
 /**
  *
@@ -15,6 +18,7 @@ import java.util.Map;
  */
 public class Main extends javax.swing.JFrame {
 
+    private static Connection con = ConexionBBDD.getInstance().getConnection();
     /**
      * Creates new form Main
      */
@@ -97,13 +101,26 @@ public class Main extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         try {
-            Class.forName("org.hsqldb.jdbcDriver").getDeclaredConstructor().newInstance();
-            Connection con = DriverManager.getConnection("jdbc:hsqldb:hsql://127.0.0.1/","sa","");
+            System.out.println("0");
+            //Class.forName("org.hsqldb.jdbcDriver").getDeclaredConstructor().newInstance();
+            System.out.println("1");
+            //Connection con = DriverManager.getConnection("jdbc:hsqldb:file:db","sa","");
+            System.out.println("2");
+            
             Map hm = new HashMap();
-            
-            
+            System.out.println("3");
+           
             hm.put("CIUDAD", jComboBox1.getSelectedItem());
+            System.out.println("4");
+            
+            JasperPrint print = JasperFillManager.fillReport("informes/Ejercicio1.jasper", hm,con);
+            System.out.println("5");
+            JasperExportManager.exportReportToPdfFile(print,"informes/ejercicio1.pdf");
+            System.out.println("6");
+            
         } catch (Throwable e) {
+            System.err.println("Error");
+            System.err.println(e.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
