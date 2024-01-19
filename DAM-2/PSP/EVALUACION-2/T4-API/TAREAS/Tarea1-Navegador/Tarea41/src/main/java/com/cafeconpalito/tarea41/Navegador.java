@@ -17,6 +17,7 @@ import java.net.http.HttpResponse;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -80,7 +81,7 @@ public class Navegador extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
         jLabel2.setText("Header");
 
-        jLabel1.setText("<html>\nCafé Con Palito®<br>\nNavigator\n</html>");
+        jLabel1.setText("<html>\nCafé Con Palito®<br>\nNavigator<br>\nVersión 1.0.0\n</html>");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel3.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
@@ -127,11 +128,12 @@ public class Navegador extends javax.swing.JFrame {
                                     .addComponent(jTextField1)
                                     .addComponent(jScrollPane1))
                                 .addGap(18, 18, 18)
-                                .addComponent(jButtonSearch))))
+                                .addComponent(jButtonSearch)
+                                .addContainerGap(86, Short.MAX_VALUE))))
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addGap(422, 422, 422)
-                        .addComponent(jLabel3)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                        .addComponent(jLabel3)
+                        .addContainerGap(458, Short.MAX_VALUE))))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,34 +203,24 @@ public class Navegador extends javax.swing.JFrame {
 
                 // Imprimir las cabeceras
                 Map<String, List<String>> m = connection.getHeaderFields();
+                Map<String, List<String>> m1 = new HashMap();
 
-                connection.getHeaderFields().forEach((key, value) -> {
-                    System.out.println(key + ": " + value);
-                });
-
-                //PRIMERA FORMA DE ENVIAR
-                if (m.get("content-type") != null) {
-                    cabecera += "content-type: ";
-                    cabecera += m.get("content-type") + "\n";
-                    type += m.get("content-type");
-
-                    cabecera += "content-length: ";
-                    cabecera += m.get("content-length") + "\n";
-
-                    cabecera += "last-modified: ";
-                    cabecera += m.get("last-modified");
-                } else {
-                    cabecera += "content-type: ";
-                    cabecera += m.get("Content-Type") + "\n";
-                    type += m.get("Content-Type");
-
-                    cabecera += "content-length: ";
-                    cabecera += m.get("Content-Length") + "\n";
-
-                    cabecera += "last-modified: ";
-                    cabecera += m.get("Last-Modified");
-
+                for (Map.Entry<String, List<String>> entry : m.entrySet()) {
+                    if (entry.getKey()!=null) {
+                        m1.put(entry.getKey().toLowerCase(), entry.getValue());
+                    }
                 }
+                
+                //PRIMERA FORMA DE ENVIAR
+                cabecera += "content-type: ";
+                cabecera += m1.get("content-type") + "\n";
+                type += m1.get("content-type");
+
+                cabecera += "content-length: ";
+                cabecera += m1.get("content-length") + "\n";
+
+                cabecera += "last-modified: ";
+                cabecera += m1.get("last-modified");
 
                 //SEGUNDA FORMA DE ENVIAR
                 jTextArea1.setText(cabecera);
@@ -236,7 +228,6 @@ public class Navegador extends javax.swing.JFrame {
                 // Cerrar la conexión
                 connection.disconnect();
 
-                System.out.println(type);
                 if (type.contains("text/html")) {
                     //CREO CLIENTE
                     HttpClient client = HttpClient.newHttpClient();
@@ -261,13 +252,14 @@ public class Navegador extends javax.swing.JFrame {
 
                     if (resultado == JFileChooser.APPROVE_OPTION) {
                         File carpeta = selector.getCurrentDirectory();
-                        
+
                         URL url2 = new URL(jTextField1.getText());
                         try (InputStream in = url2.openStream()) {
-                            Files.copy(in, Paths.get(carpeta.getAbsolutePath()+"/hola.pdf"), StandardCopyOption.REPLACE_EXISTING);
+                            Files.copy(in, Paths.get(carpeta.getAbsolutePath() + "/download.pdf"), StandardCopyOption.REPLACE_EXISTING);
                         } catch (IOException e) {
                             Logger.getLogger(Navegador.class.getName()).log(Level.SEVERE, null, e);
                         }
+                        JOptionPane.showMessageDialog(this, "PDF Downloaded", "Achieved", JOptionPane.INFORMATION_MESSAGE);
 
                     }
                 } else {
@@ -276,6 +268,7 @@ public class Navegador extends javax.swing.JFrame {
 
             } catch (IOException | URISyntaxException | InterruptedException ex) {
                 Logger.getLogger(Navegador.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, "Formato no soportado", "Format Error", JOptionPane.ERROR_MESSAGE);
             }
         }
 
