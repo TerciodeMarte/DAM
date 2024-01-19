@@ -201,69 +201,72 @@ public class Navegador extends javax.swing.JFrame {
                 // Configurar la solicitud para obtener solo la cabecera
                 connection.setRequestMethod("HEAD");
 
-                // Imprimir las cabeceras
-                Map<String, List<String>> m = connection.getHeaderFields();
-                Map<String, List<String>> m1 = new HashMap();
-
-                for (Map.Entry<String, List<String>> entry : m.entrySet()) {
-                    if (entry.getKey()!=null) {
-                        m1.put(entry.getKey().toLowerCase(), entry.getValue());
-                    }
-                }
-                
-                //PRIMERA FORMA DE ENVIAR
-                cabecera += "content-type: ";
-                cabecera += m1.get("content-type") + "\n";
-                type += m1.get("content-type");
-
-                cabecera += "content-length: ";
-                cabecera += m1.get("content-length") + "\n";
-
-                cabecera += "last-modified: ";
-                cabecera += m1.get("last-modified");
-
-                //SEGUNDA FORMA DE ENVIAR
-                jTextArea1.setText(cabecera);
-
-                // Cerrar la conexión
-                connection.disconnect();
-
-                if (type.contains("text/html")) {
-                    //CREO CLIENTE
-                    HttpClient client = HttpClient.newHttpClient();
-                    HttpRequest request = HttpRequest.newBuilder()
-                            .uri(new URI(jTextField1.getText()))
-                            .GET()
-                            .build();
-
-                    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-                    String responseBody = response.body();
-                    jTextArea2.setText(responseBody);
-
-                } else if (type.contains("application/pdf")) {
-                    JFileChooser selector = new JFileChooser();
-                    selector.setCurrentDirectory(new File("."));
-                    selector.setDialogTitle("GUARDAR");
-                    selector.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-                    selector.setAcceptAllFileFilterUsed(false);
-
-                    int resultado = selector.showSaveDialog(null);
-
-                    if (resultado == JFileChooser.APPROVE_OPTION) {
-                        File carpeta = selector.getCurrentDirectory();
-
-                        URL url2 = new URL(jTextField1.getText());
-                        try (InputStream in = url2.openStream()) {
-                            Files.copy(in, Paths.get(carpeta.getAbsolutePath() + "/download.pdf"), StandardCopyOption.REPLACE_EXISTING);
-                        } catch (IOException e) {
-                            Logger.getLogger(Navegador.class.getName()).log(Level.SEVERE, null, e);
-                        }
-                        JOptionPane.showMessageDialog(this, "PDF Downloaded", "Achieved", JOptionPane.INFORMATION_MESSAGE);
-
-                    }
+                if (connection.getResponseCode() >= 400 && connection.getResponseCode() < 500) {
+                    JOptionPane.showMessageDialog(this, "Response Code: " + connection.getResponseCode()+ "\nResponse Menssage: "+ connection.getResponseMessage(), "Server Error", JOptionPane.ERROR_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(this, "Formato no soportado", "Format Error", JOptionPane.ERROR_MESSAGE);
+                    // Imprimir las cabeceras
+                    Map<String, List<String>> m = connection.getHeaderFields();
+                    Map<String, List<String>> m1 = new HashMap();
+
+                    for (Map.Entry<String, List<String>> entry : m.entrySet()) {
+                        if (entry.getKey() != null) {
+                            m1.put(entry.getKey().toLowerCase(), entry.getValue());
+                        }
+                    }
+
+                    //PRIMERA FORMA DE ENVIAR
+                    cabecera += "content-type: ";
+                    cabecera += m1.get("content-type") + "\n";
+                    type += m1.get("content-type");
+
+                    cabecera += "content-length: ";
+                    cabecera += m1.get("content-length") + "\n";
+
+                    cabecera += "last-modified: ";
+                    cabecera += m1.get("last-modified");
+
+                    //SEGUNDA FORMA DE ENVIAR
+                    jTextArea1.setText(cabecera);
+
+                    // Cerrar la conexión
+                    connection.disconnect();
+
+                    if (type.contains("text/html")) {
+                        //CREO CLIENTE
+                        HttpClient client = HttpClient.newHttpClient();
+                        HttpRequest request = HttpRequest.newBuilder()
+                                .uri(new URI(jTextField1.getText()))
+                                .GET()
+                                .build();
+
+                        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+                        String responseBody = response.body();
+                        jTextArea2.setText(responseBody);
+
+                    } else if (type.contains("application/pdf")) {
+                        JFileChooser selector = new JFileChooser();
+                        selector.setCurrentDirectory(new File("."));
+                        selector.setDialogTitle("GUARDAR");
+                        selector.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+                        selector.setAcceptAllFileFilterUsed(false);
+
+                        int resultado = selector.showSaveDialog(null);
+
+                        if (resultado == JFileChooser.APPROVE_OPTION) {
+                            File carpeta = selector.getCurrentDirectory();
+
+                            try (InputStream in = url.openStream()) {
+                                Files.copy(in, Paths.get(carpeta.getAbsolutePath() + "/download.pdf"), StandardCopyOption.REPLACE_EXISTING);
+                            } catch (IOException e) {
+                                Logger.getLogger(Navegador.class.getName()).log(Level.SEVERE, null, e);
+                            }
+                            JOptionPane.showMessageDialog(this, "PDF Downloaded", "Achieved", JOptionPane.INFORMATION_MESSAGE);
+
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Formato no soportado", "Format Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
 
             } catch (IOException | URISyntaxException | InterruptedException ex) {
