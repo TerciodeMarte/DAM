@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Tarea" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a6ac803-77bd-425d-829c-b1c8c5111294">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT `Precio`,
+	`ID_Pedido`,
+	`ID_Articulo`,
+	`ID_Venta`,
+	`Unidades`,
+	 (fabrica.detalle_pedidos.`Precio` * fabrica.detalle_pedidos.`Unidades`) as Total2 
+FROM fabrica.detalle_pedidos]]>
+	</queryString>
+	<field name="Precio" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Precio"/>
+		<property name="com.jaspersoft.studio.field.label" value="Precio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalle_pedidos"/>
+	</field>
+	<field name="ID_Pedido" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="ID_Pedido"/>
+		<property name="com.jaspersoft.studio.field.label" value="ID_Pedido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalle_pedidos"/>
+	</field>
+	<field name="ID_Articulo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="ID_Articulo"/>
+		<property name="com.jaspersoft.studio.field.label" value="ID_Articulo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalle_pedidos"/>
+	</field>
+	<field name="ID_Venta" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="ID_Venta"/>
+		<property name="com.jaspersoft.studio.field.label" value="ID_Venta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalle_pedidos"/>
+	</field>
+	<field name="Unidades" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="Unidades"/>
+		<property name="com.jaspersoft.studio.field.label" value="Unidades"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalle_pedidos"/>
+	</field>
+	<field name="Total2" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Total2"/>
+		<property name="com.jaspersoft.studio.field.label" value="Total2"/>
+	</field>
+	<variable name="Total1" class="java.lang.Float">
+		<variableExpression><![CDATA[$F{Precio}.floatValue()*$F{Unidades}]]></variableExpression>
+	</variable>
+	<variable name="Unidades1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{Unidades}]]></variableExpression>
+	</variable>
+	<variable name="Precio1" class="java.math.BigDecimal" calculation="Average">
+		<variableExpression><![CDATA[$F{Precio}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="227" y="30" width="100" height="30" forecolor="#05FF44" uuid="f351f4a2-33a0-4d51-9173-141d7372664e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Comic Sans MS" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tarea 1]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="80" height="30" forecolor="#FF0526" uuid="c5f9bbbe-662f-474b-bfb2-fc408af22de2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7c8f7759-2d71-44a7-a9e4-3df01ca17686"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID_Pedido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="0" width="80" height="30" forecolor="#FF0526" uuid="ee671b85-e1b7-46ab-be5e-07b45230b68e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d0d54fdb-a33a-4ddb-bc15-1170df717237"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID_Articulo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="0" width="80" height="30" forecolor="#FF0526" uuid="36639224-8c02-43a3-a89d-398deb66035a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c15b1ff7-abee-4223-b08a-942e48cbd3e7"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="0" width="80" height="30" forecolor="#FF0526" uuid="bb51c92b-8b84-488c-9cd6-1f58e9349576">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="da8dbeec-3a04-4a4b-9bd0-aa44a7faf6fa"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Unidades]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="0" width="130" height="30" forecolor="#FF0526" uuid="b82dc367-9058-4ebc-a446-451a2b721fbb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f6ed2840-d791-45b4-ae4e-a7502f4438a3"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="0" width="110" height="30" forecolor="#FF0526" uuid="083dc4c3-d11c-47bd-b059-bf48f98b51dc"/>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio total]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="30" width="560" height="1" uuid="5f4c2b1f-c21e-4667-a78f-935ce647a1c8"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="80" height="30" uuid="9578050c-0ca1-42e0-ade9-55bf2386b44d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7c8f7759-2d71-44a7-a9e4-3df01ca17686"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_Pedido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="80" height="30" forecolor="#05FFEE" uuid="22959c6e-8043-488e-a405-27d90ee921c7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d0d54fdb-a33a-4ddb-bc15-1170df717237"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_Articulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="0" width="80" height="30" forecolor="#05FFEE" uuid="3da84294-fb42-4148-91a3-006ef11fef23">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c15b1ff7-abee-4223-b08a-942e48cbd3e7"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="80" height="30" forecolor="#05FFEE" uuid="7881846d-d450-4b59-842b-d16963256f30">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="da8dbeec-3a04-4a4b-9bd0-aa44a7faf6fa"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Unidades}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="0" width="110" height="30" forecolor="#05FFEE" uuid="ecfe5d79-677d-4542-a6d0-83e30fe0a499"/>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Total1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="130" height="30" forecolor="#05FFEE" uuid="05ff7b18-f5c6-4e5d-9a69-4b5c07f92d45">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f6ed2840-d791-45b4-ae4e-a7502f4438a3"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Comic Sans MS" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Total2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="4" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="74" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="560" height="1" uuid="607d95ec-85ae-4bc9-bf0a-b3535dd9d7c9"/>
+			</line>
+			<textField>
+				<reportElement x="240" y="10" width="190" height="20" uuid="750e0624-63af-43ba-bf07-3a92458aedab"/>
+				<textElement>
+					<font fontName="Comic Sans MS" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Unidades Totales: "+$V{Unidades1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="10" width="160" height="20" uuid="46eae860-7b6e-4533-b5d0-d5eedc5f8700"/>
+				<textElement>
+					<font fontName="Comic Sans MS" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Precio medio: "+$V{Precio1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="430" y="10" width="130" height="30" uuid="a57d972f-316c-40f1-8404-7329531174bb"/>
+				<text><![CDATA[Made by Cafe Con Palito ® V 0.0.1]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
