@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Tarea54" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="98d26065-f7d1-4478-8a60-6be43b099dcd">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Fabrica"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[SELECT fabrica.clientes.`Nombre`,
+	count(fabrica.pedidos.`ID_Pedido`)
+FROM fabrica.clientes
+INNER JOIN fabrica.pedidos USING(ID_Cliente) 
+GROUP BY fabrica.clientes.`ID_Cliente`]]>
+	</queryString>
+	<field name="Nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="Nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="count(fabrica.pedidos.`ID_Pedido`)" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="count(fabrica.pedidos.`ID_Pedido`)"/>
+		<property name="com.jaspersoft.studio.field.label" value="count(fabrica.pedidos.`ID_Pedido`)"/>
+	</field>
+	<variable name="count(fabrica.pedidos.`ID_Pedido`)1" class="java.lang.Long" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{count(fabrica.pedidos.`ID_Pedido`)}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="93" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="19" y="10" width="525" height="30" backcolor="#05F3FF" uuid="cc0a6cb6-206b-4308-ac84-d1ceb4faea22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Numero de pedidos efectuados por clientes]]></text>
+			</staticText>
+			<textField pattern="EEEE dd MMMMM yyyy">
+				<reportElement x="440" y="50" width="100" height="30" uuid="17632c36-5175-4151-a843-6cdf23fe6ae9"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="204" y="0" width="100" height="30" uuid="74b313f9-d30b-4271-914c-2cd362e19b25">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8ae280ca-55d7-44dc-a4fb-340016d2a851"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="0" width="130" height="30" uuid="d353710c-96e5-42b2-ba67-0f202b766bd5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ec09b5cb-be26-4837-8416-5f740374571b"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Numero de Pedidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="0" width="100" height="30" uuid="6a57bc93-e4ae-4249-8f58-908dd077c0ca"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Numero de Linea]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="204" y="0" width="100" height="30" uuid="acd2f377-4194-4b4b-900e-80507a32dcf3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8ae280ca-55d7-44dc-a4fb-340016d2a851"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="-1" width="130" height="30" uuid="1ad356a7-3284-45c9-b714-bb460d48372b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ec09b5cb-be26-4837-8416-5f740374571b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{count(fabrica.pedidos.`ID_Pedido`)}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="-1" width="100" height="30" uuid="ec09da03-967c-436d-8edb-ef0fa664d17b"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="55" splitType="Stretch">
+			<textField>
+				<reportElement x="353" y="0" width="124" height="30" uuid="52582d81-8d2d-4e2e-96e8-62bb0eb2c517"/>
+				<textFieldExpression><![CDATA["Total de Pedidos  " + $V{count(fabrica.pedidos.`ID_Pedido`)1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
