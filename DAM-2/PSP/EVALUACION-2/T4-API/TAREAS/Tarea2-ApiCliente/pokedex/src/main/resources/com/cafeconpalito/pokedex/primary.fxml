@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane id="Background1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="735.0" prefWidth="450.0" stylesheets="@../../../styles/main.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cafeconpalito.pokedex.PrimaryController">
+   <children>
+      <Pane id="Background2" layoutX="36.0" layoutY="109.0" prefHeight="257.0" prefWidth="378.0">
+         <children>
+            <Pane id="Pantalla" layoutX="24.0" layoutY="21.0" prefHeight="200.0" prefWidth="330.0">
+               <children>
+                  <ImageView id="Pantalla" fx:id="ImageView" fitHeight="180.0" fitWidth="180.0" layoutX="75.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
+            <Circle fill="RED" layoutX="34.0" layoutY="238.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+            <Line endX="124.5" layoutX="228.0" layoutY="228.0" startX="100.5" />
+            <Line endX="124.5" layoutX="228.0" layoutY="238.0" startX="100.5" />
+            <Line endX="124.5" layoutX="228.0" layoutY="248.0" startX="100.5" />
+         </children>
+      </Pane>
+      <Line endX="313.0" layoutX="137.0" layoutY="44.0" startX="120.5" strokeWidth="3.0" />
+      <Line endX="270.5" layoutX="-84.0" layoutY="78.0" startX="84.5" strokeWidth="3.0" />
+      <Line endX="-14.0" endY="-47.5" layoutX="271.0" layoutY="92.0" startX="-84.0" startY="-13.5" strokeWidth="3.0" />
+      <Circle fill="DODGERBLUE" layoutX="39.0" layoutY="39.0" radius="25.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="4.0" />
+      <Circle fill="RED" layoutX="84.0" layoutY="24.0" radius="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fill="#e5ff00" layoutX="110.0" layoutY="24.0" radius="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fill="#00ff31" layoutX="136.0" layoutY="24.0" radius="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" />
+      <ImageView fx:id="next" fitHeight="50.0" fitWidth="50.0" layoutX="363.0" layoutY="616.0" onMouseClicked="#nextButton" pickOnBounds="true">
+         <image>
+            <Image url="@images/next.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="back" fitHeight="50.0" fitWidth="50.0" layoutX="38.0" layoutY="616.0" onMouseClicked="#backButton" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/back.png" />
+         </image>
+      </ImageView>
+      <Pane id="Info" layoutX="36.0" layoutY="407.0" prefHeight="200.0" prefWidth="378.0">
+         <children>
+            <Label layoutX="62.0" layoutY="14.0" styleClass="labels" text="HP">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="hplabel" layoutX="104.0" layoutY="14.0" styleClass="labels" text="255">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="45.0" styleClass="labels" text="Attack">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="atcklabel" layoutX="104.0" layoutY="45.0" styleClass="labels" text="255">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="73.0" styleClass="labels" text="Defense">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="defenselabel" layoutX="104.0" layoutY="73.0" styleClass="labels" text="255">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="34.0" layoutY="104.0" styleClass="labels" text="Sp. Atk">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="especialatklabel" layoutX="104.0" layoutY="104.0" styleClass="labels" text="255">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="34.0" layoutY="135.0" styleClass="labels" text="Sp. Def">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="especialdeflabel" layoutX="104.0" layoutY="135.0" styleClass="labels" text="255">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="40.0" layoutY="166.0" styleClass="labels" text="Speed">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="speedlabel" layoutX="104.0" layoutY="166.0" styleClass="labels" text="255">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <ProgressBar fx:id="hpbar" layoutX="145.0" layoutY="16.0" prefWidth="200.0" progress="0.68" styleClass="progressBar" />
+            <ProgressBar fx:id="atckbar" layoutX="145.0" layoutY="46.0" prefWidth="200.0" progress="0.68" styleClass="progressBar" />
+            <ProgressBar fx:id="defensebar" layoutX="145.0" layoutY="75.0" prefWidth="200.0" progress="0.68" styleClass="progressBar" />
+            <ProgressBar fx:id="especialatkbar" layoutX="145.0" layoutY="105.0" prefWidth="200.0" progress="0.68" styleClass="progressBar" />
+            <ProgressBar fx:id="especialdefbar" layoutX="145.0" layoutY="131.0" prefWidth="200.0" progress="0.68" styleClass="progressBar" />
+            <ProgressBar fx:id="speedbar" layoutX="145.0" layoutY="161.0" prefWidth="200.0" progress="0.68" styleClass="progressBar" />
+         </children>
+      </Pane>
+      <HBox fx:id="tipos" alignment="CENTER" layoutX="36.0" layoutY="366.0" prefHeight="38.0" prefWidth="378.0">
+         <children>
+            <Label id="typesLabels" fx:id="type1" alignment="CENTER" prefHeight="20.0" prefWidth="100.0" styleClass="labels" text="Type 1">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label id="typesLabels" fx:id="type2" alignment="CENTER" disable="true" prefHeight="20.0" prefWidth="100.0" styleClass="labels" text="Type 2">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+         </children></HBox>
+      <Label fx:id="pokename" alignment="CENTER" layoutX="94.0" layoutY="616.0" prefHeight="50.0" prefWidth="268.0" styleClass="labels" text="#1025 Fletchinder" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="110.0" layoutY="676.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="labels" text="Made by Cafe Con Palito®" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="175.0" layoutY="701.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="labels" text="1.0.1" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView id="avatar" fitHeight="50.0" fitWidth="50.0" layoutX="299.0" layoutY="671.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/logo-simple-negative-rb.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

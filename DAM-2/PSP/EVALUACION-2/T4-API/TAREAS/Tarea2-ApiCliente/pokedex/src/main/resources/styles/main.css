@@ -1,0 +1,39 @@
+/* 
+    Created on : 29 ene 2024, 20:40:45
+    Author     : TerciodeMarte
+*/
+
+#Background1{
+    -fx-background-color: red;
+}
+
+#Background2{
+    -fx-background-color: white;
+    -fx-border-width: 2;
+    -fx-border-color: black;
+}
+
+#Pantalla{
+    -fx-background-color: grey;
+    -fx-border-width: 2;
+    -fx-border-color: black;
+}
+
+#Info{
+    -fx-background-color: green;
+    -fx-border-width: 2;
+    -fx-border-color: black;
+}
+
+.labels{
+   -fx-text-fill: white;
+}
+
+.progressBar{
+    -fx-accent: red;
+}
+
+#typesLabels{
+    -fx-border-width: 2;
+    -fx-border-color: black;
+}
