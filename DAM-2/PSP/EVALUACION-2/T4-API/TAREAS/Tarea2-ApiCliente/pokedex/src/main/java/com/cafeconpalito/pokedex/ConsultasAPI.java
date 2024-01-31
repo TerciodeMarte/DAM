@@ -10,21 +10,34 @@ import javafx.scene.image.Image;
 import org.json.JSONObject;
 
 /**
- *
+ * Clase para realizar consultas a la API de Pokemon
+ * https://pokeapi.co/
  * @author Albano Díez de Paulino
  */
 public class ConsultasAPI {
 
     private static JSONObject json;
 
+    /**
+     * Metodo para Obtener la Imagen del pokemon seleccionado
+     * @return Image Sprite del Pokemon
+     */
     public static Image getSprite() {
         return new Image(json.getJSONObject("sprites").getJSONObject("other").getJSONObject("home").getString("front_default"));
     }
 
+    /**
+     * Metodo para Obtener el nombre del pokemon seleccionado
+     * @return String Nombre del Pokemon
+     */
     public static String getName() {
         return json.getString("name");
     }
 
+    /**
+     * Metodo para Obtener las estadisticas del pokemon seleccionado
+     * @return Integer[] Array de 6 para las estadisticas
+     */
     public static Integer[] getStats() {
         Integer stats[] = new Integer[6];
         for (int i = 0; i < 6; i++) {
@@ -54,11 +67,7 @@ public class ConsultasAPI {
 
             json = new JSONObject(response.body());
 
-        } catch (URISyntaxException ex) {
-            ex.printStackTrace();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        } catch (InterruptedException ex) {
+        } catch (URISyntaxException | IOException | InterruptedException ex) {
             ex.printStackTrace();
         }
     }
