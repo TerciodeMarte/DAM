@@ -7,6 +7,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import javafx.scene.image.Image;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
@@ -47,6 +48,10 @@ public class ConsultasAPI {
 
     }
 
+    /**
+     * Metodo para Obtener los tipos del pokemon seleccionado
+     * @return String[] Array de 2 para los tipos
+     */
     public static String[] getTypes() {
         String types[] = new String[json.getJSONArray("types").length()];
         for (int i = 0; i < json.getJSONArray("types").length(); i++) {
@@ -55,6 +60,10 @@ public class ConsultasAPI {
         return types;
     }
 
+    /**
+     * Metodo para hacer la consulta a la API de Pokemon
+     * @param id Id del pokemon a buscar
+     */
     public static void consulta(int id) {
         try {
             HttpClient client = HttpClient.newHttpClient();
