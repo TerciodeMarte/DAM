@@ -6,8 +6,8 @@ import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.Duration;
 import javafx.scene.image.Image;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class ConsultasAPI {
 
     private static JSONObject json;
-
+    
     /**
      * Metodo para Obtener la Imagen del pokemon seleccionado
      * @return Image Sprite del Pokemon
@@ -64,20 +64,22 @@ public class ConsultasAPI {
      * Metodo para hacer la consulta a la API de Pokemon
      * @param id Id del pokemon a buscar
      */
-    public static void consulta(int id) {
+    public static boolean consulta(int id) {
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(new URI("https://pokeapi.co/api/v2/pokemon/" + id))
+                    .timeout(Duration.ofSeconds(10))
                     .GET()
                     .build();
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             json = new JSONObject(response.body());
-
+            return true;
+   
         } catch (URISyntaxException | IOException | InterruptedException ex) {
-            ex.printStackTrace();
+            return false;
         }
     }
 

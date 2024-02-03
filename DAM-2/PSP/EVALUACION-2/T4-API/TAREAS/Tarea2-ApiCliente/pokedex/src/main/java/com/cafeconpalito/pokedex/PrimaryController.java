@@ -9,6 +9,8 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -16,7 +18,7 @@ import javafx.scene.layout.HBox;
  * @author TerciodeMarte
  */
 public class PrimaryController implements Initializable {
-
+    
     @FXML
     private ImageView ImageView;
     @FXML
@@ -63,57 +65,66 @@ public class PrimaryController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         updateInfo();
     }
-
+    
     @FXML
     private void nextButton(MouseEvent event) {
         if (EntryPoint.getContador() < 1025) {
             EntryPoint.setContador(EntryPoint.getContador() + 1);
             updateInfo();
         }
-
+        
     }
-
+    
     @FXML
     private void backButton(MouseEvent event) {
         if (EntryPoint.getContador() > 1) {
             EntryPoint.setContador(EntryPoint.getContador() - 1);
             updateInfo();
-
+            
         }
     }
-
+    
     private void updateInfo() {
-        //Actualizo el json
-        ConsultasAPI.consulta(EntryPoint.getContador());
+        //Actualizo JSON y compruebo el servicio esta funcionando
+        if (ConsultasAPI.consulta(EntryPoint.getContador())) {
 
-        //Obtengo la foto
-        ImageView.setImage(ConsultasAPI.getSprite());
+            //Obtengo la foto
+            ImageView.setImage(ConsultasAPI.getSprite());
 
-        //Obtengo el nombre
-        pokename.setText("#" + EntryPoint.getContador() + " " + ConsultasAPI.getName().toUpperCase());
+            //Obtengo el nombre
+            pokename.setText("#" + EntryPoint.getContador() + " " + ConsultasAPI.getName().toUpperCase());
 
-        //Obtengo las estaticas
-        Integer stats[] = ConsultasAPI.getStats();
+            //Obtengo las estaticas
+            Integer stats[] = ConsultasAPI.getStats();
 
-        //Poner estadisticas en labels
-        hplabel.setText(stats[0].toString());
-        atcklabel.setText(stats[1].toString());
-        defenselabel.setText(stats[2].toString());
-        especialatklabel.setText(stats[3].toString());
-        especialdeflabel.setText(stats[4].toString());
-        speedlabel.setText(stats[5].toString());
+            //Poner estadisticas en labels
+            hplabel.setText(stats[0].toString());
+            atcklabel.setText(stats[1].toString());
+            defenselabel.setText(stats[2].toString());
+            especialatklabel.setText(stats[3].toString());
+            especialdeflabel.setText(stats[4].toString());
+            speedlabel.setText(stats[5].toString());
 
-        //Actualizo las progressBar para mostrar stats
-        updateProgressBar(stats);
+            //Actualizo las progressBar para mostrar stats
+            updateProgressBar(stats);
 
-        //Obtengo los tipos
-        String types[] = ConsultasAPI.getTypes();
+            //Obtengo los tipos
+            String types[] = ConsultasAPI.getTypes();
 
-        //Actualizo los tipos
-        updateTypes(types);
-
+            //Actualizo los tipos
+            updateTypes(types);
+        } else {
+            JOptionPane jop = new JOptionPane("ERROR API NO DISPONIBLE", JOptionPane.ERROR_MESSAGE);
+            JDialog jd = jop.createDialog("ERROR");
+            jd.setLocationRelativeTo(null);
+            jd.setVisible(true);
+            
+            System.exit(0);
+            
+        }
+        
     }
-
+    
     private void updateProgressBar(Integer[] stats) {
         String color[] = new String[stats.length];
         //Determino los colores de cada stat
@@ -146,7 +157,7 @@ public class PrimaryController implements Initializable {
         especialdefbar.setStyle("-fx-accent:" + color[4]);
         speedbar.setStyle("-fx-accent:" + color[5]);
     }
-
+    
     private void updateTypes(String[] types) {
         String color[] = new String[2];
 
@@ -217,15 +228,15 @@ public class PrimaryController implements Initializable {
             type2.setText(types[1].toUpperCase());
             type2.setDisable(false);
         } else {
-           
+            
             type1.setText(types[0].toUpperCase());
-            type1.setStyle("-fx-background-color: " +color[0]);
+            type1.setStyle("-fx-background-color: " + color[0]);
             type2.setText("Type 2");
-            type2.setStyle("-fx-background-color: transparent" );
+            type2.setStyle("-fx-background-color: transparent");
             type2.setDisable(true);
             
         }
-
+        
     }
-
+    
 }
