@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.cafeconpalito.pokedex","l":"App"},{"p":"com.cafeconpalito.pokedex","l":"ConsultasAPI"},{"p":"com.cafeconpalito.pokedex","l":"EntryPoint"},{"p":"com.cafeconpalito.pokedex","l":"PrimaryController"}];updateSearchResults();
