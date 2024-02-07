@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Ejercicio" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="World"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT 
+	world.country.`Code`,
+	world.country.`Name`,
+	world.country.`Population`,
+	world.countrylanguage.`Language`,
+	world.countrylanguage.`IsOfficial`,
+	world.countrylanguage.`Percentage`
+FROM world.countrylanguage
+	INNER JOIN world.country ON 
+	 world.countrylanguage.`CountryCode` = world.country.`Code`]]>
+	</queryString>
+	<field name="Code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Code"/>
+		<property name="com.jaspersoft.studio.field.label" value="Code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="country"/>
+	</field>
+	<field name="Name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Name"/>
+		<property name="com.jaspersoft.studio.field.label" value="Name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="country"/>
+	</field>
+	<field name="Population" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="Population"/>
+		<property name="com.jaspersoft.studio.field.label" value="Population"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="country"/>
+	</field>
+	<field name="Language" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Language"/>
+		<property name="com.jaspersoft.studio.field.label" value="Language"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="countrylanguage"/>
+	</field>
+	<field name="IsOfficial" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="IsOfficial"/>
+		<property name="com.jaspersoft.studio.field.label" value="IsOfficial"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="countrylanguage"/>
+	</field>
+	<field name="Percentage" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Percentage"/>
+		<property name="com.jaspersoft.studio.field.label" value="Percentage"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="countrylanguage"/>
+	</field>
+	<variable name="Cuenta" class="java.lang.Integer" resetType="Group" resetGroup="Group1" incrementType="Column" calculation="Count"/>
+	<variable name="Language1" class="java.lang.Integer" resetType="Group" resetGroup="Group1" calculation="Count">
+		<variableExpression><![CDATA[$F{Language}]]></variableExpression>
+	</variable>
+	<group name="Group1" keepTogether="true">
+		<groupExpression><![CDATA[$F{Code}]]></groupExpression>
+		<groupHeader>
+			<band height="80">
+				<frame>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="20" forecolor="#D0B48E" backcolor="#FAF3E6" uuid="bc5ef398-14ba-4cce-9364-20bda9abc005"/>
+					<staticText>
+						<reportElement x="250" y="-1" width="100" height="21" uuid="409fd77e-c594-40c2-b796-6ad2e3af28a7">
+							<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6ef5a0e6-e6cb-482b-a454-34f571c6f0f5"/>
+						</reportElement>
+						<textElement textAlignment="Center" verticalAlignment="Middle"/>
+						<text><![CDATA[Nº Idiomas]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="20" forecolor="#D0B48E" backcolor="#EDCB80" uuid="39cffaa8-9bbc-482e-a9d5-e5ccd37b34c3"/>
+				</frame>
+				<staticText>
+					<reportElement x="0" y="4" width="100" height="16" uuid="15a95dbd-c076-4b26-adb7-2a32adc9036a">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="14264860-0be0-4a2a-ad15-3a8648507f2e"/>
+					</reportElement>
+					<text><![CDATA[Codigo]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="20" width="100" height="30" uuid="538da1ff-06cf-4ca0-8274-12518fd3e659">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="14264860-0be0-4a2a-ad15-3a8648507f2e"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{Code}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="100" y="-1" width="100" height="21" uuid="8cf51c4d-99ed-44f7-bd80-b30c49d0e2c9">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7204ad7b-18c5-4651-943c-fd438e6bf8d1"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Nombre del Pais]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="100" y="20" width="100" height="30" uuid="8f022dbf-c036-4eee-adcb-da069b055f7e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7204ad7b-18c5-4651-943c-fd438e6bf8d1"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="230" y="-1" width="100" height="21" uuid="5c019e97-5b49-4fd0-a085-6d26dd268cb4">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6ef5a0e6-e6cb-482b-a454-34f571c6f0f5"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[Población]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="230" y="20" width="100" height="30" uuid="b0eecbec-6561-4032-b4aa-5290fe02c640">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6ef5a0e6-e6cb-482b-a454-34f571c6f0f5"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{Population}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Auto">
+					<reportElement x="350" y="20" width="100" height="30" uuid="5367f5b8-39e2-403d-adb1-a579041ce187"/>
+					<textFieldExpression><![CDATA[$V{Language1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="200">
+				<pieChart>
+					<chart evaluationTime="Group" evaluationGroup="Group1">
+						<reportElement x="170" y="0" width="200" height="200" uuid="c97e26fd-4b9b-40b1-b77f-3ac07824e6aa"/>
+						<chartTitle/>
+						<chartSubtitle/>
+						<chartLegend/>
+					</chart>
+					<pieDataset>
+						<dataset resetType="Group" resetGroup="Group1"/>
+						<keyExpression><![CDATA[$F{Language}]]></keyExpression>
+						<valueExpression><![CDATA[$F{Percentage}]]></valueExpression>
+					</pieDataset>
+					<piePlot>
+						<plot/>
+						<itemLabel/>
+					</piePlot>
+				</pieChart>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="1" y="0" width="432" height="62" uuid="1a652692-054a-40f3-ade5-68d8da36626d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="30"/>
+				</textElement>
+				<text><![CDATA[Idiomas hablados en cada país]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="190" y="70" width="242" height="22" uuid="88d4231e-f014-4b0d-b871-1737ba63a1ae"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Oficiales y no Oficiales]]></text>
+			</staticText>
+			<image>
+				<reportElement x="433" y="-115" width="267" height="209" uuid="5d64e5b3-07bb-48ab-89dc-15c0c46bb19a"/>
+				<imageExpression><![CDATA["coffee_stain.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="1a61a836-d137-48b1-ad67-6ff64600bf93"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="6" y="0" width="542" height="40" printWhenGroupChanges="Group1" forecolor="#D0B48E" backcolor="#FAF3E6" uuid="e02a25a9-8814-4f03-bea3-19e1c45df1f3">
+					<printWhenExpression><![CDATA[$V{COLUMN_COUNT}%2==0]]></printWhenExpression>
+				</reportElement>
+			</frame>
+			<textField>
+				<reportElement x="230" y="10" width="100" height="30" uuid="97083583-6bd4-49a9-ae7a-399b5d884322">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0f210b76-7212-4438-b5d2-7c1fb7511b90"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[IF ($F{IsOfficial}.equals("T"),"Oficial","No Oficial")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="10" width="100" height="30" uuid="5c45db75-0ecb-4efc-8e38-ab3a3e392fea">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="63b1dbca-608a-414c-8069-b00d9207712c"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Language}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="fa45a887-615a-4d84-a2d7-8a2219671b3c"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="183682bc-d976-4756-83e0-6625a3f98ed1"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="0193f9b3-1559-491a-8580-b6988863b6a1"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="d00b105e-494b-418b-8ac9-8b1b4824f4f0"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="0616f3fe-0354-456f-8911-ec30ec51a5ae"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
