@@ -9,6 +9,8 @@ import java.io.ObjectInputStream;
 import java.nio.Buffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.Provider;
+import java.security.Security;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,9 +23,20 @@ public class HashThing {
     private static MessageDigest mensajedigest;
 
     public static String getAlgorithms() {
-        return "MD5\n"
-                + "SHA-1\n"
-                + "SHA-256";
+        
+        String algorithms = "";
+        for (Provider e : Security.getProviders()) {
+            for (Provider.Service s : e.getServices()) {
+                //System.out.println(s.getType());
+                if (s.getType().contains("MessageDigest")) {
+                    //System.out.println(s.getAlgorithm());
+                    algorithms += s.getAlgorithm()+"\n";
+                }
+            }
+        }
+        //System.out.println(algorithms);
+
+        return algorithms;
     }
 
     public String getStringHash(String algorithm, String plaintext) {
@@ -40,34 +53,52 @@ public class HashThing {
     }
 
     public static String getFilehash(String algorithm, File f) {
-        FileInputStream fis = null;
+        String textHexa = null;
         BufferedInputStream bis = null;
-
+ 
         try {
+ 
+            MessageDigest mensajedigest;
             mensajedigest = MessageDigest.getInstance(algorithm);
-            fis = new FileInputStream(f);
-
-            bis = new BufferedInputStream(fis);
-            byte[] buffer = new byte[1028];
-            int bytesRead;
-
-            // Iterar hasta que se alcance el final del fichero
-            while ((bytesRead = bis.read(buffer)) != -1) {
-             
+ 
+            //Creo el Bufer para leer el File
+            bis = new BufferedInputStream(new FileInputStream(f));
+ 
+            //Creo una Buffer para leer el archivo con un tamaño de 1024 bytes            
+            byte[] bufferSalida = new byte[1024];
+ 
+            //Leo el archivo a enviar y almaceno el valor de Bytes leidos
+            int numBytesLeidos = 0;
+            numBytesLeidos = bis.read(bufferSalida);
+ 
+            //Mientras el numero de Bytes sea distito de -1 continua la lectura.
+            while (numBytesLeidos != -1) {
+                mensajedigest.update(bufferSalida);
+                //Leo el archivo y lo almaceno en el buffer
+                numBytesLeidos = bis.read(bufferSalida);
             }
-            
-            return null;
+            byte resumen[] = mensajedigest.digest();
 
+            textHexa = enHexadecimal(resumen);
+            System.out.println(textHexa);
         } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(HashThing.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
+            System.err.println("Error no encuentra algoritmo. " + ex.toString());
         } catch (FileNotFoundException ex) {
             Logger.getLogger(HashThing.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
         } catch (IOException ex) {
             Logger.getLogger(HashThing.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
+        }finally {
+            //Cierro las conexiones
+            try {
+                if (bis != null) {
+                    bis.close();
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(HashThing.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return textHexa;
         }
+        
 
     }
 
