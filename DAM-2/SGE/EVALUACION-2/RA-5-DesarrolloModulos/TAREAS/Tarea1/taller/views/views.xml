@@ -1,0 +1,132 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="taller.coche_list">
+      <field name="name">Lista de Coches</field>
+      <field name="model">modulo.coche</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="modelo"/>
+          <field name="marca"/>
+          <field name="color"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="taller.averia_list">
+      <field name="name">Lista de Averias</field>
+      <field name="model">modulo.averia</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="coche"/>
+          <field name="fecha"/>
+          <field name="precio"/>
+          <field name="tipo"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="taller.coche_form">
+      <field name="name">Inserta un coche</field>
+      <field name="model">modulo.coche</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <h1>Matricula: <field name="name"/></h1>
+            <group>
+              <field name="modelo" label="Modelo: "/>
+              <field name="marca" label="Marca: "/>
+              <field name="color" label="Color: "/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="taller.averia_form">
+      <field name="name">Inserta una averia</field>
+      <field name="model">modulo.averia</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <h1>Coche: <field name="coche"/></h1>
+            <group>
+              <field name="tipo" label="Tipo: "/>
+              <field name="fecha" label="Fecha: "/>
+              <field name="precio" label="Precio: "/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="taller.coche_action_window">
+      <field name="name">coche.accion</field>
+      <field name="res_model">modulo.coche</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="taller.averia_action_window">
+      <field name="name">averia.accion</field>
+      <field name="res_model">modulo.averia</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <!-- <record model="ir.actions.server" id="coche.action_server">
+      <field name="name">taller server</field>
+      <field name="model_id" ref="model_taller_taller"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": modulo.coche,
+        }
+      </field>
+    </record>
+
+    <record model="ir.actions.server" id="averia.action_server">
+      <field name="name">taller server</field>
+      <field name="model_id" ref="model_taller_taller"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": modulo.averias,
+        }
+      </field>
+    </record> -->
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="taller" id="taller.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Coches" id="taller.coche" parent="taller.menu_root"/>
+    <menuitem name="Averias" id="taller.averias" parent="taller.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="taller.menu_list" parent="taller.coche"
+              action="taller.coche_action_window"/>
+    <menuitem name="List" id="taller.averias_list" parent="taller.averias"
+              action="taller.averia_action_window"/>
+    <!-- <menuitem name="Server to list" id="taller.coche_server" parent="taller.coche"
+              action="coche.action_server"/>
+    <menuitem name="Server to list" id="taller.averia_server" parent="taller.averias"
+              action="averia.action_server"/> -->
+
+  </data>
+</odoo>
