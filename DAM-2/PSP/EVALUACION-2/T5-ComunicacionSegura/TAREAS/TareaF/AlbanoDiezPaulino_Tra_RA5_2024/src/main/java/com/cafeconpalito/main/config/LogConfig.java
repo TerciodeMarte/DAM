@@ -35,10 +35,7 @@ public class LogConfig {
             LOG_ALL.addHandler(fileHandlerUser);
             fileHandlerUser.setFormatter(formatter);
  
-
-            LOG_ERROR.setLevel(Level.SEVERE);
-
-
+            LOG_ERROR.setUseParentHandlers(false);
             LOG_ALL.setUseParentHandlers(false);
 
         } catch (IOException | SecurityException ex) {

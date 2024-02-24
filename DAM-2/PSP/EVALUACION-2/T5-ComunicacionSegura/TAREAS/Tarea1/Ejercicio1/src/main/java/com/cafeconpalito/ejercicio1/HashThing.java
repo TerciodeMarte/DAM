@@ -34,8 +34,6 @@ public class HashThing {
                 }
             }
         }
-        //System.out.println(algorithms);
-
         return algorithms;
     }
 

@@ -4,6 +4,10 @@
 
 package com.cafeconpalito.main;
 
+import com.cafeconpalito.main.config.LogConfig;
+import com.cafeconpalito.main.view.Banner;
+import com.cafeconpalito.main.view.UserInterface;
+
 /**
  * Punto de entrada a la aplicación
  * @author Albano Díez de Paulino
@@ -11,6 +15,11 @@ package com.cafeconpalito.main;
 public class Main {
 
     public static void main(String[] args) {
-        //TODO: Llamar a la clase UserInterface
+        LogConfig.openLogs();
+        System.out.println(Banner.bannerin);
+        UserInterface.sw(args);
+        System.out.println("");
+        System.out.println(Banner.bannerout);
+        LogConfig.closeLogs();
     }
 }
