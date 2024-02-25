@@ -12,7 +12,6 @@ import java.security.Provider;
 import java.security.Security;
 import java.util.ArrayList;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Calcular la función resumen (hash) de un fichero. Calcular la función resumen
@@ -140,7 +139,7 @@ public class HashTool {
 
     }
 
-    private static String enHexadecimal(byte[] inf) {
+    public static String enHexadecimal(byte[] inf) {
         String hexadecimal = "";
         for (int i = 0; i < inf.length; i++) {
             String hx = Integer.toHexString(inf[i] & 0xFF);
