@@ -47,7 +47,7 @@ public class RSAEncryption {
 
                     try (InputStream in = Files.newInputStream(new File(path).toPath()); OutputStream out = Files.newOutputStream(Path.of(new File(path).getName().split("\\.")[0] + ".encrypted"))) {
 
-                        byte[] buffer = new byte[1024];
+                        byte[] buffer = new byte[25];
                         int len;
                         //Bucle para leer los bytes del buffer mediante el metodo update
                         while ((len = in.read(buffer)) != -1) {

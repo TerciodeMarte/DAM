@@ -46,7 +46,7 @@ public class UserInterface {
                         LogConfig.LOG_ERROR.log(Level.WARNING, "Second or third parameter missing <-hfile>");
                     }
                     break;
-                case "-rsagenerate":
+                case "-rsag":
                     if (args.length==2) {
                          KeyPairManagerRSA.generateKeyPair(args[1]);
                     }else{
@@ -89,7 +89,7 @@ public class UserInterface {
         System.out.println("\t -htext <algorithm> <plaintext>| Generate a hash from plaintext");
         System.out.println("\t -hfile <algorithm> <path>| Generate a hash from file");
         System.out.println("\t ---------------------------------------------------------------");
-        System.out.println("\t -rsagenerate <seed>  | Generate RSA key pair");
+        System.out.println("\t -rsag <seed>  | Generate RSA key pair");
         System.out.println("\t -rsae <pathPublicKey> <pathPrivateKey> | Encrypt file with RSA key pair");
         System.out.println("\t -rsad <pathPublicKey> <pathPrivateKey> | Encrypt file with RSA key pair");
         System.out.println("\t ---------------------------------------------------------------");

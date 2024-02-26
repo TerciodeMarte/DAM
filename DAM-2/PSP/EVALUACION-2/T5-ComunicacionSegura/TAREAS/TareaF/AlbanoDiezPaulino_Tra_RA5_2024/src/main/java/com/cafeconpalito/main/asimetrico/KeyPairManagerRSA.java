@@ -89,7 +89,7 @@ public class KeyPairManagerRSA {
      * @param nameFile nombre para ficheros generados
      */
     private static void saveKeyPair(String nameFile) {
-        try (FileOutputStream fos = new FileOutputStream(nameFile + "_public.agl"); FileOutputStream fos2 = new FileOutputStream(nameFile + "_private.agl")) {
+        try (FileOutputStream fos = new FileOutputStream(nameFile + "_public_rsa.agl"); FileOutputStream fos2 = new FileOutputStream(nameFile + "_private_rsa.agl")) {
             fos.write(publicKey.getEncoded());
             fos2.write(privateKey.getEncoded());
             
