@@ -79,6 +79,7 @@ public class KeyPairManagerRSA {
             LogConfig.LOG_ALL.log(Level.INFO, "one RSA key pair has been generated");
 
         } catch (NoSuchAlgorithmException ex) {
+            System.out.println("ERROR: "+ex.getMessage());
             LogConfig.LOG_ERROR.log(Level.SEVERE, null, ex);
         }
 
@@ -96,8 +97,10 @@ public class KeyPairManagerRSA {
             LogConfig.LOG_ALL.log(Level.INFO, "one RSA key pair has been saved");
        
         } catch (FileNotFoundException ex) {
+            System.out.println("ERROR: "+ex.getMessage());
             LogConfig.LOG_ERROR.log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
+            System.out.println("ERROR: "+ex.getMessage());
             LogConfig.LOG_ERROR.log(Level.SEVERE, null, ex);
         }
 
@@ -155,6 +158,7 @@ public class KeyPairManagerRSA {
 
 
         } catch (IOException | NoSuchAlgorithmException | InvalidKeySpecException ex) {
+            System.out.println("ERROR: "+ex.getMessage());
             LogConfig.LOG_ERROR.log(Level.SEVERE, null, ex);
             return false;
         }

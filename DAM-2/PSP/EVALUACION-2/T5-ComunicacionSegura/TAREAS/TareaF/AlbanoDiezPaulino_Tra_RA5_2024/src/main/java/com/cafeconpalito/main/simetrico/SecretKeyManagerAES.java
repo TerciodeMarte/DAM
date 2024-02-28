@@ -97,7 +97,7 @@ public class SecretKeyManagerAES {
     public static boolean loadKey(String pathkey) {
         try (FileInputStream fis = new FileInputStream(pathkey); ObjectInputStream ois = new ObjectInputStream(fis)) {
             // Leer el objeto SecretKeySpec del archivo
-            key = (SecretKeySpec) ois.readObject();
+            key = (SecretKey) ois.readObject();
             LogConfig.LOG_ALL.log(Level.INFO, "one AES key has been load");
             return true;
         } catch (Exception e) {

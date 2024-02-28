@@ -4,6 +4,7 @@ import com.cafeconpalito.main.asimetrico.KeyPairManagerRSA;
 import com.cafeconpalito.main.asimetrico.RSAEncryption;
 import com.cafeconpalito.main.cifrado.HashTool;
 import com.cafeconpalito.main.config.LogConfig;
+import com.cafeconpalito.main.firma.DigitalSigningTool;
 import com.cafeconpalito.main.simetrico.AESEncryption;
 import com.cafeconpalito.main.simetrico.SecretKeyManagerAES;
 import java.io.File;
@@ -96,6 +97,24 @@ public class UserInterface {
                         LogConfig.LOG_ERROR.log(Level.WARNING, "Second parameter missing <-aesd>");
                     }
                     break;
+                
+                case "-dsts":
+                    if (args.length == 2) {
+                        DigitalSigningTool.firmarFichero(args[1]);
+                    } else {
+                        System.out.println("Second parameter missing");
+                        LogConfig.LOG_ERROR.log(Level.WARNING, "Second parameter missing <-dsts>");
+                    }
+                    break;
+                
+                case "-dstc":
+                    if (args.length == 4) {
+                        DigitalSigningTool.verificarFirma(args[1], args[2], args[3]);
+                    } else {
+                        System.out.println("Second,third o fourth parameter missing");
+                        LogConfig.LOG_ERROR.log(Level.WARNING, "Second,third o fourth parameter missing <-dstc>");
+                    }
+                    break;
 
                 default:
                     System.out.println("First param no valid");
@@ -123,6 +142,8 @@ public class UserInterface {
         System.out.println("\t -aese <pathKey> | Encrypt file with AES key");
         System.out.println("\t -aesd <pathPublicKey> | Encrypt file with AES key");
         System.out.println("\t ---------------------------------------------------------------");
+        System.out.println("\t -dsts <pathfile> | Digital Signed File");
+        System.out.println("\t -dstc <originalPathFile> <SignedPathFile> <pathPublicKey>| Verify Signature ");
         System.out.println("");
         System.out.println("To see this message again you can use -h or -help");
     }
