@@ -1,5 +1,6 @@
 package com.cafeconpalito.main.config;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -24,14 +25,18 @@ public class LogConfig {
     public static void openLogs() {
  
         try {
+            File logsPath = new File("logs");
+            if (!logsPath.isDirectory()) {
+                logsPath.mkdir();
+            }
  
             SimpleFormatter formatter = new SimpleFormatter();
  
-            fileHandlerErrors = new FileHandler("error.log", true);
+            fileHandlerErrors = new FileHandler("logs/error.log", true);
             LOG_ERROR.addHandler(fileHandlerErrors);
             fileHandlerErrors.setFormatter(formatter);
  
-            fileHandlerUser = new FileHandler("all.log", true);
+            fileHandlerUser = new FileHandler("logs/all.log", true);
             LOG_ALL.addHandler(fileHandlerUser);
             fileHandlerUser.setFormatter(formatter);
  

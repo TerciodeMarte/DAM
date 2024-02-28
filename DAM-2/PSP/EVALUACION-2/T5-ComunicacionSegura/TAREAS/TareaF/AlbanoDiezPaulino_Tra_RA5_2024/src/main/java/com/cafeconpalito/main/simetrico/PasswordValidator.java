@@ -24,7 +24,7 @@ public class PasswordValidator {
     /**
      * Metodo para validar si una pwd tiene 8 caracteres, contiene un numero, una letra mayuscula y un caracter especial
      * @param password
-     * @return 
+     * @return True Si la contraseña tiene un parametro correcto
      */
     public static boolean validate(final String password) {
         Matcher matcher = pattern.matcher(password);

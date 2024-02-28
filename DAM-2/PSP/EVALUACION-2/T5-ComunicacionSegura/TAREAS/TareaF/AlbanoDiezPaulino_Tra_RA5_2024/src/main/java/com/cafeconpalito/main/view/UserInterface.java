@@ -4,6 +4,8 @@ import com.cafeconpalito.main.asimetrico.KeyPairManagerRSA;
 import com.cafeconpalito.main.asimetrico.RSAEncryption;
 import com.cafeconpalito.main.cifrado.HashTool;
 import com.cafeconpalito.main.config.LogConfig;
+import com.cafeconpalito.main.simetrico.AESEncryption;
+import com.cafeconpalito.main.simetrico.SecretKeyManagerAES;
 import java.io.File;
 import java.util.logging.Level;
 
@@ -26,51 +28,75 @@ public class UserInterface {
                     break;
                 case "-hlog":
                     for (String a : HashTool.getAlgorithms()) {
-                        System.out.println("*"+a);
+                        System.out.println("*" + a);
                     }
                     break;
                 case "-htext":
-                    if (args.length==3) {
-                        System.out.println("HASH: "+ HashTool.getStringHash(args[1], args[2]));
-                        
-                    }else{
+                    if (args.length == 3) {
+                        System.out.println("HASH: " + HashTool.getStringHash(args[1], args[2]));
+
+                    } else {
                         System.out.println("Second or third parameter missing");
                         LogConfig.LOG_ERROR.log(Level.WARNING, "Second or third parameter missing <-htext>");
                     }
                     break;
                 case "-hfile":
-                    if (args.length==3) {
-                        System.out.println("HASH: "+ HashTool.getFilehash(args[1], new File(args[2])));
-                    }else{
+                    if (args.length == 3) {
+                        System.out.println("HASH: " + HashTool.getFilehash(args[1], new File(args[2])));
+                    } else {
                         System.out.println("Second or third parameter missing");
                         LogConfig.LOG_ERROR.log(Level.WARNING, "Second or third parameter missing <-hfile>");
                     }
                     break;
                 case "-rsag":
-                    if (args.length==2) {
-                         KeyPairManagerRSA.generateKeyPair(args[1]);
-                    }else{
+                    if (args.length == 2) {
+                        KeyPairManagerRSA.generateKeyPair(args[1]);
+                    } else {
                         System.out.println("Second parameter missing");
                         LogConfig.LOG_ERROR.log(Level.WARNING, "Second parameter missing <-rsagenerate>");
                     }
                     break;
                 case "-rsae":
-                    if (args.length==3) {
-                         RSAEncryption.encryption(args[1], args[2]);
-                    }else{
+                    if (args.length == 3) {
+                        RSAEncryption.encryption(args[1], args[2]);
+                    } else {
                         System.out.println("Second or third parameter missing");
                         LogConfig.LOG_ERROR.log(Level.WARNING, "Second or third parameter missing <-rsaencryption>");
                     }
                     break;
                 case "-rsad":
-                    if (args.length==3) {
-                         RSAEncryption.decryption(args[1], args[2]);
-                    }else{
+                    if (args.length == 3) {
+                        RSAEncryption.decryption(args[1], args[2]);
+                    } else {
                         System.out.println("Second or third parameter missing");
                         LogConfig.LOG_ERROR.log(Level.WARNING, "Second or third parameter missing <-rsaencryption>");
                     }
                     break;
-                
+                case "-aesg":
+                    if (args.length == 2) {
+                        SecretKeyManagerAES.generateKey(args[1]);
+                    } else {
+                        System.out.println("Second parameter missing");
+                        LogConfig.LOG_ERROR.log(Level.WARNING, "Second parameter missing <-aesg>");
+                    }
+                    break;
+                case "-aese":
+                    if (args.length == 2) {
+                        AESEncryption.encryption(args[1]);
+                    } else {
+                        System.out.println("Second parameter missing");
+                        LogConfig.LOG_ERROR.log(Level.WARNING, "Second parameter missing <-aese>");
+                    }
+                    break;
+                case "-aesd":
+                    if (args.length == 2) {
+                        AESEncryption.decryption(args[1]);
+                    } else {
+                        System.out.println("Second parameter missing");
+                        LogConfig.LOG_ERROR.log(Level.WARNING, "Second parameter missing <-aesd>");
+                    }
+                    break;
+
                 default:
                     System.out.println("First param no valid");
                     System.out.println("");
@@ -92,6 +118,10 @@ public class UserInterface {
         System.out.println("\t -rsag <seed>  | Generate RSA key pair");
         System.out.println("\t -rsae <pathPublicKey> <pathPrivateKey> | Encrypt file with RSA key pair");
         System.out.println("\t -rsad <pathPublicKey> <pathPrivateKey> | Encrypt file with RSA key pair");
+        System.out.println("\t ---------------------------------------------------------------");
+        System.out.println("\t -aesg <pwd> | Generate AES key");
+        System.out.println("\t -aese <pathKey> | Encrypt file with AES key");
+        System.out.println("\t -aesd <pathPublicKey> | Encrypt file with AES key");
         System.out.println("\t ---------------------------------------------------------------");
         System.out.println("");
         System.out.println("To see this message again you can use -h or -help");
