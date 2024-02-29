@@ -1,0 +1,51 @@
+create database clubcine;
+use clubcine;
+create table pelicula (
+	pkpelicula int not null primary key,
+	titulo varchar(80) not null,	
+	minutos int not null	
+);
+create table sala (
+	pksala int not null primary key,
+	nombre varchar(80) not null,
+	aforo int not null	
+);	
+create table proyeccion (
+    pkproyeccion int AUTO_INCREMENT not null primary key,
+	fkpelicula int not null,		
+	fksala int not null,
+	fecha date not null,
+	numentradas int,
+	foreign key (fkpelicula) references pelicula (pkpelicula),
+	foreign key (fksala) references sala (pksala)
+);
+create table socio (
+	pksocio int AUTO_INCREMENT not null primary key,
+	nombre varchar(80) not null,
+	localidad varchar(80)
+);
+create table entrada (
+	pkentrada int AUTO_INCREMENT not null primary key,
+	fksocio int not null,
+	fkproyeccion int not null,
+	foreign key (fksocio) references socio (pksocio),
+	foreign key (fkproyeccion) references proyeccion (pkproyeccion)
+);
+insert into socio values (1, "Pedro", "Santander");
+insert into socio values (2, "Ana", "Santander");
+insert into socio values (3, "Miguel", "Laredo");
+insert into socio values (4, "Rosario", "Somo");
+insert into socio values (5, "Fernando", "Torrelavega");
+insert into socio values (6, "Carmen", "Torrelavega");
+insert into pelicula values (10, "La sociedad de la nieve", 144);
+insert into pelicula values (20, "Oppenheimer", 180);
+insert into pelicula values (30, "Barbie", 114);
+insert into pelicula values (40, "Pobres criaturas", 141);
+insert into sala values(101, "Sala Nebulosa", 20);
+insert into sala values (102, "Sala 3D", 15);
+insert into proyeccion values (1, 10, 101, '2024-03-10', 1);
+insert into proyeccion values (2, 20, 102, '2024-03-10', 0);
+insert into proyeccion values (3, 30, 101, '2024-03-14', 0);
+insert into proyeccion values (4, 40, 102, '2024-03-14', 1);
+insert into entrada values (1, 1, 1);
+insert into entrada values (2, 2, 4);
